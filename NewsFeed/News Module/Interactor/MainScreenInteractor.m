@@ -1,14 +1,14 @@
 //
-//  NewsModel.m
+//  MainScreenNewsInteractor.m
 //  NewsFeed
 //
-//  Created by Alex Ivashko on 31.08.2018.
+//  Created by User on 10.09.2018.
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "NewsManager.h"
+#import "MainScreenInteractor.h"
 
-@implementation NewsManager
+@implementation MainScreenInteractor
 
 static NSString *const urlAttributesFileName = @"urlPList";
 static NSString *const urlAttributesFileExtension = @"plist";
@@ -30,21 +30,23 @@ static NSString *const JSONDateProperty = @"publishedAt";
 static NSString *const JSONTitleProperty = @"title";
 static NSString *const JSONDescriptionProperty = @"description";
 
+
+@synthesize presenter = _presenter;
 @synthesize newsList = _newsList;
-@synthesize delegate = _delegate;
 @synthesize urlString = _urlString;
 
 - (instancetype) init {
     self = [super init];
     if (self) {
         [self getUrlString];
+        [self refreshNews];
     }
     return self;
 }
 
 - (void) getUrlString {
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:urlAttributesFileName ofType:urlAttributesFileExtension]];
-
+    
     NSString *address = [dict objectForKey:pListAddressPropertyName];
     NSString *countryCode = [dict objectForKey:pListCountryCodePropertyName];
     NSString *apiKey = [dict objectForKey:pListApiKeyPropertyName];
@@ -56,8 +58,8 @@ static NSString *const JSONDescriptionProperty = @"description";
     return _newsList[index];
 }
 
-- (NSUInteger) getNewsCount {
-    return _newsList.count;
+- (int) getNewsCount {
+    return (int)_newsList.count;
 }
 
 - (void) refreshNews {
@@ -65,7 +67,7 @@ static NSString *const JSONDescriptionProperty = @"description";
 }
 
 - (void) downloadNewsFromString:(NSString *)urlString{
-
+    
     NSURLSession *session = [NSURLSession sharedSession];
     __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *data = [session dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -77,18 +79,18 @@ static NSString *const JSONDescriptionProperty = @"description";
                 NSMutableArray<NewsModelProtocol> *news = [[NSMutableArray<NewsModelProtocol> alloc] init];
                 for (NSDictionary *newsDict in json[JSONArticle]) {
                     id<NewsModelProtocol> element = [[NewsComponents alloc] initWithDate:[weakSelf convertDate:newsDict[JSONDateProperty]] title:newsDict[JSONTitleProperty] description:newsDict[JSONDescriptionProperty]];
-                
-                [news addObject:element];
+                    
+                    [news addObject:element];
                 }
                 weakSelf.newsList = [[NSArray<NewsModelProtocol> alloc] initWithArray:news];
             }
             
         } else {
-            [self.delegate errorDownloading];
+            [self.presenter errorDownloading];
         }
         dispatch_sync(dispatch_get_main_queue(),^{
             
-            [weakSelf.delegate didFinishDownload];
+            [weakSelf.presenter didFinishDownload];
         });
     }];
     [data resume];
@@ -105,6 +107,22 @@ static NSString *const JSONDescriptionProperty = @"description";
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:toAbbreviation]];
     [dateFormatter setDateFormat:dateToFormat];
     return [dateFormatter stringFromDate:date];
+}
+
+- (NSString *)getDateAtIndex:(int) index {
+    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
+    return element.date;
+}
+
+- (NSString *)getDescrAtIndex:(int)index {
+    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
+    return element.descr;
+}
+
+- (NSString *)getTitleAtIndex:(int)index {
+    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
+    return element.title;
+
 }
 
 

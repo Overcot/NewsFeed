@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewsManager.h"
+#import "CurrentNewsPresent.h"
 
-@interface CurrentNewsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) id<NewsModelProtocol> news;
+@interface CurrentNewsView : UIViewController <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *newsTableView;
+@property (nonatomic, strong) id<CurrentNewsPresent> presenter;
 
 @end

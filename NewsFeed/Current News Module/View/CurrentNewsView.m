@@ -6,24 +6,24 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "CurrentNewsViewController.h"
+#import "CurrentNewsView.h"
 
-@interface CurrentNewsViewController ()
+@interface CurrentNewsView ()
 
 @end
 
-@implementation CurrentNewsViewController
-static NSString *const emptyString = @"";
-static int const amountOfCells = 3;
+@implementation CurrentNewsView
 
 @synthesize newsTableView = _newsTableView;
-@synthesize news = _news;
-
+@synthesize presenter = _presenter;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.newsTableView.dataSource = self;
     self.newsTableView.delegate = self;
+     
+    [self.presenter setupView];
     [self.newsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
 }
@@ -35,33 +35,21 @@ static int const amountOfCells = 3;
     [cell setUserInteractionEnabled:NO];
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-
+    
     switch (indexPath.row) {
         case 0:
-            if (![_news.date isKindOfClass:[NSNull class]]) {
-                cell.textLabel.text = _news.date;
-            } else {
-                cell.textLabel.text = emptyString;
-            }
+            cell.textLabel.text = [self.presenter presentDate];
             break;
         case 1:
-            if (![_news.title isKindOfClass:[NSNull class]]) {
-                cell.textLabel.text = _news.title;
-            } else {
-                cell.textLabel.text = emptyString;
-            }
+            cell.textLabel.text = [self.presenter presentTitle];
             break;
         case 2:
-            if (![_news.descr isKindOfClass:[NSNull class]]) {
-                cell.textLabel.text = _news.descr;
-            } else {
-                cell.textLabel.text = emptyString;
-            }
+            cell.textLabel.text = [self.presenter presentDescr];
             break;
         default:
             break;
     }
-
+    
     return cell;
 }
 
@@ -71,7 +59,7 @@ static int const amountOfCells = 3;
 
 - (NSInteger) tableView:(UITableView *)tableView
   numberOfRowsInSection:(NSInteger)section {
-    return amountOfCells;
+    return [self.presenter amountOfCells];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MainScreenRouter.h"
+@interface FirstScreen: UIViewController
 
-@interface ViewController : UIViewController
+- (IBAction)openMainScreenView:(id)sender;
+
 
 @end
 

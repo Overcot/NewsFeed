@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First Screen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstScreen" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,7 +26,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="22"/>
                                 <state key="normal" title="Новости"/>
                                 <connections>
-                                    <segue destination="WY4-6l-ytQ" kind="show" identifier="showNewsViewController" id="VFG-Y7-weP"/>
+                                    <action selector="openMainScreenView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="85n-Ri-AmJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,16 +43,16 @@
             </objects>
             <point key="canvasLocation" x="978" y="63"/>
         </scene>
-        <!--News View Controller-->
+        <!--Main Screen View-->
         <scene sceneID="7lp-ps-ghK">
             <objects>
-                <viewController id="WY4-6l-ytQ" customClass="NewsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainScreenView" id="WY4-6l-ytQ" customClass="MainScreenView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THP-ua-zaj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="150" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sHV-E3-a2X">
-                                <rect key="frame" x="10" y="64" width="355" height="593"/>
+                                <rect key="frame" x="10" y="20" width="355" height="637"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HSf-21-ZfL" userLabel="Activity Indicator">
@@ -80,16 +80,16 @@
             </objects>
             <point key="canvasLocation" x="1759.2" y="62.518740629685162"/>
         </scene>
-        <!--Current News View Controller-->
+        <!--Current News View-->
         <scene sceneID="XoB-Fo-eTE">
             <objects>
-                <viewController storyboardIdentifier="CurrentNewsViewController" id="xU3-aS-zza" customClass="CurrentNewsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentNewsView" id="xU3-aS-zza" customClass="CurrentNewsView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1kf-rB-OEy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MdF-pL-8L3">
-                                <rect key="frame" x="10" y="64" width="355" height="603"/>
+                                <rect key="frame" x="10" y="20" width="355" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" id="Rua-O1-xoe" userLabel="Date View Cell">
