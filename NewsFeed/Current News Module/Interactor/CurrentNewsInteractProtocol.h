@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "NewsModelProtocol.h"
-@protocol CurrentNewsInteract <NSObject>
-@required
+#import "CurrentNewsPresentProtocol.h"
+
+@protocol CurrentNewsPresentProtocol;
+
+@protocol CurrentNewsInteractProtocol <NSObject>
 @property (nonatomic, strong) id<NewsModelProtocol> news;
+@property (nonatomic, weak) id<CurrentNewsPresentProtocol> presenter;
+
 - (NSString *) getDate;
 - (NSString *) getTitle;
 - (NSString *) getDescr;

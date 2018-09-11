@@ -6,9 +6,15 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "MainScreenInteractor.h"
+#import "NewsMainScreenInteractor.h"
 
-@implementation MainScreenInteractor
+@interface NewsMainScreenInteractor()
+@property (nonatomic, strong) NSString *urlString;
+
+@end
+
+
+@implementation NewsMainScreenInteractor
 
 static NSString *const urlAttributesFileName = @"urlPList";
 static NSString *const urlAttributesFileExtension = @"plist";
@@ -39,7 +45,6 @@ static NSString *const JSONDescriptionProperty = @"description";
     self = [super init];
     if (self) {
         [self getUrlString];
-        [self refreshNews];
     }
     return self;
 }

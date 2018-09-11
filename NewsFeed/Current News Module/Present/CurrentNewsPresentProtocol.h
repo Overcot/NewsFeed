@@ -1,5 +1,5 @@
 //
-//  CurrentNewsPresenter.h
+//  CurrentNewsPresent.h
 //  NewsFeed
 //
 //  Created by User on 10.09.2018.
@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "CurrentNewsPresentProtocol.h"
-#import "NewsModelProtocol.h"
 #import "CurrentNewsInteractProtocol.h"
+#import "CurrentNewsViewProtocol.h"
 
-@protocol CurrentNewsViewProtocol;
+
 @protocol CurrentNewsInteractProtocol;
+@protocol CurrentNewsViewProtocol;
 
-@interface CurrentNewsPresenter : NSObject <CurrentNewsPresentProtocol>
+@protocol CurrentNewsPresentProtocol <NSObject>
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
 @property (nonatomic, weak) id<CurrentNewsViewProtocol> view;
 

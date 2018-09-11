@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MainScreenPresentProtocol.h"
+#import "NewsMainScreenPresenterProtocol.h"
 
-@protocol MainScreenPresentProtocol;
+@protocol NewsMainScreenPresenterProtocol;
 
-@protocol MainScreenViewProtocol <NSObject>
-@property (nonatomic, strong) id<MainScreenPresentProtocol> presenter;
+@protocol NewsMainScreenViewProtocol <NSObject>
+@property (nonatomic, strong) id<NewsMainScreenPresenterProtocol> presenter;
 
 - (void) reloadData;
 - (void) showError;
 @end
-

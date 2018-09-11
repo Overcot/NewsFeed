@@ -6,14 +6,13 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "MainScreenPresenter.h"
+#import "NewsMainScreenPresenter.h"
 
-@implementation MainScreenPresenter
+@implementation NewsMainScreenPresenter
 static NSString *const emptyString = @"";
 
 @synthesize view = _view;
 @synthesize interactor = _interactor;
-
 
 - (int) getNewsCount {
     return [self.interactor getNewsCount];
@@ -45,12 +44,15 @@ static NSString *const emptyString = @"";
         return emptyString;
     }
 }
+
 - (id<NewsModelProtocol>) getNewsAtIndex:(int)index {
     return [self.interactor getNewsAtIndex:index];
 }
+
 - (void) refreshNews {
     [self.interactor refreshNews];
 }
+
 - (void) didFinishDownload {
     [self.view reloadData];
 }
@@ -58,5 +60,9 @@ static NSString *const emptyString = @"";
 - (void) errorDownloading{
     [self.view showError];
 
+}
+
+- (void) viewFinishedLoading {
+    [self.interactor refreshNews];
 }
 @end

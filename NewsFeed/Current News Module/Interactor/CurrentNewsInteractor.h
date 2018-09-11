@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CurrentNewsInteract.h"
+#import "CurrentNewsInteractProtocol.h"
 #import "NewsModelProtocol.h"
-#import "CurrentNewsPresent.h"
-@interface CurrentNewsInteractor : NSObject <CurrentNewsInteract>
+#import "CurrentNewsPresentProtocol.h"
+@interface CurrentNewsInteractor : NSObject <CurrentNewsInteractProtocol>
 
 @property (nonatomic, strong) id<NewsModelProtocol> news;
-@property (nonatomic, weak) id<CurrentNewsPresent> presenter;
+@property (nonatomic, weak) id<CurrentNewsPresentProtocol> presenter;
 - (NSString *) getDate;
 - (NSString *) getTitle;
 - (NSString *) getDescr;

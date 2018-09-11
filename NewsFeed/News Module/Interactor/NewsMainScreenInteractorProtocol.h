@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "MainScreenPresentProtocol.h"
+#import "NewsMainScreenPresenterProtocol.h"
 #import "NewsModelProtocol.h"
 
-@protocol MainScreenInteractProtocol <NSObject>
-@property (nonatomic, weak) id<MainScreenPresentProtocol> presenter;
+@protocol NewsMainScreenInteractorProtocol <NSObject>
+@property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 
 - (NSString *) getDateAtIndex:(int)index;
 - (NSString *) getTitleAtIndex:(int)index;

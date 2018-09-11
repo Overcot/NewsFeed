@@ -6,9 +6,9 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "MainScreenView.h"
+#import "NewsMainScreenView.h"
 
-@implementation MainScreenView
+@implementation NewsMainScreenView
 static NSString *const navigationTitle = @"Новости";
 static NSString *const emptyString = @"";
 static NSString *const errorTitle = @"Ошибка";
@@ -29,6 +29,8 @@ static NSString *const storyBoardName = @"Main";
     self.newsTableView.delegate = self;
     self.newsTableView.dataSource = self;
     [self.newsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([NewsPreviewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NewsPreviewCell class])];
+    
+    [self.presenter viewFinishedLoading];
 
 }
 
@@ -58,7 +60,7 @@ static NSString *const storyBoardName = @"Main";
     CurrentNewsRouter *router = [[CurrentNewsRouter alloc] init];
     router.interactor.news = [self.presenter getNewsAtIndex:(int)indexPath.row];
 
-    [self.navigationController pushViewController:router.view animated:YES];
+    [self.navigationController pushViewController:(UIViewController *)router.view animated:YES];
 
 }
 

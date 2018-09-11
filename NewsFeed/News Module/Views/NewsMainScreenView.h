@@ -9,17 +9,14 @@
 #import <UIKit/UIKit.h>
 
 #import "NewsPreviewCell.h"
-#import "CurrentNewsView.h"
-#import "CurrentNewsInteractor.h"
-#import "CurrentNewsPresenter.h"
 #import "CurrentNewsRouter.h"
-#import "MainScreenPresenter.h"
+#import "NewsMainScreenPresenter.h"
 
-@interface MainScreenView : UIViewController <UITableViewDataSource, UITableViewDelegate, MainScreenViewProtocol>
+@interface NewsMainScreenView : UIViewController <UITableViewDataSource, UITableViewDelegate, NewsMainScreenViewProtocol>
 @property (nonatomic, weak) IBOutlet UITableView *newsTableView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
-@property (nonatomic, strong) id <MainScreenPresentProtocol> presenter;
+@property (nonatomic, strong) id <NewsMainScreenPresenterProtocol> presenter;
 
 - (void) reloadData;
 - (void) showError;

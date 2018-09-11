@@ -33,9 +33,14 @@ static NSString *const backButtonTitle = @"Назад";
 }
 
 
-- (IBAction)openMainScreenView:(id)sender {
-    MainScreenRouter *router = [[MainScreenRouter alloc] init];
-    [self.navigationController pushViewController:router.view animated:YES];
+- (IBAction)openNewsMainScreenView:(id)sender {
+    NewsMainScreenRouter *router = [[NewsMainScreenRouter alloc] init];
+    [self.navigationController pushViewController:(UIViewController *)router.view animated:YES];
 
+}
+
+- (IBAction)openCalculatorScreenView:(id)sender {
+    CalculatorScreenRouter *router = [[CalculatorScreenRouter alloc] init];
+    [self.navigationController pushViewController:(UIViewController *)router.view animated:YES];
 }
 @end

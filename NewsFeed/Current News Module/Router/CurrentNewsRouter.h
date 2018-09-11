@@ -6,7 +6,6 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 #import <UIKit/UIKit.h>
-
 #import <Foundation/Foundation.h>
 #import "CurrentNewsView.h"
 #import "CurrentNewsInteractor.h"
@@ -14,8 +13,8 @@
 
 @interface CurrentNewsRouter : NSObject
 
-@property (nonatomic, strong) CurrentNewsPresenter *presenter;
-@property (nonatomic, strong) CurrentNewsView *view;
-@property (nonatomic, strong) CurrentNewsInteractor *interactor;
+@property (nonatomic, strong) id<CurrentNewsPresentProtocol> presenter;
+@property (nonatomic, strong) id<CurrentNewsViewProtocol> view;
+@property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
 
 @end

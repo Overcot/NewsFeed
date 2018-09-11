@@ -7,17 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MainScreenInteractProtocol.h"
+#import "NewsMainScreenInteractorProtocol.h"
 #import "NewsModelProtocol.h"
 #import "NewsComponents.h"
-@interface MainScreenInteractor : NSObject <MainScreenInteractProtocol>
-@property (nonatomic, weak) id<MainScreenPresentProtocol> presenter;
+
+@interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol>
+@property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 
 @property (nonatomic, strong) NSArray <NewsModelProtocol> *newsList;
-@property (nonatomic, strong) NSString *urlString;
-
-
-
 
 - (instancetype) init;
 - (void) getUrlString;

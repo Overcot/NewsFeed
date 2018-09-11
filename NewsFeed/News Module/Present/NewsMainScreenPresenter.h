@@ -7,13 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MainScreenPresentProtocol.h"
-#import "MainScreenInteractProtocol.h"
-#import "MainScreenViewProtocol.h"
-@interface MainScreenPresenter : NSObject <MainScreenPresentProtocol>
+#import "NewsMainScreenPresenterProtocol.h"
+#import "NewsMainScreenInteractorProtocol.h"
+#import "NewsMainScreenViewProtocol.h"
 
-@property (nonatomic, weak) id<MainScreenViewProtocol> view;
-@property (nonatomic, strong) id<MainScreenInteractProtocol> interactor;
+@interface NewsMainScreenPresenter : NSObject <NewsMainScreenPresenterProtocol>
+
+@property (nonatomic, weak) id<NewsMainScreenViewProtocol> view;
+@property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
 
 - (int) getNewsCount;
 - (NSString *) presentDateAtIndex:(int)index;
@@ -24,5 +25,6 @@
 - (void) didFinishDownload;
 - (void) errorDownloading;
 - (void) refreshNews;
+- (void) viewFinishedLoading;
 
 @end

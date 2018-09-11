@@ -17,11 +17,16 @@
 		CC34F92121396B180086C3B6 /* NewsPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F92021396B180086C3B6 /* NewsPreviewCell.m */; };
 		CC34F931213D1F0C0086C3B6 /* NewsPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC34F930213D1F0C0086C3B6 /* NewsPreviewCell.xib */; };
 		CC34F937213D5C760086C3B6 /* NewsComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F936213D5C760086C3B6 /* NewsComponents.m */; };
-		CEA8BECA214673780076DCAB /* MainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEC9214673770076DCAB /* MainScreenView.m */; };
+		CEA8BECA214673780076DCAB /* NewsMainScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEC9214673770076DCAB /* NewsMainScreenView.m */; };
 		CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED421468A830076DCAB /* CurrentNewsRouter.m */; };
-		CEA8BEDA21469C490076DCAB /* MainScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED921469C490076DCAB /* MainScreenPresenter.m */; };
-		CEA8BEDE21469E560076DCAB /* MainScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEDD21469E560076DCAB /* MainScreenInteractor.m */; };
-		CEA8BEE52146A1210076DCAB /* MainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEE42146A1210076DCAB /* MainScreenRouter.m */; };
+		CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED921469C490076DCAB /* NewsMainScreenPresenter.m */; };
+		CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEDD21469E560076DCAB /* NewsMainScreenInteractor.m */; };
+		CEA8BEE52146A1210076DCAB /* NewsMainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */; };
+		CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */; };
+		CEB9B8592147C482006EED75 /* CalculatorScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8582147C482006EED75 /* CalculatorScreenView.m */; };
+		CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B85B2147C4CA006EED75 /* CalculatorScreenInteractor.m */; };
+		CEB9B85F2147C501006EED75 /* CalculatorScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B85E2147C501006EED75 /* CalculatorScreenPresenter.m */; };
+		CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8612147DABE006EED75 /* CalculatorEntity.m */; };
 		CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */; };
 		CECCEACB21465E820042D660 /* CurrentNewsView.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEAC921465E810042D660 /* CurrentNewsView.m */; };
 		CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */; };
@@ -45,27 +50,43 @@
 		CC34F930213D1F0C0086C3B6 /* NewsPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsPreviewCell.xib; sourceTree = "<group>"; };
 		CC34F935213D5C760086C3B6 /* NewsComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsComponents.h; sourceTree = "<group>"; };
 		CC34F936213D5C760086C3B6 /* NewsComponents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsComponents.m; sourceTree = "<group>"; };
-		CEA8BEC8214673770076DCAB /* MainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenView.h; sourceTree = "<group>"; };
-		CEA8BEC9214673770076DCAB /* MainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenView.m; sourceTree = "<group>"; };
+		CEA8BEC8214673770076DCAB /* NewsMainScreenView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenView.h; sourceTree = "<group>"; };
+		CEA8BEC9214673770076DCAB /* NewsMainScreenView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenView.m; sourceTree = "<group>"; };
 		CEA8BED321468A830076DCAB /* CurrentNewsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsRouter.h; sourceTree = "<group>"; };
 		CEA8BED421468A830076DCAB /* CurrentNewsRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentNewsRouter.m; sourceTree = "<group>"; };
-		CEA8BED821469C490076DCAB /* MainScreenPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenPresenter.h; sourceTree = "<group>"; };
-		CEA8BED921469C490076DCAB /* MainScreenPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScreenPresenter.m; sourceTree = "<group>"; };
-		CEA8BEDC21469E560076DCAB /* MainScreenInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenInteractor.h; sourceTree = "<group>"; };
-		CEA8BEDD21469E560076DCAB /* MainScreenInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScreenInteractor.m; sourceTree = "<group>"; };
-		CEA8BEDF21469E760076DCAB /* MainScreenInteractProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenInteractProtocol.h; sourceTree = "<group>"; };
-		CEA8BEE021469ED20076DCAB /* MainScreenPresentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenPresentProtocol.h; sourceTree = "<group>"; };
-		CEA8BEE121469F4D0076DCAB /* MainScreenViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenViewProtocol.h; sourceTree = "<group>"; };
-		CEA8BEE32146A1210076DCAB /* MainScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenRouter.h; sourceTree = "<group>"; };
-		CEA8BEE42146A1210076DCAB /* MainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScreenRouter.m; sourceTree = "<group>"; };
+		CEA8BED821469C490076DCAB /* NewsMainScreenPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenPresenter.h; sourceTree = "<group>"; };
+		CEA8BED921469C490076DCAB /* NewsMainScreenPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenPresenter.m; sourceTree = "<group>"; };
+		CEA8BEDC21469E560076DCAB /* NewsMainScreenInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenInteractor.h; sourceTree = "<group>"; };
+		CEA8BEDD21469E560076DCAB /* NewsMainScreenInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenInteractor.m; sourceTree = "<group>"; };
+		CEA8BEDF21469E760076DCAB /* NewsMainScreenInteractorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenInteractorProtocol.h; sourceTree = "<group>"; };
+		CEA8BEE021469ED20076DCAB /* NewsMainScreenPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenPresenterProtocol.h; sourceTree = "<group>"; };
+		CEA8BEE121469F4D0076DCAB /* NewsMainScreenViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenViewProtocol.h; sourceTree = "<group>"; };
+		CEA8BEE32146A1210076DCAB /* NewsMainScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenRouter.h; sourceTree = "<group>"; };
+		CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenRouter.m; sourceTree = "<group>"; };
+		CEB9B84A2147AD85006EED75 /* CurrentNewsViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsViewProtocol.h; sourceTree = "<group>"; };
+		CEB9B8512147C0B5006EED75 /* CalculatorScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenRouter.h; sourceTree = "<group>"; };
+		CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorScreenRouter.m; sourceTree = "<group>"; };
+		CEB9B8542147C234006EED75 /* CalculatorScreenViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenViewProtocol.h; sourceTree = "<group>"; };
+		CEB9B8552147C2CF006EED75 /* CalculatorScreenInteractorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenInteractorProtocol.h; sourceTree = "<group>"; };
+		CEB9B8562147C30C006EED75 /* CalculatorScreenPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenPresenterProtocol.h; sourceTree = "<group>"; };
+		CEB9B8572147C482006EED75 /* CalculatorScreenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenView.h; sourceTree = "<group>"; };
+		CEB9B8582147C482006EED75 /* CalculatorScreenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorScreenView.m; sourceTree = "<group>"; };
+		CEB9B85A2147C4CA006EED75 /* CalculatorScreenInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenInteractor.h; sourceTree = "<group>"; };
+		CEB9B85B2147C4CA006EED75 /* CalculatorScreenInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorScreenInteractor.m; sourceTree = "<group>"; };
+		CEB9B85D2147C501006EED75 /* CalculatorScreenPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenPresenter.h; sourceTree = "<group>"; };
+		CEB9B85E2147C501006EED75 /* CalculatorScreenPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorScreenPresenter.m; sourceTree = "<group>"; };
+		CEB9B8602147DABE006EED75 /* CalculatorEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorEntity.h; sourceTree = "<group>"; };
+		CEB9B8612147DABE006EED75 /* CalculatorEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorEntity.m; sourceTree = "<group>"; };
+		CEB9B8632147DACB006EED75 /* CalculatorEntityProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorEntityProtocol.h; sourceTree = "<group>"; };
+		CEB9B8642147F37D006EED75 /* CalculatorTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTypes.h; sourceTree = "<group>"; };
 		CECCEAC621465CE30042D660 /* CurrentNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresenter.h; path = "NewsFeed/Current News Module/Present/CurrentNewsPresenter.h"; sourceTree = SOURCE_ROOT; };
 		CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsPresenter.m; path = "NewsFeed/Current News Module/Present/CurrentNewsPresenter.m"; sourceTree = SOURCE_ROOT; };
 		CECCEAC921465E810042D660 /* CurrentNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsView.m; path = "NewsFeed/Current News Module/View/CurrentNewsView.m"; sourceTree = SOURCE_ROOT; };
 		CECCEACA21465E820042D660 /* CurrentNewsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentNewsView.h; path = "NewsFeed/Current News Module/View/CurrentNewsView.h"; sourceTree = SOURCE_ROOT; };
-		CECCEACC2146624C0042D660 /* CurrentNewsPresent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresent.h; path = "NewsFeed/Current News Module/Present/CurrentNewsPresent.h"; sourceTree = SOURCE_ROOT; };
+		CECCEACC2146624C0042D660 /* CurrentNewsPresentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresentProtocol.h; path = "NewsFeed/Current News Module/Present/CurrentNewsPresentProtocol.h"; sourceTree = SOURCE_ROOT; };
 		CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractor.h; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteractor.h"; sourceTree = SOURCE_ROOT; };
 		CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsInteractor.m; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteractor.m"; sourceTree = SOURCE_ROOT; };
-		CECCEAD021466D320042D660 /* CurrentNewsInteract.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteract.h; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteract.h"; sourceTree = SOURCE_ROOT; };
+		CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractProtocol.h; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteractProtocol.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				CEA8BECC214675230076DCAB /* First Screen Module */,
+				CEB9B84B2147BDEC006EED75 /* Calculator Module */,
 				CEA8BECB2146737D0076DCAB /* News Module */,
 				CECCEAC521465CAB0042D660 /* Current News Module */,
 				CC34F9022139638A0086C3B6 /* AppDelegate.h */,
@@ -165,6 +187,7 @@
 		CEA8BECE2146768D0076DCAB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEB9B84A2147AD85006EED75 /* CurrentNewsViewProtocol.h */,
 				CECCEACA21465E820042D660 /* CurrentNewsView.h */,
 				CECCEAC921465E810042D660 /* CurrentNewsView.m */,
 			);
@@ -174,7 +197,7 @@
 		CEA8BECF214676B20076DCAB /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				CECCEACC2146624C0042D660 /* CurrentNewsPresent.h */,
+				CECCEACC2146624C0042D660 /* CurrentNewsPresentProtocol.h */,
 				CECCEAC621465CE30042D660 /* CurrentNewsPresenter.h */,
 				CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */,
 			);
@@ -184,7 +207,7 @@
 		CEA8BED0214676D70076DCAB /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				CECCEAD021466D320042D660 /* CurrentNewsInteract.h */,
+				CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */,
 				CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */,
 				CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */,
 			);
@@ -194,9 +217,9 @@
 		CEA8BED1214686F60076DCAB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CEA8BEE121469F4D0076DCAB /* MainScreenViewProtocol.h */,
-				CEA8BEC8214673770076DCAB /* MainScreenView.h */,
-				CEA8BEC9214673770076DCAB /* MainScreenView.m */,
+				CEA8BEE121469F4D0076DCAB /* NewsMainScreenViewProtocol.h */,
+				CEA8BEC8214673770076DCAB /* NewsMainScreenView.h */,
+				CEA8BEC9214673770076DCAB /* NewsMainScreenView.m */,
 				CC34F92C213977710086C3B6 /* NewsPreviewCell */,
 			);
 			path = Views;
@@ -214,9 +237,9 @@
 		CEA8BED721469C240076DCAB /* Present */ = {
 			isa = PBXGroup;
 			children = (
-				CEA8BEE021469ED20076DCAB /* MainScreenPresentProtocol.h */,
-				CEA8BED821469C490076DCAB /* MainScreenPresenter.h */,
-				CEA8BED921469C490076DCAB /* MainScreenPresenter.m */,
+				CEA8BEE021469ED20076DCAB /* NewsMainScreenPresenterProtocol.h */,
+				CEA8BED821469C490076DCAB /* NewsMainScreenPresenter.h */,
+				CEA8BED921469C490076DCAB /* NewsMainScreenPresenter.m */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -224,9 +247,9 @@
 		CEA8BEDB21469E370076DCAB /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				CEA8BEDF21469E760076DCAB /* MainScreenInteractProtocol.h */,
-				CEA8BEDC21469E560076DCAB /* MainScreenInteractor.h */,
-				CEA8BEDD21469E560076DCAB /* MainScreenInteractor.m */,
+				CEA8BEDF21469E760076DCAB /* NewsMainScreenInteractorProtocol.h */,
+				CEA8BEDC21469E560076DCAB /* NewsMainScreenInteractor.h */,
+				CEA8BEDD21469E560076DCAB /* NewsMainScreenInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -234,10 +257,72 @@
 		CEA8BEE22146A1100076DCAB /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				CEA8BEE32146A1210076DCAB /* MainScreenRouter.h */,
-				CEA8BEE42146A1210076DCAB /* MainScreenRouter.m */,
+				CEA8BEE32146A1210076DCAB /* NewsMainScreenRouter.h */,
+				CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		CEB9B84B2147BDEC006EED75 /* Calculator Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9B84D2147BE47006EED75 /* Router */,
+				CEB9B84C2147BDFB006EED75 /* View */,
+				CEB9B84F2147BE5F006EED75 /* Present */,
+				CEB9B84E2147BE58006EED75 /* Interactor */,
+				CEB9B8502147BE69006EED75 /* Entity */,
+			);
+			path = "Calculator Module";
+			sourceTree = "<group>";
+		};
+		CEB9B84C2147BDFB006EED75 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9B8542147C234006EED75 /* CalculatorScreenViewProtocol.h */,
+				CEB9B8572147C482006EED75 /* CalculatorScreenView.h */,
+				CEB9B8582147C482006EED75 /* CalculatorScreenView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEB9B84D2147BE47006EED75 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9B8512147C0B5006EED75 /* CalculatorScreenRouter.h */,
+				CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CEB9B84E2147BE58006EED75 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9B8552147C2CF006EED75 /* CalculatorScreenInteractorProtocol.h */,
+				CEB9B85A2147C4CA006EED75 /* CalculatorScreenInteractor.h */,
+				CEB9B85B2147C4CA006EED75 /* CalculatorScreenInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CEB9B84F2147BE5F006EED75 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9B8562147C30C006EED75 /* CalculatorScreenPresenterProtocol.h */,
+				CEB9B85D2147C501006EED75 /* CalculatorScreenPresenter.h */,
+				CEB9B85E2147C501006EED75 /* CalculatorScreenPresenter.m */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		CEB9B8502147BE69006EED75 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CEB9B8632147DACB006EED75 /* CalculatorEntityProtocol.h */,
+				CEB9B8602147DABE006EED75 /* CalculatorEntity.h */,
+				CEB9B8612147DABE006EED75 /* CalculatorEntity.m */,
+				CEB9B8642147F37D006EED75 /* CalculatorTypes.h */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		CECCEAC521465CAB0042D660 /* Current News Module */ = {
@@ -326,15 +411,20 @@
 				CC34F9072139638A0086C3B6 /* FirstScreenView.m in Sources */,
 				CC34F9122139638B0086C3B6 /* main.m in Sources */,
 				CC34F9042139638A0086C3B6 /* AppDelegate.m in Sources */,
-				CEA8BEE52146A1210076DCAB /* MainScreenRouter.m in Sources */,
+				CEA8BEE52146A1210076DCAB /* NewsMainScreenRouter.m in Sources */,
 				CECCEACB21465E820042D660 /* CurrentNewsView.m in Sources */,
 				CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */,
-				CEA8BEDE21469E560076DCAB /* MainScreenInteractor.m in Sources */,
+				CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */,
 				CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */,
+				CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */,
+				CEB9B8592147C482006EED75 /* CalculatorScreenView.m in Sources */,
 				CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */,
 				CC34F92121396B180086C3B6 /* NewsPreviewCell.m in Sources */,
-				CEA8BECA214673780076DCAB /* MainScreenView.m in Sources */,
-				CEA8BEDA21469C490076DCAB /* MainScreenPresenter.m in Sources */,
+				CEB9B85F2147C501006EED75 /* CalculatorScreenPresenter.m in Sources */,
+				CEA8BECA214673780076DCAB /* NewsMainScreenView.m in Sources */,
+				CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */,
+				CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */,
+				CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */,
 				CC34F937213D5C760086C3B6 /* NewsComponents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
