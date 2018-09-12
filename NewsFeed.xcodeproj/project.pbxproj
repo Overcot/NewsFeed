@@ -32,6 +32,16 @@
 		CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CEB9B88121495920006EED75 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC34F8F72139638A0086C3B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC34F8FE2139638A0086C3B6;
+			remoteInfo = NewsFeed;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CC2AFD3B214031A500E92019 /* urlPList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = urlPList.plist; sourceTree = "<group>"; };
 		CC34F8FF2139638A0086C3B6 /* NewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +89,7 @@
 		CEB9B8612147DABE006EED75 /* CalculatorEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorEntity.m; sourceTree = "<group>"; };
 		CEB9B8632147DACB006EED75 /* CalculatorEntityProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorEntityProtocol.h; sourceTree = "<group>"; };
 		CEB9B8642147F37D006EED75 /* CalculatorTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTypes.h; sourceTree = "<group>"; };
+		CEB9B87C21495920006EED75 /* CalculatorUiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECCEAC621465CE30042D660 /* CurrentNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresenter.h; path = "NewsFeed/Current News Module/Present/CurrentNewsPresenter.h"; sourceTree = SOURCE_ROOT; };
 		CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsPresenter.m; path = "NewsFeed/Current News Module/Present/CurrentNewsPresenter.m"; sourceTree = SOURCE_ROOT; };
 		CECCEAC921465E810042D660 /* CurrentNewsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsView.m; path = "NewsFeed/Current News Module/View/CurrentNewsView.m"; sourceTree = SOURCE_ROOT; };
@@ -91,6 +102,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		CC34F8FC2139638A0086C3B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB9B87921495920006EED75 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -112,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				CC34F8FF2139638A0086C3B6 /* NewsFeed.app */,
+				CEB9B87C21495920006EED75 /* CalculatorUiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -356,6 +375,24 @@
 			productReference = CC34F8FF2139638A0086C3B6 /* NewsFeed.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CEB9B87B21495920006EED75 /* CalculatorUiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEB9B88321495920006EED75 /* Build configuration list for PBXNativeTarget "CalculatorUiTests" */;
+			buildPhases = (
+				CEB9B87821495920006EED75 /* Sources */,
+				CEB9B87921495920006EED75 /* Frameworks */,
+				CEB9B87A21495920006EED75 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CEB9B88221495920006EED75 /* PBXTargetDependency */,
+			);
+			name = CalculatorUiTests;
+			productName = CalculatorUiTests;
+			productReference = CEB9B87C21495920006EED75 /* CalculatorUiTests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -367,6 +404,10 @@
 				TargetAttributes = {
 					CC34F8FE2139638A0086C3B6 = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					CEB9B87B21495920006EED75 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = CC34F8FE2139638A0086C3B6;
 					};
 				};
 			};
@@ -384,6 +425,7 @@
 			projectRoot = "";
 			targets = (
 				CC34F8FE2139638A0086C3B6 /* NewsFeed */,
+				CEB9B87B21495920006EED75 /* CalculatorUiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -398,6 +440,13 @@
 				CC34F931213D1F0C0086C3B6 /* NewsPreviewCell.xib in Resources */,
 				CC2AFD3C214031A500E92019 /* urlPList.plist in Resources */,
 				CC34F90A2139638A0086C3B6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEB9B87A21495920006EED75 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,7 +478,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CEB9B87821495920006EED75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CEB9B88221495920006EED75 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC34F8FE2139638A0086C3B6 /* NewsFeed */;
+			targetProxy = CEB9B88121495920006EED75 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CC34F9082139638A0086C3B6 /* Main.storyboard */ = {
@@ -597,6 +661,44 @@
 			};
 			name = Release;
 		};
+		CEB9B88421495920006EED75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KN2R38R4DZ;
+				INFOPLIST_FILE = CalculatorUiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = overcot.CalculatorUiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewsFeed;
+			};
+			name = Debug;
+		};
+		CEB9B88521495920006EED75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KN2R38R4DZ;
+				INFOPLIST_FILE = CalculatorUiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = overcot.CalculatorUiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NewsFeed;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -614,6 +716,15 @@
 			buildConfigurations = (
 				CC34F9162139638B0086C3B6 /* Debug */,
 				CC34F9172139638B0086C3B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEB9B88321495920006EED75 /* Build configuration list for PBXNativeTarget "CalculatorUiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEB9B88421495920006EED75 /* Debug */,
+				CEB9B88521495920006EED75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 //
-//  CalculatorScreenPresenter.h
+//  CalculatorScreenPresenterProtocol.h
 //  NewsFeed
 //
 //  Created by User on 11.09.2018.
@@ -7,8 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CalculatorScreenPresenterProtocol.h"
-@interface CalculatorScreenPresenter : NSObject <CalculatorScreenPresenterProtocol>
+#import "CalculatorScreenInteractorProtocol.h"
+#import "CalculatorScreenViewProtocol.h"
+#import "CalculatorTypes.h"
+@protocol CalculatorScreenInteractorProtocol;
+@protocol CalculatorScreenViewProtocol;
+
+@protocol CalculatorScreenPresenterProtocol <NSObject>
 @property (nonatomic, weak) id<CalculatorScreenViewProtocol> view;
 @property (nonatomic, strong) id<CalculatorScreenInteractorProtocol> interactor;
 
@@ -20,5 +25,4 @@
 - (void) buttonChangeSignPressed;
 - (void) buttonPercentPressed;
 - (void) buttonDotPressed;
-
 @end

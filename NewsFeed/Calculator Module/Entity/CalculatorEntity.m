@@ -12,61 +12,41 @@
 @synthesize firstValue = _firstValue;
 @synthesize secondValue = _secondValue;
 
-@synthesize firstOperation = _firstOperation;
-@synthesize secondOperation = _secondOperation;
--(instancetype) init {
+@synthesize operation = _operation;
+@synthesize typingFirst = _typingFirst;
+@synthesize typingSecond = _typingSecond;
+
+- (instancetype) init {
     self = [super init];
     if (self) {
         _firstValue = 0;
         _secondValue = 0;
-        _firstOperation = none;
-        _secondOperation = none;
+        _operation = none;
+        _typingFirst = YES;
+        _typingSecond = NO;
     }
     return self;
 }
 
-- (NSInteger) getFirstValue {
+- (double) getFirstValue {
     return _firstValue;
 }
 
-- (NSInteger) getSecondValue {
+- (double) getSecondValue {
     return _secondValue;
 }
-- (operation) getFirstOperation {
-    return _firstOperation;
-}
-- (operation) getSecondOperation {
-    return _secondOperation;
-}
-- (void) setOperation:(operation) operation {
-    if (_firstOperation == none) {
-        _firstOperation = operation;
-    } else {
-        if (_secondOperation == equal && operation != equal) {
-            _firstOperation = operation;
-            _secondOperation = none;
-            _secondValue = _firstValue;
-        } else {
-            _secondOperation = operation;
-        }
-    }
-}
-- (void) addNumberToValue:(int) number {
-    
-    if (_firstOperation == none) {
-        _firstValue = _firstValue * 10 + number;
-    } else {
-        if (_secondOperation == none) {
-            _secondValue = 0;
-        }
-        _secondValue = _secondValue * 10 + number;
-    }
-    
 
+- (BOOL) getTypingFirst {
+    return _typingFirst;
 }
+
+-(BOOL) getTypingSecond {
+    return _typingSecond;
+}
+
 - (void) countValues {
     
-    switch (_firstOperation) {
+    switch (_operation) {
         case plus:
             _firstValue += _secondValue;
             break;
@@ -82,10 +62,6 @@
         default:
             break;
     }
-
 }
 
-- (void) rememberOperation:(operation) operation {
-    _secondOperation = operation;
-}
 @end

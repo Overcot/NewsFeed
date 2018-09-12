@@ -9,20 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "CalculatorEntityProtocol.h"
 @interface CalculatorEntity : NSObject <CalculatorEntityProtocol>
-@property (nonatomic, assign) NSInteger firstValue;
-@property (nonatomic, assign) NSInteger secondValue;
+@property (nonatomic, assign) double firstValue;
+@property (nonatomic, assign) double secondValue;
 
-@property (nonatomic, assign) operation firstOperation;
-@property (nonatomic, assign) operation secondOperation;
+@property (nonatomic, assign) BOOL typingFirst;
+@property (nonatomic, assign) BOOL typingSecond;
+@property (nonatomic, assign) operation operation;
 
-- (NSInteger) getFirstValue;
-- (NSInteger) getSecondValue;
-- (void) setOperation:(operation) operation;
+- (double) getFirstValue;
+- (double) getSecondValue;
+
+- (BOOL) getTypingFirst;
+- (BOOL) getTypingSecond;
+
 - (void) countValues;
-- (operation) getFirstOperation;
-- (operation) getSecondOperation;
-
-- (void) addNumberToValue:(int) number;
-- (void) rememberOperation:(operation) operation;
 
 @end

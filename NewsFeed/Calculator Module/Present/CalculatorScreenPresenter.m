@@ -14,16 +14,35 @@
     [self.interactor loadLastValue];
 }
 
-- (void) presentValue:(NSInteger)value {
-    [self.view showValue: [NSString stringWithFormat:@"%ld",(NSInteger) value]];
+- (void) presentValue:(double)value {
+    if ((int) value == value) {
+        [self.view showValue: [NSString stringWithFormat:@"%ld",(long) value]];
+    } else {
+        [self.view showValue: [NSString stringWithFormat:@"%f",(double) value]];
+    }
 }
+
 - (void) buttonNumberPressed:(numbers) value {
     [self.interactor numberPressed: value];
 }
+
 - (void) buttonOperationPressed:(operation) operation {
     [self.interactor operationPressed: operation];
 }
 
+- (void) buttonResetPressed {
+    [self.interactor fullReset];
+}
 
+- (void) buttonChangeSignPressed {
+    [self.interactor changeSign];
+}
 
+- (void) buttonPercentPressed {
+    [self.interactor percent];
+}
+
+- (void) buttonDotPressed {
+    [self.interactor convertToDouble];
+}
 @end

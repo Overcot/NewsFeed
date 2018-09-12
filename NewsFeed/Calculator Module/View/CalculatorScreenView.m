@@ -15,9 +15,11 @@
 @implementation CalculatorScreenView
 @synthesize presenter = _presenter;
 @synthesize valueLabel = _valueLabel;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [self createBorderForButtons];
     [self.presenter viewFinishedLoading];
 
 }
@@ -30,6 +32,13 @@
 - (void) showValue:(NSString *) value {
     _valueLabel.text = value;
 }
+- (void) createBorderForButtons {
+    for (UIButton* button in self.allButtons) {
+        button.layer.borderWidth = 0.5f;
+        button.layer.borderColor = [UIColor grayColor].CGColor;
+    }
+}
+
 - (IBAction)buttonZeroPressed:(id)sender {
     [self.presenter buttonNumberPressed:(numbers) buttonZero];
 }
@@ -89,5 +98,23 @@
 - (IBAction)buttonEqualPressed:(id)sender{
     [self.presenter buttonOperationPressed:(operation) equal];
 }
+
+- (IBAction)buttonResetPressed:(id)sender {
+    [self.presenter buttonResetPressed];
+}
+
+- (IBAction)buttonChangeSignPressed:(id)sender {
+    [self.presenter buttonChangeSignPressed];
+}
+
+- (IBAction)buttonPercentPressed:(id)sender {
+    [self.presenter buttonPercentPressed];
+}
+
+- (IBAction)buttonDotPressed:(id)sender{
+    [self.presenter buttonDotPressed];
+}
+
+
 
 @end
