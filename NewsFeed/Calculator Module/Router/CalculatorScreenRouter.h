@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CalculatorScreenView.h"
-#import "CalculatorScreenPresenter.h"
-#import "CalculatorScreenInteractor.h"
+
 
 @interface CalculatorScreenRouter : NSObject
-@property (nonatomic, strong) id<CalculatorScreenViewProtocol> view;
-@property (nonatomic, strong) id<CalculatorScreenPresenterProtocol> presenter;
-@property (nonatomic, strong) id<CalculatorScreenInteractorProtocol> interactor;
 
 @end

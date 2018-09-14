@@ -14,13 +14,27 @@
 
 @property (nonatomic, assign) BOOL typingFirst;
 @property (nonatomic, assign) BOOL typingSecond;
+@property (nonatomic, assign) BOOL typingFloat;
+@property (nonatomic, assign) int amountOfNumbersAfterDot;
 @property (nonatomic, assign) operation operation;
 
 - (double) getFirstValue;
 - (double) getSecondValue;
+- (void) setFirstValue:(double) value;
+- (void) setSecondValue:(double) value;
 
 - (BOOL) getTypingFirst;
 - (BOOL) getTypingSecond;
+- (void) setTypingFirst:(BOOL) state;
+- (void) setTypingSecond:(BOOL) state;
+
+- (BOOL) getTypingFloat;
+- (void) setTypingFloat:(BOOL) state;
+
+- (void) setOperation:(operation) operation;
+
+- (int) getAmountOfNumbersAfterDot;
+- (void) setAmountOfNumbersAfterDot:(int)number;
 
 - (void) countValues;
 

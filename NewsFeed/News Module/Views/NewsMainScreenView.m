@@ -27,11 +27,28 @@ static NSString *const storyBoardName = @"Main";
     
     self.navigationItem.title = navigationTitle;
     self.newsTableView.delegate = self;
-    self.newsTableView.dataSource = self;
+    self.newsTableView.dataSource = self; // change to presenter
     [self.newsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([NewsPreviewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NewsPreviewCell class])];
     
     [self.presenter viewFinishedLoading];
 
+}
+
+#pragma mark - <UITableViewDelegate>
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+    
+    [self.presenter.router showDetailViewControllerWithObject:[self.presenter getNewsAtIndex:(int)indexPath.row]];
+    
+    
+}
+
+#pragma mark - <UITableViewDataSource>
+
+- (NSInteger) tableView:(UITableView *)tableView
+  numberOfRowsInSection:(NSInteger)section {
+    return [self.presenter getNewsCount];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -47,23 +64,7 @@ static NSString *const storyBoardName = @"Main";
     
 }
 
-
-
-- (NSInteger) tableView:(UITableView *)tableView
-  numberOfRowsInSection:(NSInteger)section {
-    return [self.presenter getNewsCount];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:true];
-    
-    CurrentNewsRouter *router = [[CurrentNewsRouter alloc] init];
-    router.interactor.news = [self.presenter getNewsAtIndex:(int)indexPath.row];
-
-    [self.navigationController pushViewController:(UIViewController *)router.view animated:YES];
-
-}
-
+#pragma mark -
 - (void) reloadData {
     [self.activityIndicator stopAnimating];
     [self.newsTableView reloadData];

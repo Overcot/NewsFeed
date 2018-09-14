@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "NewsPreviewCell.h"
-#import "CurrentNewsRouter.h"
+#import "CurrentNewsView.h"
 #import "NewsMainScreenPresenter.h"
 
 @interface NewsMainScreenView : UIViewController <UITableViewDataSource, UITableViewDelegate, NewsMainScreenViewProtocol>

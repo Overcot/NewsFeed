@@ -10,6 +10,7 @@
 #import "NewsMainScreenViewProtocol.h"
 #import "NewsMainScreenInteractorProtocol.h"
 #import "NewsModelProtocol.h"
+#import "NewsMainScreenRouterProtocol.h"
 
 @protocol NewssMainScreenViewProtocol;
 @protocol NewsMainScreenInteractorProtocol;
@@ -17,6 +18,8 @@
 @protocol NewsMainScreenPresenterProtocol <NSObject>
 @property (nonatomic, weak) id<NewsMainScreenViewProtocol> view;
 @property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
+@property (nonatomic, strong) id<NewsMainScreenRouterProtocol> router;
+
 
 - (int) getNewsCount;
 - (NSString *) presentDateAtIndex:(int)index;

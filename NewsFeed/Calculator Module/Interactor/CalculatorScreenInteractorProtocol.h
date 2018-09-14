@@ -24,4 +24,5 @@
 - (void) changeSign;
 - (void) percent;
 - (void) convertToDouble;
+
 @end

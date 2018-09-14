@@ -25,4 +25,5 @@
 - (void) percent;
 - (void) convertToDouble;
 - (BOOL) chooseNumberToChange;
+
 @end

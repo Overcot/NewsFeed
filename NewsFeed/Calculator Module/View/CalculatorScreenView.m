@@ -32,6 +32,9 @@
 - (void) showValue:(NSString *) value {
     _valueLabel.text = value;
 }
+
+#pragma mark - Visual Borders
+
 - (void) createBorderForButtons {
     for (UIButton* button in self.allButtons) {
         button.layer.borderWidth = 0.5f;
@@ -39,64 +42,32 @@
     }
 }
 
-- (IBAction)buttonZeroPressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonZero];
+#pragma mark - Button Functions
+
+- (IBAction)buttonNumberPressed:(UIButton*)sender {
+    [self.presenter buttonNumberPressed:(numbers) sender.tag];
 }
 
-- (IBAction)buttonOnePressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonOne];
-}
-
-- (IBAction)buttonTwoPressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonTwo];
-}
-
-- (IBAction)buttonThreePressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonThree];
-}
-
-- (IBAction)buttonFourPressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonFour];
-}
-
-- (IBAction)buttonFivePressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonFive];
-}
-
-- (IBAction)buttonSixPressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonSix];
-}
-
-- (IBAction)buttonSevenPressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonSeven];
-}
-
-- (IBAction)buttonEightPressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonEight];
-}
-
-- (IBAction)buttonNinePressed:(id)sender {
-    [self.presenter buttonNumberPressed:(numbers) buttonNine];
-}
-
-- (IBAction)buttonPlusPressed:(id)sender {
-    [self.presenter buttonOperationPressed:(operation) plus];
-}
-
-- (IBAction)buttonMinusPressed:(id)sender {
-    [self.presenter buttonOperationPressed:(operation) minus];
-}
-
-- (IBAction)buttonMultiplyPressed:(id)sender {
-    [self.presenter buttonOperationPressed:(operation) multiply];
-}
-
-- (IBAction)buttonDividePressed:(id)sender {
-    [self.presenter buttonOperationPressed:(operation) divide];
-}
-
-- (IBAction)buttonEqualPressed:(id)sender{
-    [self.presenter buttonOperationPressed:(operation) equal];
+- (IBAction)buttonOperationPressed:(UIButton *)sender {
+    switch (sender.tag) {
+        case 0:
+            [self.presenter buttonOperationPressed:(operation) equal];
+            break;
+        case 1:
+            [self.presenter buttonOperationPressed:(operation) plus];
+            break;
+        case 2:
+            [self.presenter buttonOperationPressed:(operation) minus];
+            break;
+        case 3:
+            [self.presenter buttonOperationPressed:(operation) multiply];
+            break;
+        case 4:
+            [self.presenter buttonOperationPressed:(operation) divide];
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)buttonResetPressed:(id)sender {

@@ -9,18 +9,22 @@
 #import <Foundation/Foundation.h>
 #import "CalculatorTypes.h"
 @protocol CalculatorEntityProtocol <NSObject>
-@property (nonatomic, assign) double firstValue;
-@property (nonatomic, assign) double secondValue;
-
-@property (nonatomic, assign) BOOL typingFirst;
-@property (nonatomic, assign) BOOL typingSecond;
-@property (nonatomic, assign) operation operation;
 
 - (double) getFirstValue;
 - (double) getSecondValue;
+- (void) setFirstValue:(double) value;
+- (void) setSecondValue:(double) value;
 
 - (BOOL) getTypingFirst;
 - (BOOL) getTypingSecond;
+- (void) setTypingFirst:(BOOL) state;
+- (void) setTypingSecond:(BOOL) state;
+- (BOOL) getTypingFloat;
+- (void) setTypingFloat:(BOOL) state;
+- (int) getAmountOfNumbersAfterDot;
+- (void) setAmountOfNumbersAfterDot:(int)number;
+
+- (void) setOperation:(operation) operation;
 
 - (void) countValues;
 

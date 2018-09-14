@@ -15,6 +15,7 @@
 @implementation FirstScreen
 
 static NSString *const backButtonTitle = @"Назад";
+static NSString *const storyBoardName = @"Main";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,13 +35,15 @@ static NSString *const backButtonTitle = @"Назад";
 
 
 - (IBAction)openNewsMainScreenView:(id)sender {
-    NewsMainScreenRouter *router = [[NewsMainScreenRouter alloc] init];
-    [self.navigationController pushViewController:(UIViewController *)router.view animated:YES];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
+    NewsMainScreenView *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewsMainScreenView class])];
+    [self.navigationController pushViewController:view animated:YES];
 
 }
 
 - (IBAction)openCalculatorScreenView:(id)sender {
-    CalculatorScreenRouter *router = [[CalculatorScreenRouter alloc] init];
-    [self.navigationController pushViewController:(UIViewController *)router.view animated:YES];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
+    CalculatorScreenView *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CalculatorScreenView class])];
+    [self.navigationController pushViewController:view animated:YES];
 }
 @end

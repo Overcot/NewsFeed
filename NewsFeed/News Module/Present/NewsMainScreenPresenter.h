@@ -15,6 +15,7 @@
 
 @property (nonatomic, weak) id<NewsMainScreenViewProtocol> view;
 @property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
+@property (nonatomic, strong) id<NewsMainScreenRouterProtocol> router;
 
 - (int) getNewsCount;
 - (NSString *) presentDateAtIndex:(int)index;

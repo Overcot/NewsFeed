@@ -19,21 +19,8 @@
 
 
 - (void) showValue:(NSString *) value;
-- (IBAction)buttonZeroPressed:(id)sender;
-- (IBAction)buttonOnePressed:(id)sender;
-- (IBAction)buttonTwoPressed:(id)sender;
-- (IBAction)buttonThreePressed:(id)sender;
-- (IBAction)buttonFourPressed:(id)sender;
-- (IBAction)buttonFivePressed:(id)sender;
-- (IBAction)buttonSixPressed:(id)sender;
-- (IBAction)buttonSevenPressed:(id)sender;
-- (IBAction)buttonEightPressed:(id)sender;
-- (IBAction)buttonNinePressed:(id)sender;
-- (IBAction)buttonPlusPressed:(id)sender;
-- (IBAction)buttonMinusPressed:(id)sender;
-- (IBAction)buttonMultiplyPressed:(id)sender;
-- (IBAction)buttonDividePressed:(id)sender;
-- (IBAction)buttonEqualPressed:(id)sender;
+- (IBAction)buttonNumberPressed:(UIButton *)sender;
+- (IBAction)buttonOperationPressed:(UIButton *)sender;
 - (IBAction)buttonResetPressed:(id)sender;
 - (IBAction)buttonChangeSignPressed:(id)sender;
 - (IBAction)buttonPercentPressed:(id)sender;
