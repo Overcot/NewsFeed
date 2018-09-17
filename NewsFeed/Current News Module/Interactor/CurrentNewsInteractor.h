@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) id<NewsModelProtocol> news;
 @property (nonatomic, weak) id<CurrentNewsPresentProtocol> presenter;
+
 - (NSString *) getDate;
 - (NSString *) getTitle;
 - (NSString *) getDescr;

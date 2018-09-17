@@ -11,12 +11,10 @@
 #import "CalculatorTypes.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface CalculatorScreenView : UIViewController <CalculatorScreenViewProtocol>
+@interface CalculatorScreenViewController : UIViewController <CalculatorScreenViewProtocol>
 @property (nonatomic, strong) id<CalculatorScreenPresenterProtocol> presenter;
 @property (nonatomic, strong) IBOutlet UILabel *valueLabel;
 @property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *allButtons;
-
-
 
 - (void) showValue:(NSString *) value;
 - (IBAction)buttonNumberPressed:(UIButton *)sender;
@@ -25,4 +23,5 @@
 - (IBAction)buttonChangeSignPressed:(id)sender;
 - (IBAction)buttonPercentPressed:(id)sender;
 - (IBAction)buttonDotPressed:(id)sender;
+
 @end

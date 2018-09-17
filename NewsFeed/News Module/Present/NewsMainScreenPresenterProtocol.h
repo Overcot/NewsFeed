@@ -6,22 +6,22 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "NewsMainScreenViewProtocol.h"
 #import "NewsMainScreenInteractorProtocol.h"
 #import "NewsModelProtocol.h"
 #import "NewsMainScreenRouterProtocol.h"
 
-@protocol NewssMainScreenViewProtocol;
+@protocol NewsMainScreenViewProtocol;
 @protocol NewsMainScreenInteractorProtocol;
+@protocol NewsMainScreenRouterProtocol;
 
-@protocol NewsMainScreenPresenterProtocol <NSObject>
+@protocol NewsMainScreenPresenterProtocol <NSObject, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) id<NewsMainScreenViewProtocol> view;
 @property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
 @property (nonatomic, strong) id<NewsMainScreenRouterProtocol> router;
 
-
-- (int) getNewsCount;
 - (NSString *) presentDateAtIndex:(int)index;
 - (NSString *) presentTitleAtIndex:(int)index;
 - (NSString *) presentDescrAtIndex:(int)index;

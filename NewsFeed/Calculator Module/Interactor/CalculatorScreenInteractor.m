@@ -13,116 +13,111 @@
 @synthesize entity = _entity;
 
 - (void) loadLastValue {
-    if (!_entity) {
-        _entity = [[CalculatorEntity alloc] init];        
+    if (!self.entity) {
+        self.entity = [[CalculatorEntity alloc] init];        
     }
-    [_presenter presentValue:[_entity getFirstValue]];
-
+    [self.presenter presentValue:[self.entity getFirstValue]];
 }
 
 - (void) numberPressed:(int)number{
-    if ([_entity getTypingFirst] == YES) {
+    if ([self.entity getTypingFirst] == YES) {
         // true means only that first number is subject to change
         [self addNumberToFirstValue:number];
-        [_presenter presentValue:[_entity getFirstValue]];
+        [self.presenter presentValue:[self.entity getFirstValue]];
     } else {
         // typing second number
-        if ([_entity getTypingSecond] == NO) {
+        if ([self.entity getTypingSecond] == NO) {
             // check if we didn't start typing second number - then we need to 0 second value and remember that we will type this number
-            [_entity setSecondValue:0];
-            [_entity setTypingSecond:YES];
-
+            [self.entity setSecondValue:0];
+            [self.entity setTypingSecond:YES];
         }
         // then add number to current number(second) - either 0 or previous and show it
         [self addNumberToSecondValue:number];
-        [_presenter presentValue:[_entity getSecondValue]];
+        [self.presenter presentValue:[self.entity getSecondValue]];
     }
 }
 
 - (void) operationPressed:(operation)operation {
-    
-    
-    if ([_entity getTypingFirst] == YES) {
+
+    if ([self.entity getTypingFirst] == YES) {
         // if we are typing first number and then pressed operation we need to stop entering first number
         if (operation == equal) {
             // if operation is equal we need to present first number and reset everything
-            [_entity setOperation: none];
-            [_presenter presentValue:[_entity getFirstValue]];
-            [_entity setFirstValue:0];
+            [self.entity setOperation: none];
+            [self.presenter presentValue:[self.entity getFirstValue]];
+            [self.entity setFirstValue:0];
         } else {
             // if operation is another we save an operation and stop typing first number
-            [_entity setOperation:operation];
-            [_entity setTypingFirst:NO];
-            [_entity setSecondValue:[_entity getFirstValue]];
+            [self.entity setOperation:operation];
+            [self.entity setTypingFirst:NO];
+            [self.entity setSecondValue:[self.entity getFirstValue]];
             // we save this in case we press equal afterwards
             // if we press not equal we just go there again and switch operation
             // if we press number because of typingSecond = false we will start second number from start
-            [_presenter presentValue:[_entity getFirstValue]];
+            [self.presenter presentValue:[self.entity getFirstValue]];
         }
     } else {
-        if ([_entity getTypingSecond] == YES) {
+        if ([self.entity getTypingSecond] == YES) {
             // if we were typing second number we stop to enter second number and proceed to count operation
-            [_entity setTypingSecond:NO];
-            [_entity countValues];
+            [self.entity setTypingSecond:NO];
+            [self.entity countValues];
             if (operation != equal) {
                 // if operation isn't equal we want to save both the operation and last calculated result and put it in second value
                 // case: 23+25-= must be equal to 0
-                [_entity setOperation:operation];
-                [_entity setSecondValue:[_entity getFirstValue]];
+                [self.entity setOperation:operation];
+                [self.entity setSecondValue:[self.entity getFirstValue]];
             }
-            [_presenter presentValue:[_entity getFirstValue]];
+            [self.presenter presentValue:[self.entity getFirstValue]];
         } else {
             // we go here for example if we did finish typing first number and didn't start typing second
             // case : 23+= must be 46
             // case : 23+- must be 23- and ready to input second number or equal operation
             if (operation == equal) {
                 // if we have operation equal we just count straight away because we already saved first number to second value for future
-                [_entity countValues];
-                [_presenter presentValue:[_entity getFirstValue]];
+                [self.entity countValues];
             } else {
                 // case : 23-=+ goes here
-                [_entity setOperation:operation];
-                [_entity setSecondValue:[_entity getFirstValue]];
-                [_presenter presentValue:[_entity getFirstValue]];
+                [self.entity setOperation:operation];
+                [self.entity setSecondValue:[self.entity getFirstValue]];
             }
-
+            [self.presenter presentValue:[self.entity getFirstValue]];
         }
     }
-    [_entity setAmountOfNumbersAfterDot:0];
-    [_entity setTypingFloat:NO];
+    [self.entity setAmountOfNumbersAfterDot:0];
+    [self.entity setTypingFloat:NO];
 }
 
 - (void) addNumberToFirstValue:(int)number {
-    if ([_entity getTypingFloat] == NO) {
-        if ([_entity getFirstValue] < 0) {
-            [_entity setFirstValue:[_entity getFirstValue] * 10 - number];
+    if ([self.entity getTypingFloat] == NO) {
+        if ([self.entity getFirstValue] < 0) {
+            [self.entity setFirstValue:[self.entity getFirstValue] * 10 - number];
         } else {
-            [_entity setFirstValue:[_entity getFirstValue] * 10 + number];
+            [self.entity setFirstValue:[self.entity getFirstValue] * 10 + number];
         }
     } else {
-        [_entity setAmountOfNumbersAfterDot:[_entity getAmountOfNumbersAfterDot]+1];
-        if ([_entity getFirstValue] < 0) {
-            [_entity setFirstValue:[_entity getFirstValue] - (number / pow(10.0, [_entity getAmountOfNumbersAfterDot]))];
+        [self.entity setAmountOfNumbersAfterDot:[self.entity getAmountOfNumbersAfterDot]+1];
+        if ([self.entity getFirstValue] < 0) {
+            [self.entity setFirstValue:[self.entity getFirstValue] - (number / pow(10.0, [self.entity getAmountOfNumbersAfterDot]))];
         } else {
-            [_entity setFirstValue:[_entity getFirstValue] + (number / pow(10.0, [_entity getAmountOfNumbersAfterDot]))];
+            [self.entity setFirstValue:[self.entity getFirstValue] + (number / pow(10.0, [self.entity getAmountOfNumbersAfterDot]))];
         }
     }
 }
 
 
 - (void) addNumberToSecondValue:(int)number {
-    if ([_entity getTypingFloat] == NO) {
-        if ([_entity getSecondValue] < 0) {
-            [_entity setSecondValue:[_entity getSecondValue] * 10 - number];
+    if ([self.entity getTypingFloat] == NO) {
+        if ([self.entity getSecondValue] < 0) {
+            [self.entity setSecondValue:[self.entity getSecondValue] * 10 - number];
         } else {
-            [_entity setSecondValue:[_entity getSecondValue] * 10 + number];
+            [self.entity setSecondValue:[self.entity getSecondValue] * 10 + number];
         }
     } else {
-        [_entity setAmountOfNumbersAfterDot:[_entity getAmountOfNumbersAfterDot]+1];
-        if ([_entity getSecondValue] < 0) {
-            [_entity setSecondValue:[_entity getSecondValue] - (number / pow(10.0, [_entity getAmountOfNumbersAfterDot]))];
+        [self.entity setAmountOfNumbersAfterDot:[self.entity getAmountOfNumbersAfterDot]+1];
+        if ([self.entity getSecondValue] < 0) {
+            [self.entity setSecondValue:[self.entity getSecondValue] - (number / pow(10.0, [self.entity getAmountOfNumbersAfterDot]))];
         } else {
-            [_entity setSecondValue:[_entity getSecondValue] + (number / pow(10.0, [_entity getAmountOfNumbersAfterDot]))];
+            [self.entity setSecondValue:[self.entity getSecondValue] + (number / pow(10.0, [self.entity getAmountOfNumbersAfterDot]))];
         }
 
     }
@@ -131,33 +126,33 @@
 - (void) changeSign {
     
     if ([self chooseNumberToChange]) {
-        [_entity setFirstValue:-[_entity getFirstValue]];
-        [_presenter presentValue: [_entity getFirstValue]];
+        [self.entity setFirstValue:-[self.entity getFirstValue]];
+        [self.presenter presentValue: [self.entity getFirstValue]];
     } else {
-        [_entity setSecondValue:-[_entity getSecondValue]];
-        [_presenter presentValue:[_entity getSecondValue]];
+        [self.entity setSecondValue:-[self.entity getSecondValue]];
+        [self.presenter presentValue:[self.entity getSecondValue]];
     }
 }
 
 - (void) percent {
+    // неотработанный кейс - 2*3%=0.06
     if ([self chooseNumberToChange]) {
-        [_entity setFirstValue:[_entity getFirstValue]/100];
-        [_presenter presentValue:[_entity getFirstValue]];
-        [_entity setFirstValue:0];
+        [self.entity setFirstValue:[self.entity getFirstValue]/100];
+        [self.presenter presentValue:[self.entity getFirstValue]];
+        [self.entity setFirstValue:0];
     } else {
-        [_entity setSecondValue:[_entity getSecondValue]/100];
-        [_presenter presentValue:[_entity getSecondValue]];
-        [_entity setSecondValue:0];
+        [self.entity setSecondValue:[self.entity getSecondValue]/100];
+        [self.presenter presentValue:[self.entity getSecondValue]];
+        [self.entity setSecondValue:0];
     }
 }
 
 - (void) convertToDouble {
+    [self.entity setTypingFloat:YES];
     if ([self chooseNumberToChange]) {
-        [_entity setTypingFloat:YES];
-        [_presenter presentValue:[_entity getFirstValue]];
+        [self.presenter presentValue:[self.entity getFirstValue]];
     } else {
-        [_entity setTypingFloat:YES];
-        [_presenter presentValue:[_entity getSecondValue]];
+        [self.presenter presentValue:[self.entity getSecondValue]];
     }
 }
 
@@ -168,9 +163,9 @@
  **/
 - (BOOL) chooseNumberToChange {
 
-    if ([_entity getTypingSecond] == NO) {
+    if ([self.entity getTypingSecond] == NO) {
         return YES;
-    } else if ([_entity getTypingFirst] == NO) {
+    } else if ([self.entity getTypingFirst] == NO) {
         return NO;
     } else {
         NSLog(@"strange");
@@ -179,12 +174,12 @@
 }
 
 - (void) fullReset {
-    [_entity setFirstValue:0];
-    [_entity setSecondValue:0];
-    [_entity setOperation:none];
-    [_entity setTypingFirst:YES];
-    [_entity setTypingSecond:NO];
-
-    [_presenter presentValue:[_entity getFirstValue]];
+    [self.entity setFirstValue:0];
+    [self.entity setSecondValue:0];
+    [self.entity setOperation:none];
+    [self.entity setTypingFirst:YES];
+    [self.entity setTypingSecond:NO];
+    [self.entity setTypingFloat:NO];
+    [self.presenter presentValue:[self.entity getFirstValue]];
 }
 @end

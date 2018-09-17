@@ -14,9 +14,7 @@ static NSString *const emptyString = @"";
 @synthesize view = _view;
 @synthesize interactor = _interactor;
 
-- (int) getNewsCount {
-    return [self.interactor getNewsCount];
-}
+#pragma mark - <NewsMainScreenPresenterProtocol>
 
 - (NSString *)presentDateAtIndex:(int)index {
     NSString *date = [self.interactor getDateAtIndex:index];
@@ -53,16 +51,34 @@ static NSString *const emptyString = @"";
     [self.interactor refreshNews];
 }
 
+- (void) viewFinishedLoading {
+    [self.interactor refreshNews];
+}
+
+#pragma mark - <NewsMainScreenViewProtocol>
+
 - (void) didFinishDownload {
     [self.view reloadData];
 }
 
 - (void) errorDownloading{
     [self.view showError];
-
 }
 
-- (void) viewFinishedLoading {
-    [self.interactor refreshNews];
+#pragma mark - <UITableViewDataSource>
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    NSString *cellIdentifier = NSStringFromClass([NewsPreviewCell class]);
+    NewsPreviewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.dateLabel.text = [self presentDateAtIndex:(int)indexPath.row];
+    cell.titleLabel.text = [self presentTitleAtIndex:(int)indexPath.row];
+    cell.descrLabel.text = [self presentDescrAtIndex:(int)indexPath.row];
+    return cell;
 }
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.interactor getNewsCount];
+}
+
 @end

@@ -7,13 +7,16 @@
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "CurrentNewsView.h"
 #import "NewsMainScreenRouterProtocol.h"
+#import "NewsMainScreenConfigurator.h"
+#import "CurrentNewsViewController.h"
+
+@protocol NewsMainScreenRouterProtocol;
+@class NewsMainScreenViewController;
 
 @interface NewsMainScreenRouter : NSObject <NewsMainScreenRouterProtocol>
 
-@property (nonatomic, weak) UIViewController* fromViewController;
-
-- (void)showDetailViewControllerWithObject:(id<NewsModelProtocol>)object;
+- (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController
+                                        :(id<NewsModelProtocol>)object;
 
 @end

@@ -11,6 +11,8 @@
 #import "NewsMainScreenPresenterProtocol.h"
 #import "NewsModelProtocol.h"
 
+@protocol NewsMainScreenPresenterProtocol;
+
 @protocol NewsMainScreenInteractorProtocol <NSObject>
 @property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 
@@ -18,6 +20,7 @@
 - (NSString *) getTitleAtIndex:(int)index;
 - (NSString *) getDescrAtIndex:(int)index;
 - (id <NewsModelProtocol>) getNewsAtIndex:(NSInteger)index;
-- (int) getNewsCount;
+- (NSUInteger) getNewsCount;
 - (void) refreshNews;
+
 @end

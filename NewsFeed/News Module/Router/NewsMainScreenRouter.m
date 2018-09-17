@@ -7,16 +7,17 @@
 //
 
 #import "NewsMainScreenRouter.h"
+#import "CurrentNewsViewControllerProtocol.h"
 
 @implementation NewsMainScreenRouter
 static NSString *const storyBoardName = @"Main";
 
-- (void)showDetailViewControllerWithObject:(id<NewsModelProtocol>) object {
+- (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
+                                        :(id<NewsModelProtocol>) object {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
-    CurrentNewsView *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CurrentNewsView class])];
+    UITableViewController<CurrentNewsViewControllerProtocol> * view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CurrentNewsViewController class])];
     view.presenter.interactor.news = object;
-    [self.fromViewController.navigationController pushViewController:view animated:YES];
+    [fromViewController.navigationController pushViewController:view animated:YES];
 }
-
 
 @end

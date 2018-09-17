@@ -17,6 +17,7 @@
 @synthesize typingSecond = _typingSecond;
 @synthesize typingFloat = _typingFloat;
 @synthesize amountOfNumbersAfterDot = _amountOfNumbersAfterDot;
+
 - (instancetype) init {
     self = [super init];
     if (self) {
@@ -73,12 +74,15 @@
 - (BOOL) getTypingFloat {
     return _typingFloat;
 }
+
 - (int) getAmountOfNumbersAfterDot {
     return _amountOfNumbersAfterDot;
 }
+
 - (void) setAmountOfNumbersAfterDot:(int)number {
     _amountOfNumbersAfterDot = number;
 }
+
 - (void) countValues {
     
     switch (_operation) {

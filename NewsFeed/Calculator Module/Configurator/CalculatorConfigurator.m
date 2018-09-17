@@ -7,13 +7,13 @@
 //
 
 #import "CalculatorConfigurator.h"
-#import "CalculatorScreenView.h"
+#import "CalculatorScreenViewController.h"
 #import "CalculatorScreenPresenter.h"
 #import "CalculatorScreenInteractor.h"
 #import "CalculatorScreenRouter.h"
 
 @interface CalculatorScreenConfigurator()
-@property (nonatomic, strong) IBOutlet CalculatorScreenView *viewController;
+@property (nonatomic, strong) IBOutlet CalculatorScreenViewController *viewController;
 
 @end
 

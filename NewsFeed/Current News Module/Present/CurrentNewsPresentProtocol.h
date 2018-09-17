@@ -7,21 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "CurrentNewsInteractProtocol.h"
-#import "CurrentNewsViewProtocol.h"
-
+#import "CurrentNewsViewControllerProtocol.h"
 
 @protocol CurrentNewsInteractProtocol;
-@protocol CurrentNewsViewProtocol;
+@protocol CurrentNewsViewControllerProtocol;
 
-@protocol CurrentNewsPresentProtocol <NSObject>
+@protocol CurrentNewsPresentProtocol <NSObject, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
-@property (nonatomic, weak) id<CurrentNewsViewProtocol> view;
-
-- (NSString *) presentDate;
-- (NSString *) presentTitle;
-- (NSString *) presentDescr;
-- (int) amountOfCells;
-- (void) setupView;
+@property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
 
 @end

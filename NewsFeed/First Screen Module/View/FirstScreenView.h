@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewsMainScreenView.h"
-#import "CalculatorScreenView.h"
-@interface FirstScreen: UIViewController
+#import "NewsMainScreenViewController.h"
+#import "CalculatorScreenViewController.h"
+@interface FirstScreenController: UIViewController
 
 - (IBAction)openNewsMainScreenView:(id)sender;
 - (IBAction)openCalculatorScreenView:(id)sender;

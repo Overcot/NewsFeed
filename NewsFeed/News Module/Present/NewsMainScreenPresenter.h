@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "NewsMainScreenPresenterProtocol.h"
-#import "NewsMainScreenInteractorProtocol.h"
-#import "NewsMainScreenViewProtocol.h"
+#import "NewsPreviewCell.h"
+
+@protocol NewsMainScreenViewProtocol;
+@protocol NewsMainScreenInteractorProtocol;
+@protocol NewsMainScreenRouterProtocol;
 
 @interface NewsMainScreenPresenter : NSObject <NewsMainScreenPresenterProtocol>
 
@@ -17,7 +20,6 @@
 @property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
 @property (nonatomic, strong) id<NewsMainScreenRouterProtocol> router;
 
-- (int) getNewsCount;
 - (NSString *) presentDateAtIndex:(int)index;
 - (NSString *) presentTitleAtIndex:(int)index;
 - (NSString *) presentDescrAtIndex:(int)index;

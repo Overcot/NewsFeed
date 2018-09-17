@@ -44,5 +44,7 @@
 
 - (void) buttonDotPressed {
     [self.interactor convertToDouble];
+    // need to add dot
 }
+
 @end

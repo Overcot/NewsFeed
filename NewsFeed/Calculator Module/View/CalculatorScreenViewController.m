@@ -6,13 +6,13 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "CalculatorScreenView.h"
+#import "CalculatorScreenViewController.h"
 
-@interface CalculatorScreenView ()
+@interface CalculatorScreenViewController ()
 
 @end
 
-@implementation CalculatorScreenView
+@implementation CalculatorScreenViewController
 @synthesize presenter = _presenter;
 @synthesize valueLabel = _valueLabel;
 
@@ -29,8 +29,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - <CalculatorScreenViewProtocol>
+
 - (void) showValue:(NSString *) value {
-    _valueLabel.text = value;
+    self.valueLabel.text = value;
 }
 
 #pragma mark - Visual Borders

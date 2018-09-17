@@ -7,12 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NewsMainScreenViewProtocol.h"
+#import "NewsMainScreenConfigurator.h"
 
-#import "NewsPreviewCell.h"
-#import "CurrentNewsView.h"
-#import "NewsMainScreenPresenter.h"
-
-@interface NewsMainScreenView : UIViewController <UITableViewDataSource, UITableViewDelegate, NewsMainScreenViewProtocol>
+@interface NewsMainScreenViewController : UIViewController <NewsMainScreenViewProtocol>
 @property (nonatomic, weak) IBOutlet UITableView *newsTableView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
@@ -20,4 +18,5 @@
 
 - (void) reloadData;
 - (void) showError;
+
 @end

@@ -7,16 +7,11 @@
 //
 
 #import "NewsMainScreenConfigurator.h"
-#import "NewsMainScreenView.h"
-#import "NewsMainScreenPresenter.h"
-#import "NewsMainScreenInteractor.h"
-#import "NewsMainScreenRouter.h"
 
 @interface NewsMainScreenConfigurator ()
-@property (nonatomic, strong) IBOutlet NewsMainScreenView *viewController;
+@property (nonatomic, strong) IBOutlet NewsMainScreenViewController *viewController;
 
 @end
-
 
 @implementation NewsMainScreenConfigurator
 static NSString *const storyBoardName = @"Main";
@@ -31,10 +26,9 @@ static NSString *const storyBoardName = @"Main";
     self.viewController.presenter.interactor = [[NewsMainScreenInteractor alloc] init];
     
     // Router
-    NewsMainScreenRouter *router = [[NewsMainScreenRouter alloc] init];
+    id<NewsMainScreenRouterProtocol> router = [[NewsMainScreenRouter alloc] init];
     
     //Configure
-    router.fromViewController = self.viewController;
     self.viewController.presenter.view = self.viewController;
     self.viewController.presenter.interactor.presenter = self.viewController.presenter;
     self.viewController.presenter.router = router;

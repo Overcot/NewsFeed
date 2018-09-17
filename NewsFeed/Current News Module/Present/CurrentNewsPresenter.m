@@ -14,24 +14,33 @@ static int const amountOfCells = 3;
 
 @synthesize interactor = _interactor;
 @synthesize view = _view;
-- (NSString *) presentDate {
-    return [self.interactor getDate];
+
+#pragma mark - <UITableViewDataSource>
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath { 
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    [cell setUserInteractionEnabled:NO];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text = [self.interactor getDate];
+            break;
+        case 1:
+            cell.textLabel.text = [self.interactor getTitle];
+            break;
+        case 2:
+            cell.textLabel.text = [self.interactor getDescr];
+            break;
+        default:
+            break;
+    }
+    return cell;
 }
 
-- (NSString *)presentDescr {
-    return [self.interactor getDescr];
-}
-
-- (NSString *)presentTitle {
-    return [self.interactor getTitle];
-}
-
-- (int) amountOfCells {
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { 
     return amountOfCells;
 }
-- (void) setupView {
-    
-}
-#pragma mark - implement cellForRowAtIndex
 
 @end

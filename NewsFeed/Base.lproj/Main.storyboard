@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First Screen-->
+        <!--First Screen Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FirstScreen" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstScreenController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -60,7 +60,7 @@
         <!--View Controller-->
         <scene sceneID="gMq-f1-us7">
             <objects>
-                <viewController storyboardIdentifier="CalculatorScreenView" id="94J-te-fL6" customClass="CalculatorScreenView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalculatorScreenViewController" id="94J-te-fL6" customClass="CalculatorScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0nE-wi-cgC" userLabel="Screen View">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,7 +423,7 @@
         <!--View Controller-->
         <scene sceneID="7lp-ps-ghK">
             <objects>
-                <viewController storyboardIdentifier="NewsMainScreenView" id="WY4-6l-ytQ" customClass="NewsMainScreenView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsMainScreenViewController" id="WY4-6l-ytQ" customClass="NewsMainScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THP-ua-zaj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -465,7 +465,7 @@
         <!--View Controller-->
         <scene sceneID="XoB-Fo-eTE">
             <objects>
-                <viewController storyboardIdentifier="CurrentNewsView" id="xU3-aS-zza" customClass="CurrentNewsView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CurrentNewsViewController" id="xU3-aS-zza" customClass="CurrentNewsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1kf-rB-OEy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

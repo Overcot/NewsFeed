@@ -7,14 +7,14 @@
 //
 
 #import "CurrentNewsConfigurator.h"
-#import "CurrentNewsView.h"
+#import "CurrentNewsViewController.h"
 #import "CurrentNewsRouter.h"
 #import "CurrentNewsPresenter.h"
 #import "CurrentNewsInteractor.h"
 
 @interface CurrentNewsConfigurator ()
 
-@property (nonatomic, strong) IBOutlet CurrentNewsView *viewController;
+@property (nonatomic, strong) IBOutlet CurrentNewsViewController *viewController;
 
 @end
 

@@ -6,9 +6,9 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "NewsMainScreenView.h"
+#import "NewsMainScreenViewController.h"
 
-@implementation NewsMainScreenView
+@implementation NewsMainScreenViewController
 static NSString *const navigationTitle = @"Новости";
 static NSString *const emptyString = @"";
 static NSString *const errorTitle = @"Ошибка";
@@ -21,13 +21,12 @@ static NSString *const storyBoardName = @"Main";
 @synthesize activityIndicator = _activityIndicator;
 @synthesize presenter = _presenter;
 
-
 - (void) viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = navigationTitle;
     self.newsTableView.delegate = self;
-    self.newsTableView.dataSource = self; // change to presenter
+    self.newsTableView.dataSource = self;
     [self.newsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([NewsPreviewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NewsPreviewCell class])];
     
     [self.presenter viewFinishedLoading];
@@ -38,33 +37,23 @@ static NSString *const storyBoardName = @"Main";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    
-    [self.presenter.router showDetailViewControllerWithObject:[self.presenter getNewsAtIndex:(int)indexPath.row]];
-    
-    
+    [self.presenter.router showFromViewControllerWithObject:self
+                                                           :[self.presenter getNewsAtIndex:(int)indexPath.row]];
 }
 
 #pragma mark - <UITableViewDataSource>
 
 - (NSInteger) tableView:(UITableView *)tableView
   numberOfRowsInSection:(NSInteger)section {
-    return [self.presenter getNewsCount];
+    return [self.presenter tableView:tableView numberOfRowsInSection:section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString *cellIdentifier = NSStringFromClass([NewsPreviewCell class]);
-    NewsPreviewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    cell.dateLabel.text = [self.presenter presentDateAtIndex:(int)indexPath.row];
-    cell.titleLabel.text = [self.presenter presentTitleAtIndex:(int)indexPath.row];
-    cell.descrLabel.text = [self.presenter presentDescrAtIndex:(int)indexPath.row];
-    return cell;
-    
+    return [self.presenter tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
-#pragma mark -
+#pragma mark - View Methods
 - (void) reloadData {
     [self.activityIndicator stopAnimating];
     [self.newsTableView reloadData];
@@ -74,15 +63,12 @@ static NSString *const storyBoardName = @"Main";
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:errorTitle
                                                                    message:errorDescription
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:okButtonTitle
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               [self.presenter refreshNews];
                                                           }];
-    
     [alert addAction:defaultAction];
-    
     [self presentViewController:alert animated:YES completion:nil];
 }
 

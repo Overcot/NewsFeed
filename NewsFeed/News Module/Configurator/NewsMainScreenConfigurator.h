@@ -6,7 +6,11 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
+#import "NewsMainScreenViewController.h"
+#import "NewsMainScreenPresenter.h"
+#import "NewsMainScreenInteractor.h"
+#import "NewsMainScreenRouter.h"
 
 @interface NewsMainScreenConfigurator : NSObject
 

@@ -2,16 +2,16 @@
 //  NewsMainScreenRouterProtocol.h
 //  NewsFeed
 //
-//  Created by User on 14.09.2018.
+//  Created by User on 17.09.2018.
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "NewsMainScreenViewProtocol.h"
 
-@protocol NewsMainScreenRouterProtocol
+@protocol NewsMainScreenViewProtocol;
+@protocol NewsMainScreenRouterProtocol <NSObject>
 
-- (void)showDetailViewControllerWithObject:(id<NewsModelProtocol>)object;
-
+- (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
+                                        :(id<NewsModelProtocol>)object;
 @end
-
-

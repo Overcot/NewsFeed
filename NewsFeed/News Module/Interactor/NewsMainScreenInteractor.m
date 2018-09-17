@@ -10,6 +10,7 @@
 
 @interface NewsMainScreenInteractor()
 @property (nonatomic, strong) NSString *urlString;
+@property (nonatomic, strong) NSArray <NewsModelProtocol> *newsList;
 
 @end
 
@@ -36,7 +37,6 @@ static NSString *const JSONDateProperty = @"publishedAt";
 static NSString *const JSONTitleProperty = @"title";
 static NSString *const JSONDescriptionProperty = @"description";
 
-
 @synthesize presenter = _presenter;
 @synthesize newsList = _newsList;
 @synthesize urlString = _urlString;
@@ -49,6 +49,37 @@ static NSString *const JSONDescriptionProperty = @"description";
     return self;
 }
 
+#pragma mark - <NewsMainScreenInteractorProtocol>
+
+- (NSString *)getDateAtIndex:(int)index {
+    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
+    return element.date;
+}
+
+- (NSString *)getDescrAtIndex:(int)index {
+    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
+    return element.descr;
+}
+
+- (NSString *)getTitleAtIndex:(int)index {
+    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
+    return element.title;
+}
+
+- (id<NewsModelProtocol>) getNewsAtIndex:(NSInteger) index {
+    return self.newsList[index];
+}
+
+- (NSUInteger) getNewsCount {
+    return self.newsList.count;
+}
+
+- (void) refreshNews {
+    [self downloadNewsFromString:self.urlString];
+}
+
+#pragma mark - Interactor methods
+
 - (void) getUrlString {
     NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:urlAttributesFileName ofType:urlAttributesFileExtension]];
     
@@ -56,19 +87,7 @@ static NSString *const JSONDescriptionProperty = @"description";
     NSString *countryCode = [dict objectForKey:pListCountryCodePropertyName];
     NSString *apiKey = [dict objectForKey:pListApiKeyPropertyName];
     
-    _urlString = [[NSString alloc] initWithFormat:urlStringFormat, address, countryCode, apiKey];
-}
-
-- (id<NewsModelProtocol>) getNewsAtIndex:(NSInteger) index {
-    return _newsList[index];
-}
-
-- (int) getNewsCount {
-    return (int)_newsList.count;
-}
-
-- (void) refreshNews {
-    [self downloadNewsFromString:_urlString];
+    self.urlString = [[NSString alloc] initWithFormat:urlStringFormat, address, countryCode, apiKey];
 }
 
 - (void) downloadNewsFromString:(NSString *)urlString{
@@ -77,24 +96,23 @@ static NSString *const JSONDescriptionProperty = @"description";
     __weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *data = [session dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        if (error == nil) {
-            if (data != nil) {
-                NSError *erro = nil;
-                NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&erro];
+        if (error == nil && data != nil) {
+            NSError *erro = nil;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&erro];
+            if (erro == nil) {
                 NSMutableArray<NewsModelProtocol> *news = [[NSMutableArray<NewsModelProtocol> alloc] init];
                 for (NSDictionary *newsDict in json[JSONArticle]) {
                     id<NewsModelProtocol> element = [[NewsComponents alloc] initWithDate:[weakSelf convertDate:newsDict[JSONDateProperty]] title:newsDict[JSONTitleProperty] description:newsDict[JSONDescriptionProperty]];
-                    
                     [news addObject:element];
                 }
                 weakSelf.newsList = [[NSArray<NewsModelProtocol> alloc] initWithArray:news];
+            } else {
+                [self.presenter errorDownloading];
             }
-            
         } else {
             [self.presenter errorDownloading];
         }
         dispatch_sync(dispatch_get_main_queue(),^{
-            
             [weakSelf.presenter didFinishDownload];
         });
     }];
@@ -113,22 +131,5 @@ static NSString *const JSONDescriptionProperty = @"description";
     [dateFormatter setDateFormat:dateToFormat];
     return [dateFormatter stringFromDate:date];
 }
-
-- (NSString *)getDateAtIndex:(int) index {
-    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
-    return element.date;
-}
-
-- (NSString *)getDescrAtIndex:(int)index {
-    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
-    return element.descr;
-}
-
-- (NSString *)getTitleAtIndex:(int)index {
-    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
-    return element.title;
-
-}
-
 
 @end

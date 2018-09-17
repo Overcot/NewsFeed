@@ -8,11 +8,11 @@
 
 #import "FirstScreenView.h"
 
-@interface FirstScreen ()
+@interface FirstScreenController ()
 
 @end
 
-@implementation FirstScreen
+@implementation FirstScreenController
 
 static NSString *const backButtonTitle = @"Назад";
 static NSString *const storyBoardName = @"Main";
@@ -36,14 +36,14 @@ static NSString *const storyBoardName = @"Main";
 
 - (IBAction)openNewsMainScreenView:(id)sender {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
-    NewsMainScreenView *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewsMainScreenView class])];
+    NewsMainScreenViewController *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([NewsMainScreenViewController class])];
     [self.navigationController pushViewController:view animated:YES];
 
 }
 
 - (IBAction)openCalculatorScreenView:(id)sender {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
-    CalculatorScreenView *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CalculatorScreenView class])];
+    CalculatorScreenViewController *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CalculatorScreenViewController class])];
     [self.navigationController pushViewController:view animated:YES];
 }
 @end

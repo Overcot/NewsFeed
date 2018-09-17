@@ -12,17 +12,11 @@
 #import "NewsModelProtocol.h"
 #import "CurrentNewsInteractProtocol.h"
 
-@protocol CurrentNewsViewProtocol;
+@protocol CurrentNewsViewControllerProtocol;
 @protocol CurrentNewsInteractProtocol;
 
 @interface CurrentNewsPresenter : NSObject <CurrentNewsPresentProtocol>
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
-@property (nonatomic, weak) id<CurrentNewsViewProtocol> view;
-
-- (NSString *) presentDate;
-- (NSString *) presentTitle;
-- (NSString *) presentDescr;
-- (int) amountOfCells;
-- (void) setupView;
+@property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
 
 @end
