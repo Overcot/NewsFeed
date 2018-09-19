@@ -10,13 +10,10 @@
 #import "CurrentNewsInteractProtocol.h"
 #import "NewsModelProtocol.h"
 #import "CurrentNewsPresentProtocol.h"
-@interface CurrentNewsInteractor : NSObject <CurrentNewsInteractProtocol>
+@interface CurrentNewsInteractor : NSObject <CurrentNewsInteractProtocol,CurrentNewsCellDataSource>
 
 @property (nonatomic, strong) id<NewsModelProtocol> news;
-@property (nonatomic, weak) id<CurrentNewsPresentProtocol> presenter;
+@property (nonatomic, weak) id<CurrentNewsPresentProtocol, CurrentNewsCellDataSource> presenter;
 
-- (NSString *) getDate;
-- (NSString *) getTitle;
-- (NSString *) getDescr;
-
+- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath;
 @end

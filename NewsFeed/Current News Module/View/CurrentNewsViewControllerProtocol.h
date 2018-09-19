@@ -11,7 +11,7 @@
 
 @protocol CurrentNewsPresentProtocol;
 
-@protocol CurrentNewsViewControllerProtocol <NSObject>
+@protocol CurrentNewsViewControllerProtocol
 @property (nonatomic, strong) id<CurrentNewsPresentProtocol> presenter;
 
 @end

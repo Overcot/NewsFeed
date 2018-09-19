@@ -14,8 +14,8 @@
 
 - (void) viewFinishedLoading;
 - (void) presentValue:(double)value;
-- (void) buttonNumberPressed:(numbers) value;
-- (void) buttonOperationPressed:(operation) operation;
+- (void) buttonNumberPressed:(NSInteger) value;
+- (void) buttonOperationPressed:(Operation) operation;
 - (void) buttonResetPressed;
 - (void) buttonChangeSignPressed;
 - (void) buttonPercentPressed;

@@ -24,7 +24,7 @@
 - (int) getAmountOfNumbersAfterDot;
 - (void) setAmountOfNumbersAfterDot:(int)number;
 
-- (void) setOperation:(operation) operation;
+- (void) setOperation:(Operation) operation;
 
 - (void) countValues;
 

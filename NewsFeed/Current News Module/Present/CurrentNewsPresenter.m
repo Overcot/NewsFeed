@@ -9,38 +9,23 @@
 #import "CurrentNewsPresenter.h"
 
 @implementation CurrentNewsPresenter
-
-static int const amountOfCells = 3;
-
+static NSString *const emptyString = @"";
 @synthesize interactor = _interactor;
 @synthesize view = _view;
 
 #pragma mark - <UITableViewDataSource>
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath { 
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    [cell setUserInteractionEnabled:NO];
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    
-    switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text = [self.interactor getDate];
-            break;
-        case 1:
-            cell.textLabel.text = [self.interactor getTitle];
-            break;
-        case 2:
-            cell.textLabel.text = [self.interactor getDescr];
-            break;
-        default:
-            break;
-    }
-    return cell;
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.interactor tableView:tableView numberOfRowsInSection:section];
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { 
-    return amountOfCells;
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return [self.interactor tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+#pragma mark - <CurrentNewsPresentProtocol>
+- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath {
+    return [self.interactor getCellDataForIndexPath:indexPath];
 }
 
 @end

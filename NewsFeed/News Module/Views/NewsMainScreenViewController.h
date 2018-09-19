@@ -11,8 +11,6 @@
 #import "NewsMainScreenConfigurator.h"
 
 @interface NewsMainScreenViewController : UIViewController <NewsMainScreenViewProtocol>
-@property (nonatomic, weak) IBOutlet UITableView *newsTableView;
-@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @property (nonatomic, strong) id <NewsMainScreenPresenterProtocol> presenter;
 

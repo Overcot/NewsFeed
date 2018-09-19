@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "NewsModelProtocol.h"
 @interface NewsPreviewCell : UITableViewCell
 @property (nonatomic, strong) IBOutlet UILabel *dateLabel;
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *descrLabel;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *separatorHeightConstaraint;
 
+@property (nonatomic, strong) id<NewsModelProtocol> model;
 @end

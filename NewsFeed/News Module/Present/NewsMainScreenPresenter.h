@@ -20,9 +20,6 @@
 @property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
 @property (nonatomic, strong) id<NewsMainScreenRouterProtocol> router;
 
-- (NSString *) presentDateAtIndex:(int)index;
-- (NSString *) presentTitleAtIndex:(int)index;
-- (NSString *) presentDescrAtIndex:(int)index;
 - (id<NewsModelProtocol>) getNewsAtIndex:(int)index;
 
 - (void) didFinishDownload;

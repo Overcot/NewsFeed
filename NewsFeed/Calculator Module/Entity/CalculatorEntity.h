@@ -16,7 +16,7 @@
 @property (nonatomic, assign) BOOL typingSecond;
 @property (nonatomic, assign) BOOL typingFloat;
 @property (nonatomic, assign) int amountOfNumbersAfterDot;
-@property (nonatomic, assign) operation operation;
+@property (nonatomic, assign) Operation operation;
 
 - (double) getFirstValue;
 - (double) getSecondValue;
@@ -31,7 +31,7 @@
 - (BOOL) getTypingFloat;
 - (void) setTypingFloat:(BOOL) state;
 
-- (void) setOperation:(operation) operation;
+- (void) setOperation:(Operation) operation;
 
 - (int) getAmountOfNumbersAfterDot;
 - (void) setAmountOfNumbersAfterDot:(int)number;

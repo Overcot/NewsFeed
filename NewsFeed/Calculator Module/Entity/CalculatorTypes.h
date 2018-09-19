@@ -13,17 +13,4 @@ typedef enum : NSUInteger {
     multiply,
     divide,
     equal
-} operation;
-
-typedef enum : NSUInteger {
-    buttonZero,
-    buttonOne,
-    buttonTwo,
-    buttonThree,
-    buttonFour,
-    buttonFive,
-    buttonSix,
-    buttonSeven,
-    buttonEight,
-    buttonNine
-} numbers;
+} Operation;

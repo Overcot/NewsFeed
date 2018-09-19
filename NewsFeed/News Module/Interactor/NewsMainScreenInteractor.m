@@ -17,6 +17,8 @@
 
 @implementation NewsMainScreenInteractor
 
+static NSString *const emptyString = @"";
+
 static NSString *const urlAttributesFileName = @"urlPList";
 static NSString *const urlAttributesFileExtension = @"plist";
 
@@ -51,23 +53,12 @@ static NSString *const JSONDescriptionProperty = @"description";
 
 #pragma mark - <NewsMainScreenInteractorProtocol>
 
-- (NSString *)getDateAtIndex:(int)index {
-    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
-    return element.date;
-}
-
-- (NSString *)getDescrAtIndex:(int)index {
-    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
-    return element.descr;
-}
-
-- (NSString *)getTitleAtIndex:(int)index {
-    id<NewsModelProtocol> element = [self getNewsAtIndex:index];
-    return element.title;
-}
-
 - (id<NewsModelProtocol>) getNewsAtIndex:(NSInteger) index {
-    return self.newsList[index];
+    id<NewsModelProtocol> element = self.newsList[index];
+    element.date = (![element.date isKindOfClass:[NSNull class]]) ? element.date : emptyString;
+    element.title = (![element.title isKindOfClass:[NSNull class]]) ? element.title : emptyString;
+    element.descr = (![element.descr isKindOfClass:[NSNull class]]) ? element.descr : emptyString;
+    return element;
 }
 
 - (NSUInteger) getNewsCount {
@@ -130,6 +121,14 @@ static NSString *const JSONDescriptionProperty = @"description";
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:toAbbreviation]];
     [dateFormatter setDateFormat:dateToFormat];
     return [dateFormatter stringFromDate:date];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self getNewsCount];
 }
 
 @end

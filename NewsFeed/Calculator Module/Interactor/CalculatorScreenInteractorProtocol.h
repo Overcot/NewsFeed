@@ -18,8 +18,8 @@
 @property (nonatomic, strong) id<CalculatorEntityProtocol> entity;
 
 - (void) loadLastValue;
-- (void) numberPressed:(int) number;
-- (void) operationPressed:(operation) operation;
+- (void) numberPressed:(NSInteger) number;
+- (void) operationPressed:(Operation) operation;
 - (void) fullReset;
 - (void) changeSign;
 - (void) percent;

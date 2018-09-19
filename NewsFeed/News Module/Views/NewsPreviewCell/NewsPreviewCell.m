@@ -13,7 +13,7 @@
 @synthesize titleLabel = _titleLabel;
 @synthesize descrLabel = _descrLabel;
 @synthesize separatorHeightConstaraint = _separatorHeightConstaraint;
-
+@synthesize model = _model;
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -26,4 +26,10 @@
     // Configure the view for the selected state
 }
 
+-(void)setModel:(id<NewsModelProtocol>)model {
+    _model = model;
+    _dateLabel.text = model.date;
+    _titleLabel.text = model.title;
+    _descrLabel.text = model.descr;
+}
 @end

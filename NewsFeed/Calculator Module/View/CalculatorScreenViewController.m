@@ -9,6 +9,8 @@
 #import "CalculatorScreenViewController.h"
 
 @interface CalculatorScreenViewController ()
+@property (nonatomic, strong) IBOutlet UILabel *valueLabel;
+@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *allButtons;
 
 @end
 
@@ -21,18 +23,11 @@
     [super viewDidLoad];
     [self createBorderForButtons];
     [self.presenter viewFinishedLoading];
-
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - <CalculatorScreenViewProtocol>
-
-- (void) showValue:(NSString *) value {
-    self.valueLabel.text = value;
 }
 
 #pragma mark - Visual Borders
@@ -44,28 +39,35 @@
     }
 }
 
+#pragma mark - <CalculatorScreenViewProtocol>
+
+- (void) showValue:(NSString *) value {
+    self.valueLabel.text = value;
+}
+
+
 #pragma mark - Button Functions
 
 - (IBAction)buttonNumberPressed:(UIButton*)sender {
-    [self.presenter buttonNumberPressed:(numbers) sender.tag];
+    [self.presenter buttonNumberPressed: sender.tag];
 }
 
 - (IBAction)buttonOperationPressed:(UIButton *)sender {
     switch (sender.tag) {
         case 0:
-            [self.presenter buttonOperationPressed:(operation) equal];
+            [self.presenter buttonOperationPressed:(Operation) equal];
             break;
         case 1:
-            [self.presenter buttonOperationPressed:(operation) plus];
+            [self.presenter buttonOperationPressed:(Operation) plus];
             break;
         case 2:
-            [self.presenter buttonOperationPressed:(operation) minus];
+            [self.presenter buttonOperationPressed:(Operation) minus];
             break;
         case 3:
-            [self.presenter buttonOperationPressed:(operation) multiply];
+            [self.presenter buttonOperationPressed:(Operation) multiply];
             break;
         case 4:
-            [self.presenter buttonOperationPressed:(operation) divide];
+            [self.presenter buttonOperationPressed:(Operation) divide];
             break;
         default:
             break;

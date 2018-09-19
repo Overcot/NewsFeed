@@ -15,15 +15,15 @@
 @property (nonatomic, strong) id<CalculatorEntityProtocol> entity;
 
 - (void) loadLastValue;
-- (void) numberPressed:(int) number;
-- (void) operationPressed:(operation)operation;
-
-- (void) addNumberToFirstValue:(int) number;
-- (void) addNumberToSecondValue:(int) number;
+- (void) numberPressed:(NSInteger) number;
+- (void) operationPressed:(Operation)operation;
 - (void) fullReset;
 - (void) changeSign;
 - (void) percent;
 - (void) convertToDouble;
+
+- (void) addNumberToFirstValue:(NSInteger) number;
+- (void) addNumberToSecondValue:(NSInteger) number;
 - (BOOL) chooseNumberToChange;
 
 @end

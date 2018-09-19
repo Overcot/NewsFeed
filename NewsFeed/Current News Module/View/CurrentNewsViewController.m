@@ -9,13 +9,14 @@
 #import "CurrentNewsViewController.h"
 
 @interface CurrentNewsViewController ()
+@property (nonatomic, weak) IBOutlet UITableView *newsTableView;
 
 @end
 
 @implementation CurrentNewsViewController
-
 @synthesize newsTableView = _newsTableView;
 @synthesize presenter = _presenter;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -42,7 +43,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.presenter tableView:tableView cellForRowAtIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    [cell setUserInteractionEnabled:NO];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.textLabel.text = [self.presenter getCellDataForIndexPath:indexPath];
+    return cell;
 }
 
 - (NSInteger) tableView:(UITableView *)tableView

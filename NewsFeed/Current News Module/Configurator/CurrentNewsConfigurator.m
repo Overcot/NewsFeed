@@ -14,7 +14,7 @@
 
 @interface CurrentNewsConfigurator ()
 
-@property (nonatomic, strong) IBOutlet CurrentNewsViewController *viewController;
+@property (nonatomic, strong) IBOutlet UIViewController<CurrentNewsViewControllerProtocol> *viewController;
 
 @end
 

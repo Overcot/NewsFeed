@@ -63,6 +63,7 @@
 		CC34F930213D1F0C0086C3B6 /* NewsPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsPreviewCell.xib; sourceTree = "<group>"; };
 		CC34F935213D5C760086C3B6 /* NewsComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsComponents.h; sourceTree = "<group>"; };
 		CC34F936213D5C760086C3B6 /* NewsComponents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsComponents.m; sourceTree = "<group>"; };
+		CE350DD42151237D0094C587 /* CurrentNewsCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsCellDataSource.h; sourceTree = "<group>"; };
 		CEA8BEC8214673770076DCAB /* NewsMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenViewController.h; sourceTree = "<group>"; };
 		CEA8BEC9214673770076DCAB /* NewsMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenViewController.m; sourceTree = "<group>"; };
 		CEA8BED321468A830076DCAB /* CurrentNewsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsRouter.h; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 		CEA8BED0214676D70076DCAB /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				CE350DD42151237D0094C587 /* CurrentNewsCellDataSource.h */,
 				CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */,
 				CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */,
 				CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */,

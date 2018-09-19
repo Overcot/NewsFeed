@@ -19,4 +19,6 @@
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
 @property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
 
+- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath;
+
 @end

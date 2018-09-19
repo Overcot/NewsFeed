@@ -63,7 +63,7 @@
     _typingSecond = state;
 }
 
-- (void) setOperation:(operation) operation {
+- (void) setOperation:(Operation) operation {
     _operation = operation;
 }
 

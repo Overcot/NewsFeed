@@ -16,43 +16,8 @@ static NSString *const emptyString = @"";
 
 #pragma mark - <NewsMainScreenPresenterProtocol>
 
-- (NSString *)presentDateAtIndex:(int)index {
-    NSString *date = [self.interactor getDateAtIndex:index];
-    if (![date isKindOfClass:[NSNull class]]) {
-        return date;
-    } else {
-        return emptyString;
-    }
-}
-
-- (NSString *)presentDescrAtIndex:(int)index {
-    NSString *descr = [self.interactor getDescrAtIndex:index];
-    if (![descr isKindOfClass:[NSNull class]]) {
-        return descr;
-    } else {
-        return emptyString;
-    }
-}
-
-- (NSString *)presentTitleAtIndex:(int)index {
-    NSString *title = [self.interactor getTitleAtIndex:index];
-    if (![title isKindOfClass:[NSNull class]]) {
-        return title;
-    } else {
-        return emptyString;
-    }
-}
-
 - (id<NewsModelProtocol>) getNewsAtIndex:(int)index {
     return [self.interactor getNewsAtIndex:index];
-}
-
-- (void) refreshNews {
-    [self.interactor refreshNews];
-}
-
-- (void) viewFinishedLoading {
-    [self.interactor refreshNews];
 }
 
 #pragma mark - <NewsMainScreenViewProtocol>
@@ -65,20 +30,24 @@ static NSString *const emptyString = @"";
     [self.view showError];
 }
 
+- (void) refreshNews {
+    [self.interactor refreshNews];
+}
+
+- (void) viewFinishedLoading {
+    [self.interactor refreshNews];
+}
+
+
+
 #pragma mark - <UITableViewDataSource>
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    NSString *cellIdentifier = NSStringFromClass([NewsPreviewCell class]);
-    NewsPreviewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
-    cell.dateLabel.text = [self presentDateAtIndex:(int)indexPath.row];
-    cell.titleLabel.text = [self presentTitleAtIndex:(int)indexPath.row];
-    cell.descrLabel.text = [self presentDescrAtIndex:(int)indexPath.row];
-    return cell;
+    return [self.interactor tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.interactor getNewsCount];
+    return [self.interactor tableView:tableView numberOfRowsInSection:section];
 }
 
 @end

@@ -8,6 +8,13 @@
 
 #import "NewsMainScreenViewController.h"
 
+@interface NewsMainScreenViewController ()
+@property (nonatomic, weak) IBOutlet UITableView *newsTableView;
+@property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+@end
+
+
 @implementation NewsMainScreenViewController
 static NSString *const navigationTitle = @"Новости";
 static NSString *const emptyString = @"";
@@ -48,9 +55,15 @@ static NSString *const storyBoardName = @"Main";
     return [self.presenter tableView:tableView numberOfRowsInSection:section];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
+- (NewsPreviewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.presenter tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellIdentifier = NSStringFromClass([NewsPreviewCell class]);
+    NewsPreviewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    cell.model = [self.presenter getNewsAtIndex:(int)indexPath.row];
+
+    return cell;
+    
 }
 
 #pragma mark - View Methods

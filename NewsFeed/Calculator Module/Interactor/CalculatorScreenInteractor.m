@@ -12,6 +12,8 @@
 @synthesize presenter = _presenter;
 @synthesize entity = _entity;
 
+#pragma mark - <CalculatorScreenInteractorProtocol>
+
 - (void) loadLastValue {
     if (!self.entity) {
         self.entity = [[CalculatorEntity alloc] init];        
@@ -19,7 +21,7 @@
     [self.presenter presentValue:[self.entity getFirstValue]];
 }
 
-- (void) numberPressed:(int)number{
+- (void) numberPressed:(NSInteger) number{
     if ([self.entity getTypingFirst] == YES) {
         // true means only that first number is subject to change
         [self addNumberToFirstValue:number];
@@ -37,7 +39,7 @@
     }
 }
 
-- (void) operationPressed:(operation)operation {
+- (void) operationPressed:(Operation)operation {
 
     if ([self.entity getTypingFirst] == YES) {
         // if we are typing first number and then pressed operation we need to stop entering first number
@@ -87,7 +89,51 @@
     [self.entity setTypingFloat:NO];
 }
 
-- (void) addNumberToFirstValue:(int)number {
+- (void) changeSign {
+    
+    if ([self chooseNumberToChange]) {
+        [self.entity setFirstValue: - [self.entity getFirstValue]];
+        [self.presenter presentValue: [self.entity getFirstValue]];
+    } else {
+        [self.entity setSecondValue: - [self.entity getSecondValue]];
+        [self.presenter presentValue:[self.entity getSecondValue]];
+    }
+}
+
+- (void) percent {
+    if ([self chooseNumberToChange]) {
+        [self.entity setFirstValue:[self.entity getFirstValue]/100];
+        [self.presenter presentValue:[self.entity getFirstValue]];
+        [self.entity setTypingFirst:NO];
+    } else {
+        [self.entity setSecondValue:[self.entity getSecondValue]/100];
+        [self.presenter presentValue:[self.entity getSecondValue]];
+        [self.entity setTypingSecond:NO];
+    }
+}
+
+- (void) convertToDouble {
+    [self.entity setTypingFloat:YES];
+    if ([self chooseNumberToChange]) {
+        [self.presenter presentValue:[self.entity getFirstValue]];
+    } else {
+        [self.presenter presentValue:[self.entity getSecondValue]];
+    }
+}
+
+- (void) fullReset {
+    [self.entity setFirstValue:0];
+    [self.entity setSecondValue:0];
+    [self.entity setOperation:none];
+    [self.entity setTypingFirst:YES];
+    [self.entity setTypingSecond:NO];
+    [self.entity setTypingFloat:NO];
+    [self.presenter presentValue:[self.entity getFirstValue]];
+}
+
+#pragma mark - Interactor Methods
+
+- (void) addNumberToFirstValue:(NSInteger)number {
     if ([self.entity getTypingFloat] == NO) {
         if ([self.entity getFirstValue] < 0) {
             [self.entity setFirstValue:[self.entity getFirstValue] * 10 - number];
@@ -104,8 +150,7 @@
     }
 }
 
-
-- (void) addNumberToSecondValue:(int)number {
+- (void) addNumberToSecondValue:(NSInteger)number {
     if ([self.entity getTypingFloat] == NO) {
         if ([self.entity getSecondValue] < 0) {
             [self.entity setSecondValue:[self.entity getSecondValue] * 10 - number];
@@ -119,40 +164,7 @@
         } else {
             [self.entity setSecondValue:[self.entity getSecondValue] + (number / pow(10.0, [self.entity getAmountOfNumbersAfterDot]))];
         }
-
-    }
-}
-
-- (void) changeSign {
-    
-    if ([self chooseNumberToChange]) {
-        [self.entity setFirstValue:-[self.entity getFirstValue]];
-        [self.presenter presentValue: [self.entity getFirstValue]];
-    } else {
-        [self.entity setSecondValue:-[self.entity getSecondValue]];
-        [self.presenter presentValue:[self.entity getSecondValue]];
-    }
-}
-
-- (void) percent {
-    // неотработанный кейс - 2*3%=0.06
-    if ([self chooseNumberToChange]) {
-        [self.entity setFirstValue:[self.entity getFirstValue]/100];
-        [self.presenter presentValue:[self.entity getFirstValue]];
-        [self.entity setFirstValue:0];
-    } else {
-        [self.entity setSecondValue:[self.entity getSecondValue]/100];
-        [self.presenter presentValue:[self.entity getSecondValue]];
-        [self.entity setSecondValue:0];
-    }
-}
-
-- (void) convertToDouble {
-    [self.entity setTypingFloat:YES];
-    if ([self chooseNumberToChange]) {
-        [self.presenter presentValue:[self.entity getFirstValue]];
-    } else {
-        [self.presenter presentValue:[self.entity getSecondValue]];
+        
     }
 }
 
@@ -162,7 +174,7 @@
  * if return NO we need to change second number
  **/
 - (BOOL) chooseNumberToChange {
-
+    
     if ([self.entity getTypingSecond] == NO) {
         return YES;
     } else if ([self.entity getTypingFirst] == NO) {
@@ -173,13 +185,4 @@
     }
 }
 
-- (void) fullReset {
-    [self.entity setFirstValue:0];
-    [self.entity setSecondValue:0];
-    [self.entity setOperation:none];
-    [self.entity setTypingFirst:YES];
-    [self.entity setTypingSecond:NO];
-    [self.entity setTypingFloat:NO];
-    [self.presenter presentValue:[self.entity getFirstValue]];
-}
 @end

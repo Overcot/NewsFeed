@@ -10,12 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "CurrentNewsInteractProtocol.h"
 #import "CurrentNewsViewControllerProtocol.h"
-
+#import "CurrentNewsCellDataSource.h"
 @protocol CurrentNewsInteractProtocol;
 @protocol CurrentNewsViewControllerProtocol;
 
-@protocol CurrentNewsPresentProtocol <NSObject, UITableViewDataSource, UITableViewDelegate>
+@protocol CurrentNewsPresentProtocol <UITableViewDataSource, CurrentNewsCellDataSource>
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
 @property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
+
+- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath;
 
 @end

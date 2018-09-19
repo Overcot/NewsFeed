@@ -14,15 +14,12 @@
 @interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol>
 @property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 
-- (NSString *) getDateAtIndex:(int)index;
-- (NSString *) getTitleAtIndex:(int)index;
-- (NSString *) getDescrAtIndex:(int)index;
 - (id <NewsModelProtocol>) getNewsAtIndex:(NSInteger)index;
 - (NSUInteger) getNewsCount;
 - (void) refreshNews;
 
+- (void) getUrlString;
 - (void) downloadNewsFromString:(NSString *)urlString;
 - (NSString *) convertDate:(NSString*)dateString;
-- (void) getUrlString;
 
 @end

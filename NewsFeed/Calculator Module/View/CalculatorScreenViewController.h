@@ -13,10 +13,9 @@
 
 @interface CalculatorScreenViewController : UIViewController <CalculatorScreenViewProtocol>
 @property (nonatomic, strong) id<CalculatorScreenPresenterProtocol> presenter;
-@property (nonatomic, strong) IBOutlet UILabel *valueLabel;
-@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *allButtons;
 
 - (void) showValue:(NSString *) value;
+
 - (IBAction)buttonNumberPressed:(UIButton *)sender;
 - (IBAction)buttonOperationPressed:(UIButton *)sender;
 - (IBAction)buttonResetPressed:(id)sender;

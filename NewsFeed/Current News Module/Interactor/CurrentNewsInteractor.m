@@ -11,30 +11,36 @@
 @implementation CurrentNewsInteractor
 
 static NSString *const emptyString = @"";
+static int const amountOfCells = 3;
 
 @synthesize news = _news;
 
-- (NSString *)getDate {
-    if (![_news.date isKindOfClass:[NSNull class]]) {
-        return _news.date;
-    } else {
-        return emptyString;
-    }
+#pragma mark - <UITableViewDataSource>
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return amountOfCells;
 }
 
-- (NSString *)getDescr {
-    if (![_news.descr isKindOfClass:[NSNull class]]) {
-        return _news.descr;
-    } else {
-        return emptyString;
-    }
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return nil;
 }
 
-- (NSString *)getTitle {
-    if (![_news.title isKindOfClass:[NSNull class]]) {
-        return _news.title;
-    } else {
-        return emptyString;
+#pragma mark - <CurrentNewsCellDataSource>
+
+- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            return (![self.news.date isKindOfClass:[NSNull class]]) ? self.news.date : emptyString;
+            break;
+        case 1:
+            return (![self.news.title isKindOfClass:[NSNull class]]) ? self.news.title : emptyString;
+            break;
+        case 2:
+            return (![self.news.descr isKindOfClass:[NSNull class]]) ? self.news.descr : emptyString;
+            break;
+        default:
+            return emptyString;
+            break;
     }
 }
 

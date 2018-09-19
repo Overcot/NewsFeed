@@ -15,18 +15,18 @@
 }
 
 - (void) presentValue:(double)value {
-    if ((int) value == value) {
-        [self.view showValue: [NSString stringWithFormat:@"%ld",(long) value]];
-    } else {
+    if ((int) value != value || [self.interactor.entity getTypingFloat] == YES) {
         [self.view showValue: [NSString stringWithFormat:@"%f",(double) value]];
+    } else {
+        [self.view showValue: [NSString stringWithFormat:@"%ld",(long) value]];
     }
 }
 
-- (void) buttonNumberPressed:(numbers) value {
+- (void) buttonNumberPressed:(NSInteger) value {
     [self.interactor numberPressed: value];
 }
 
-- (void) buttonOperationPressed:(operation) operation {
+- (void) buttonOperationPressed:(Operation) operation {
     [self.interactor operationPressed: operation];
 }
 
@@ -44,7 +44,6 @@
 
 - (void) buttonDotPressed {
     [self.interactor convertToDouble];
-    // need to add dot
 }
 
 @end
