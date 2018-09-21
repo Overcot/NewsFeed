@@ -9,7 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "NewsMainScreenViewController.h"
 #import "CalculatorScreenViewController.h"
-@interface FirstScreenController: UIViewController
+#import "AFApplicationAssembly.h"
+
+@class AFCalculatorAssembly;
+
+@interface AFRootViewController: UIViewController
+
+@property (nonatomic, strong) AFCalculatorAssembly *assembly;
 
 - (IBAction)openNewsMainScreenView:(id)sender;
 - (IBAction)openCalculatorScreenView:(id)sender;

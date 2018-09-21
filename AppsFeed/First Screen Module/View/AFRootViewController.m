@@ -6,16 +6,27 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "FirstScreenView.h"
+#import "AFRootViewController.h"
+#import "AFCalculatorAssembly.h"
 
-@interface FirstScreenController ()
+
+@interface AFRootViewController ()
 
 @end
 
-@implementation FirstScreenController
-
+@implementation AFRootViewController
 static NSString *const backButtonTitle = @"Назад";
 static NSString *const storyBoardName = @"Main";
+
+@synthesize assembly = _assembly;
+
+- (instancetype)initWithAssembly:(AFCalculatorAssembly *)assembly {
+    self = [super init];
+    if (self) {
+        _assembly = assembly;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -42,8 +53,11 @@ static NSString *const storyBoardName = @"Main";
 }
 
 - (IBAction)openCalculatorScreenView:(id)sender {
+    CalculatorScreenViewController *view = [_assembly calculatorScreenViewController];
+    [self.navigationController pushViewController:view animated:YES];
+    /*
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
     CalculatorScreenViewController *view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CalculatorScreenViewController class])];
-    [self.navigationController pushViewController:view animated:YES];
+     */
 }
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "CalculatorScreenViewController.h"
+#import "CalculatorScreenPresenter.h"
+#import "CalculatorScreenInteractor.h"
 
 @interface CalculatorScreenViewController ()
 @property (nonatomic, strong) IBOutlet UILabel *valueLabel;
@@ -17,6 +19,25 @@
 @implementation CalculatorScreenViewController
 @synthesize presenter = _presenter;
 @synthesize valueLabel = _valueLabel;
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        // Presenter
+        self.presenter = [[CalculatorScreenPresenter alloc] init];
+        
+        // Interface
+        self.presenter.interactor = [[CalculatorScreenInteractor alloc] init];
+        
+        // Router
+        
+        //Configure
+        self.presenter.view = self;
+        self.presenter.interactor.presenter = self.presenter;
+    }
+    return self;
+}
 
 
 - (void)viewDidLoad {

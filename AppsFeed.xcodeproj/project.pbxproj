@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A10AC51C6A0A57385E4AB4E1 /* libPods-AppsFeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE6ED83DA545871571F79A /* libPods-AppsFeed.a */; };
 		CC2AFD3C214031A500E92019 /* urlPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2AFD3B214031A500E92019 /* urlPList.plist */; };
-		CC34F9042139638A0086C3B6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F9032139638A0086C3B6 /* AppDelegate.m */; };
-		CC34F9072139638A0086C3B6 /* FirstScreenView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F9062139638A0086C3B6 /* FirstScreenView.m */; };
+		CC34F9072139638A0086C3B6 /* AFRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F9062139638A0086C3B6 /* AFRootViewController.m */; };
 		CC34F90A2139638A0086C3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC34F9082139638A0086C3B6 /* Main.storyboard */; };
 		CC34F90C2139638B0086C3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC34F90B2139638B0086C3B6 /* Assets.xcassets */; };
 		CC34F90F2139638B0086C3B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC34F90D2139638B0086C3B6 /* LaunchScreen.storyboard */; };
@@ -22,6 +22,9 @@
 		CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED921469C490076DCAB /* NewsMainScreenPresenter.m */; };
 		CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEDD21469E560076DCAB /* NewsMainScreenInteractor.m */; };
 		CEA8BEE52146A1210076DCAB /* NewsMainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */; };
+		CEAAB60E215511520044E9A7 /* AFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB60D215511520044E9A7 /* AFAppDelegate.m */; };
+		CEAAB611215518230044E9A7 /* AFApplicationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB610215518230044E9A7 /* AFApplicationAssembly.m */; };
+		CEAAB618215528C00044E9A7 /* AFCalculatorAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB617215528C00044E9A7 /* AFCalculatorAssembly.m */; };
 		CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */; };
 		CEB9B8592147C482006EED75 /* CalculatorScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8582147C482006EED75 /* CalculatorScreenViewController.m */; };
 		CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B85B2147C4CA006EED75 /* CalculatorScreenInteractor.m */; };
@@ -46,12 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		345CE7B04895B3CFB1D0E4BC /* libPods-NewsFeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NewsFeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F4EF0C5DA88803F25DBF67F /* Pods-AppsFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFeed.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppsFeed/Pods-AppsFeed.debug.xcconfig"; sourceTree = "<group>"; };
+		85B3CBC0C14DC12FE0C6717F /* Pods-AppsFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppsFeed.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppsFeed/Pods-AppsFeed.release.xcconfig"; sourceTree = "<group>"; };
+		A5CE6ED83DA545871571F79A /* libPods-AppsFeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppsFeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2AFD3B214031A500E92019 /* urlPList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = urlPList.plist; sourceTree = "<group>"; };
-		CC34F8FF2139638A0086C3B6 /* NewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC34F9022139638A0086C3B6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		CC34F9032139638A0086C3B6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		CC34F9052139638A0086C3B6 /* FirstScreenView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstScreenView.h; sourceTree = "<group>"; };
-		CC34F9062139638A0086C3B6 /* FirstScreenView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstScreenView.m; sourceTree = "<group>"; };
+		CC34F8FF2139638A0086C3B6 /* AppsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC34F9052139638A0086C3B6 /* AFRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFRootViewController.h; sourceTree = "<group>"; };
+		CC34F9062139638A0086C3B6 /* AFRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFRootViewController.m; sourceTree = "<group>"; };
 		CC34F9092139638A0086C3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC34F90B2139638B0086C3B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC34F90E2139638B0086C3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +82,12 @@
 		CEA8BEE121469F4D0076DCAB /* NewsMainScreenViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenViewProtocol.h; sourceTree = "<group>"; };
 		CEA8BEE32146A1210076DCAB /* NewsMainScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenRouter.h; sourceTree = "<group>"; };
 		CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenRouter.m; sourceTree = "<group>"; };
+		CEAAB60C215511520044E9A7 /* AFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFAppDelegate.h; sourceTree = "<group>"; };
+		CEAAB60D215511520044E9A7 /* AFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFAppDelegate.m; sourceTree = "<group>"; };
+		CEAAB60F215518230044E9A7 /* AFApplicationAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFApplicationAssembly.h; sourceTree = "<group>"; };
+		CEAAB610215518230044E9A7 /* AFApplicationAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFApplicationAssembly.m; sourceTree = "<group>"; };
+		CEAAB616215528C00044E9A7 /* AFCalculatorAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCalculatorAssembly.h; sourceTree = "<group>"; };
+		CEAAB617215528C00044E9A7 /* AFCalculatorAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFCalculatorAssembly.m; sourceTree = "<group>"; };
 		CEB9B84A2147AD85006EED75 /* CurrentNewsViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsViewControllerProtocol.h; sourceTree = "<group>"; };
 		CEB9B8512147C0B5006EED75 /* CalculatorScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenRouter.h; sourceTree = "<group>"; };
 		CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorScreenRouter.m; sourceTree = "<group>"; };
@@ -101,14 +112,14 @@
 		CEB9B893214BF9F5006EED75 /* CalculatorConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorConfigurator.h; sourceTree = "<group>"; };
 		CEB9B894214BF9F5006EED75 /* CalculatorConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorConfigurator.m; sourceTree = "<group>"; };
 		CEC57876214FCCB900214105 /* NewsMainScreenRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenRouterProtocol.h; sourceTree = "<group>"; };
-		CECCEAC621465CE30042D660 /* CurrentNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresenter.h; path = "NewsFeed/Current News Module/Present/CurrentNewsPresenter.h"; sourceTree = SOURCE_ROOT; };
-		CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsPresenter.m; path = "NewsFeed/Current News Module/Present/CurrentNewsPresenter.m"; sourceTree = SOURCE_ROOT; };
-		CECCEAC921465E810042D660 /* CurrentNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsViewController.m; path = "NewsFeed/Current News Module/View/CurrentNewsViewController.m"; sourceTree = SOURCE_ROOT; };
-		CECCEACA21465E820042D660 /* CurrentNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentNewsViewController.h; path = "NewsFeed/Current News Module/View/CurrentNewsViewController.h"; sourceTree = SOURCE_ROOT; };
-		CECCEACC2146624C0042D660 /* CurrentNewsPresentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresentProtocol.h; path = "NewsFeed/Current News Module/Present/CurrentNewsPresentProtocol.h"; sourceTree = SOURCE_ROOT; };
-		CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractor.h; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteractor.h"; sourceTree = SOURCE_ROOT; };
-		CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsInteractor.m; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteractor.m"; sourceTree = SOURCE_ROOT; };
-		CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractProtocol.h; path = "NewsFeed/Current News Module/Interactor/CurrentNewsInteractProtocol.h"; sourceTree = SOURCE_ROOT; };
+		CECCEAC621465CE30042D660 /* CurrentNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresenter.h; path = "AppsFeed/Current News Module/Present/CurrentNewsPresenter.h"; sourceTree = SOURCE_ROOT; };
+		CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsPresenter.m; path = "AppsFeed/Current News Module/Present/CurrentNewsPresenter.m"; sourceTree = SOURCE_ROOT; };
+		CECCEAC921465E810042D660 /* CurrentNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsViewController.m; path = "AppsFeed/Current News Module/View/CurrentNewsViewController.m"; sourceTree = SOURCE_ROOT; };
+		CECCEACA21465E820042D660 /* CurrentNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurrentNewsViewController.h; path = "AppsFeed/Current News Module/View/CurrentNewsViewController.h"; sourceTree = SOURCE_ROOT; };
+		CECCEACC2146624C0042D660 /* CurrentNewsPresentProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresentProtocol.h; path = "AppsFeed/Current News Module/Present/CurrentNewsPresentProtocol.h"; sourceTree = SOURCE_ROOT; };
+		CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractor.h; path = "AppsFeed/Current News Module/Interactor/CurrentNewsInteractor.h"; sourceTree = SOURCE_ROOT; };
+		CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsInteractor.m; path = "AppsFeed/Current News Module/Interactor/CurrentNewsInteractor.m"; sourceTree = SOURCE_ROOT; };
+		CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractProtocol.h; path = "AppsFeed/Current News Module/Interactor/CurrentNewsInteractProtocol.h"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +127,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A10AC51C6A0A57385E4AB4E1 /* libPods-AppsFeed.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,47 +141,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08F1CB8E238FE368AAC03320 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4F4EF0C5DA88803F25DBF67F /* Pods-AppsFeed.debug.xcconfig */,
+				85B3CBC0C14DC12FE0C6717F /* Pods-AppsFeed.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		72EAF383E9882BDFDC2FDE8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				345CE7B04895B3CFB1D0E4BC /* libPods-NewsFeed.a */,
+				A5CE6ED83DA545871571F79A /* libPods-AppsFeed.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CC34F8F62139638A0086C3B6 = {
 			isa = PBXGroup;
 			children = (
-				CC34F9012139638A0086C3B6 /* NewsFeed */,
+				CC34F9012139638A0086C3B6 /* AppsFeed */,
 				CC34F9002139638A0086C3B6 /* Products */,
+				08F1CB8E238FE368AAC03320 /* Pods */,
+				72EAF383E9882BDFDC2FDE8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		CC34F9002139638A0086C3B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC34F8FF2139638A0086C3B6 /* NewsFeed.app */,
+				CC34F8FF2139638A0086C3B6 /* AppsFeed.app */,
 				CEB9B87C21495920006EED75 /* CalculatorUiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CC34F9012139638A0086C3B6 /* NewsFeed */ = {
+		CC34F9012139638A0086C3B6 /* AppsFeed */ = {
 			isa = PBXGroup;
 			children = (
 				CEA8BECC214675230076DCAB /* First Screen Module */,
 				CEB9B84B2147BDEC006EED75 /* Calculator Module */,
 				CEA8BECB2146737D0076DCAB /* News Module */,
 				CECCEAC521465CAB0042D660 /* Current News Module */,
-				CC34F9022139638A0086C3B6 /* AppDelegate.h */,
-				CC34F9032139638A0086C3B6 /* AppDelegate.m */,
 				CC34F9082139638A0086C3B6 /* Main.storyboard */,
 				CC34F90B2139638B0086C3B6 /* Assets.xcassets */,
 				CC34F90D2139638B0086C3B6 /* LaunchScreen.storyboard */,
 				CC34F9102139638B0086C3B6 /* Info.plist */,
+				CEAAB612215518280044E9A7 /* Assembly */,
 				CC2AFD3B214031A500E92019 /* urlPList.plist */,
 				CC34F9112139638B0086C3B6 /* main.m */,
+				CEAAB60C215511520044E9A7 /* AFAppDelegate.h */,
+				CEAAB60D215511520044E9A7 /* AFAppDelegate.m */,
 			);
-			path = NewsFeed;
+			path = AppsFeed;
 			sourceTree = "<group>";
 		};
 		CC34F92B213977580086C3B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC34F9052139638A0086C3B6 /* FirstScreenView.h */,
-				CC34F9062139638A0086C3B6 /* FirstScreenView.m */,
+				CC34F9052139638A0086C3B6 /* AFRootViewController.h */,
+				CC34F9062139638A0086C3B6 /* AFRootViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +329,17 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		CEAAB612215518280044E9A7 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAB60F215518230044E9A7 /* AFApplicationAssembly.h */,
+				CEAAB610215518230044E9A7 /* AFApplicationAssembly.m */,
+				CEAAB616215528C00044E9A7 /* AFCalculatorAssembly.h */,
+				CEAAB617215528C00044E9A7 /* AFCalculatorAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		CEB9B84B2147BDEC006EED75 /* Calculator Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -401,10 +445,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CC34F8FE2139638A0086C3B6 /* NewsFeed */ = {
+		CC34F8FE2139638A0086C3B6 /* AppsFeed */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC34F9152139638B0086C3B6 /* Build configuration list for PBXNativeTarget "NewsFeed" */;
+			buildConfigurationList = CC34F9152139638B0086C3B6 /* Build configuration list for PBXNativeTarget "AppsFeed" */;
 			buildPhases = (
+				F457F4F89FA3DA3FA2451A67 /* [CP] Check Pods Manifest.lock */,
 				CC34F8FB2139638A0086C3B6 /* Sources */,
 				CC34F8FC2139638A0086C3B6 /* Frameworks */,
 				CC34F8FD2139638A0086C3B6 /* Resources */,
@@ -413,9 +458,9 @@
 			);
 			dependencies = (
 			);
-			name = NewsFeed;
+			name = AppsFeed;
 			productName = NewsFeed;
-			productReference = CC34F8FF2139638A0086C3B6 /* NewsFeed.app */;
+			productReference = CC34F8FF2139638A0086C3B6 /* AppsFeed.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CEB9B87B21495920006EED75 /* CalculatorUiTests */ = {
@@ -454,7 +499,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CC34F8FA2139638A0086C3B6 /* Build configuration list for PBXProject "NewsFeed" */;
+			buildConfigurationList = CC34F8FA2139638A0086C3B6 /* Build configuration list for PBXProject "AppsFeed" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -467,7 +512,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC34F8FE2139638A0086C3B6 /* NewsFeed */,
+				CC34F8FE2139638A0086C3B6 /* AppsFeed */,
 				CEB9B87B21495920006EED75 /* CalculatorUiTests */,
 			);
 		};
@@ -495,22 +540,44 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F457F4F89FA3DA3FA2451A67 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AppsFeed-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CC34F8FB2139638A0086C3B6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC34F9072139638A0086C3B6 /* FirstScreenView.m in Sources */,
+				CC34F9072139638A0086C3B6 /* AFRootViewController.m in Sources */,
 				CC34F9122139638B0086C3B6 /* main.m in Sources */,
-				CC34F9042139638A0086C3B6 /* AppDelegate.m in Sources */,
 				CEB9B891214BF7B5006EED75 /* CurrentNewsConfigurator.m in Sources */,
 				CEA8BEE52146A1210076DCAB /* NewsMainScreenRouter.m in Sources */,
 				CECCEACB21465E820042D660 /* CurrentNewsViewController.m in Sources */,
 				CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */,
+				CEAAB60E215511520044E9A7 /* AFAppDelegate.m in Sources */,
 				CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */,
 				CEB9B895214BF9F5006EED75 /* CalculatorConfigurator.m in Sources */,
 				CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */,
 				CEB9B88D214BE019006EED75 /* NewsMainScreenConfigurator.m in Sources */,
+				CEAAB611215518230044E9A7 /* AFApplicationAssembly.m in Sources */,
 				CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */,
 				CEB9B8592147C482006EED75 /* CalculatorScreenViewController.m in Sources */,
 				CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */,
@@ -518,6 +585,7 @@
 				CEB9B85F2147C501006EED75 /* CalculatorScreenPresenter.m in Sources */,
 				CEA8BECA214673780076DCAB /* NewsMainScreenViewController.m in Sources */,
 				CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */,
+				CEAAB618215528C00044E9A7 /* AFCalculatorAssembly.m in Sources */,
 				CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */,
 				CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */,
 				CC34F937213D5C760086C3B6 /* NewsComponents.m in Sources */,
@@ -536,7 +604,7 @@
 /* Begin PBXTargetDependency section */
 		CEB9B88221495920006EED75 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CC34F8FE2139638A0086C3B6 /* NewsFeed */;
+			target = CC34F8FE2139638A0086C3B6 /* AppsFeed */;
 			targetProxy = CEB9B88121495920006EED75 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -673,17 +741,18 @@
 		};
 		CC34F9162139638B0086C3B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F4EF0C5DA88803F25DBF67F /* Pods-AppsFeed.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KN2R38R4DZ;
-				INFOPLIST_FILE = NewsFeed/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AppsFeed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.overcot.NewsFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overcot.AppsFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -691,17 +760,18 @@
 		};
 		CC34F9172139638B0086C3B6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85B3CBC0C14DC12FE0C6717F /* Pods-AppsFeed.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KN2R38R4DZ;
-				INFOPLIST_FILE = NewsFeed/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AppsFeed/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.overcot.NewsFeed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.overcot.AppsFeed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -748,7 +818,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CC34F8FA2139638A0086C3B6 /* Build configuration list for PBXProject "NewsFeed" */ = {
+		CC34F8FA2139638A0086C3B6 /* Build configuration list for PBXProject "AppsFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC34F9132139638B0086C3B6 /* Debug */,
@@ -757,7 +827,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC34F9152139638B0086C3B6 /* Build configuration list for PBXNativeTarget "NewsFeed" */ = {
+		CC34F9152139638B0086C3B6 /* Build configuration list for PBXNativeTarget "AppsFeed" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC34F9162139638B0086C3B6 /* Debug */,
