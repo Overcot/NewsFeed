@@ -14,7 +14,7 @@
         <!--Root View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="AFRootViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -57,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="978" y="134"/>
         </scene>
-        <!--View Controller-->
+        <!--Calculator Screen View Controller-->
         <scene sceneID="gMq-f1-us7">
             <objects>
                 <viewController storyboardIdentifier="CalculatorScreenViewController" id="94J-te-fL6" customClass="CalculatorScreenViewController" sceneMemberID="viewController">
@@ -412,15 +412,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TmY-At-ff7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="SzV-I4-oaS" customClass="CalculatorScreenConfigurator">
-                    <connections>
-                        <outlet property="viewController" destination="94J-te-fL6" id="B6i-cf-ipt"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="1988" y="504.19790104947532"/>
         </scene>
-        <!--View Controller-->
+        <!--News Main Screen View Controller-->
         <scene sceneID="7lp-ps-ghK">
             <objects>
                 <viewController storyboardIdentifier="NewsMainScreenViewController" id="WY4-6l-ytQ" customClass="NewsMainScreenViewController" sceneMemberID="viewController">
@@ -454,15 +449,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ScN-7S-zUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="VQx-3q-yhz" customClass="NewsMainScreenConfigurator">
-                    <connections>
-                        <outlet property="viewController" destination="WY4-6l-ytQ" id="EGu-l7-0xO"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="1983" y="-260"/>
         </scene>
-        <!--View Controller-->
+        <!--Current News View Controller-->
         <scene sceneID="XoB-Fo-eTE">
             <objects>
                 <viewController storyboardIdentifier="CurrentNewsViewController" id="xU3-aS-zza" customClass="CurrentNewsViewController" sceneMemberID="viewController">
@@ -515,11 +505,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fx-kZ-6a8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="KGQ-BJ-4LG" userLabel="Current News Configurator" customClass="CurrentNewsConfigurator">
-                    <connections>
-                        <outlet property="viewController" destination="xU3-aS-zza" id="5ec-UH-WT4"/>
-                    </connections>
-                </customObject>
             </objects>
             <point key="canvasLocation" x="2889" y="-260"/>
         </scene>

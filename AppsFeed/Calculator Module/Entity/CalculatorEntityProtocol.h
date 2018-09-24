@@ -10,22 +10,20 @@
 #import "CalculatorTypes.h"
 @protocol CalculatorEntityProtocol <NSObject>
 
-- (double) getFirstValue;
-- (double) getSecondValue;
-- (void) setFirstValue:(double) value;
-- (void) setSecondValue:(double) value;
+- (double)getFirstValue;
+- (void)setFirstValue:(double)value;
+- (double)getSecondValue;
+- (void)setSecondValue:(double)value;
+- (BOOL)getTypingFirst;
+- (BOOL)getTypingSecond;
+- (void)setTypingFirst:(BOOL)state;
+- (void)setTypingSecond:(BOOL)state;
+- (BOOL)getTypingFloat;
+- (void)setTypingFloat:(BOOL)state;
+- (int)getAmountOfNumbersAfterDot;
+- (void)setAmountOfNumbersAfterDot:(int)number;
+- (void)setOperation:(Operation)operation;
 
-- (BOOL) getTypingFirst;
-- (BOOL) getTypingSecond;
-- (void) setTypingFirst:(BOOL) state;
-- (void) setTypingSecond:(BOOL) state;
-- (BOOL) getTypingFloat;
-- (void) setTypingFloat:(BOOL) state;
-- (int) getAmountOfNumbersAfterDot;
-- (void) setAmountOfNumbersAfterDot:(int)number;
-
-- (void) setOperation:(Operation) operation;
-
-- (void) countValues;
+- (void)countValues;
 
 @end

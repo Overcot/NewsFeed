@@ -9,12 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "TyphoonAssembly.h"
 
-#import "CurrentNewsViewController.h"
-#import "CurrentNewsPresenter.h"
-#import "CurrentNewsInteractor.h"
-#import "CurrentNewsRouter.h"
+@class CurrentNewsViewController;
+@class CurrentNewsPresenter;
+@class CurrentNewsInteractor;
+@class CurrentNewsRouter;
 
-@interface AFCurrentNewsModuleAssembly : TyphoonAssembly 
+@interface CurrentNewsModuleAssembly : TyphoonAssembly 
 
 - (CurrentNewsViewController *)currentNewsViewController;
 - (CurrentNewsPresenter *)currentNewsPresenter;

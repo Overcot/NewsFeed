@@ -6,8 +6,6 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#ifndef CurrentNewsRouterProtocol_h
-#define CurrentNewsRouterProtocol_h
+@protocol CurrentNewsRouterProtocol <NSObject>
 
-
-#endif /* CurrentNewsRouterProtocol_h */
+@end

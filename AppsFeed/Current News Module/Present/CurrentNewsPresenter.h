@@ -7,18 +7,24 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "CurrentNewsPresentProtocol.h"
-#import "NewsModelProtocol.h"
-#import "CurrentNewsInteractProtocol.h"
 
+#import "CurrentNewsViewControllerProtocol.h"
+#import "CurrentNewsInteractProtocol.h"
+#import "CurrentNewsRouterProtocol.h"
+#import "CurrentNewsPresentProtocol.h"
+
+@protocol CurrentNewsPresentProtocol;
 @protocol CurrentNewsViewControllerProtocol;
 @protocol CurrentNewsInteractProtocol;
+@protocol CurrentNewsRouterProtocol;
 
 @interface CurrentNewsPresenter : NSObject <CurrentNewsPresentProtocol>
+
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
 @property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
+@property (nonatomic, strong) id<CurrentNewsRouterProtocol> router;
 
-- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath;
+- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath;
+- (void)addNews:(id<NewsModelProtocol>)news;
 
 @end

@@ -44,7 +44,7 @@ static NSString *const storyBoardName = @"Main";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self.presenter.router showFromViewControllerWithObject:self
+    [self.presenter showFromViewControllerWithObject:self
                                                            :[self.presenter getNewsAtIndex:(int)indexPath.row]];
 }
 

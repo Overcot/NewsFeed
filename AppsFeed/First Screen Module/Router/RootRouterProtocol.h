@@ -6,9 +6,13 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-@protocol AFRootRouterProtocol <NSObject>
 
-- (void)showCalculator;
-- (void)showNews;
+@class UIViewController;
+@protocol RootViewControllerProtocol;
+
+@protocol RootRouterProtocol <NSObject>
+
+- (void)showCalculator:(UIViewController<RootViewControllerProtocol> *)fromViewController;
+- (void)showNews:(UIViewController<RootViewControllerProtocol> *)fromViewController;
 
 @end

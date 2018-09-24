@@ -6,31 +6,28 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "AFFirstScreenModuleAssembly.h"
+#import "RootModuleAssembly.h"
+#import "RootViewController.h"
+#import "RootPresenter.h"
+#import "RootRouter.h"
 
-#import "AFRootViewController.h"
-#import "AFRootPresenter.h"
-#import "AFRootRouter.h"
+@implementation RootModuleAssembly
 
-@implementation AFFirstScreenModuleAssembly
-
-- (AFRootViewController *)rootViewController {
-    return [TyphoonDefinition withClass:[AFRootViewController class] configuration:^(TyphoonDefinition *definition) {
+- (RootViewController *)rootViewController {
+    return [TyphoonDefinition withClass:[RootViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(presenter) with:[self rootPresenter]];
     }];
 }
 
-- (AFRootPresenter *)rootPresenter {
-    return [TyphoonDefinition withClass:[AFRootPresenter class] configuration:^(TyphoonDefinition *definition) {
+- (RootPresenter *)rootPresenter {
+    return [TyphoonDefinition withClass:[RootPresenter class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(view) with:[self rootViewController]];
         [definition injectProperty:@selector(router) with:[self rootRouter]];
     }];
 }
 
-- (AFRootRouter *)rootRouter {
-    return [TyphoonDefinition withClass:[AFRootRouter class] configuration:^(TyphoonDefinition *definition) {
-        [definition injectProperty:@selector(transitionHandler) with:[self rootViewController]];
-    }];
+- (RootRouter *)rootRouter {
+    return [TyphoonDefinition withClass:[RootRouter class]];
 }
 
 @end

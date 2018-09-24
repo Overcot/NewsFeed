@@ -6,7 +6,7 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-@protocol AFRootPresenterProtocol <NSObject>
+@protocol RootPresenterProtocol <NSObject>
 
 - (void)showCalculator;
 - (void)showNews;

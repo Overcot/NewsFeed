@@ -6,18 +6,21 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "CurrentNewsInteractProtocol.h"
-#import "CurrentNewsViewControllerProtocol.h"
 #import "CurrentNewsCellDataSource.h"
+
+@protocol CurrentNewsCellDataSource;
 @protocol CurrentNewsInteractProtocol;
 @protocol CurrentNewsViewControllerProtocol;
+@protocol CurrentNewsRouterProtocol;
 
 @protocol CurrentNewsPresentProtocol <UITableViewDataSource, CurrentNewsCellDataSource>
+
 @property (nonatomic, strong) id<CurrentNewsInteractProtocol> interactor;
 @property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
+@property (nonatomic, strong) id<CurrentNewsRouterProtocol> router;
 
-- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath;
+- (void)addNews:(id<NewsModelProtocol>)news;
+
 
 @end

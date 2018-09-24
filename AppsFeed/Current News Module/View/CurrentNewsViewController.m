@@ -9,11 +9,14 @@
 #import "CurrentNewsViewController.h"
 
 @interface CurrentNewsViewController ()
+
 @property (nonatomic, weak) IBOutlet UITableView *newsTableView;
 
 @end
 
+
 @implementation CurrentNewsViewController
+
 @synthesize newsTableView = _newsTableView;
 @synthesize presenter = _presenter;
 
@@ -25,12 +28,17 @@
     self.newsTableView.delegate = self;
     
     [self.newsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - <CurrentNewsViewControllerProtocol>
+
+- (void)addNews:(id<NewsModelProtocol>)news {
+    [self.presenter addNews:news];
 }
 
 #pragma mark - <UITableViewDelegate>
@@ -51,11 +59,10 @@
     return cell;
 }
 
-- (NSInteger) tableView:(UITableView *)tableView
+- (NSInteger)tableView:(UITableView *)tableView
   numberOfRowsInSection:(NSInteger)section {
     return [self.presenter tableView:tableView numberOfRowsInSection:section];
 }
-
 
 
 @end

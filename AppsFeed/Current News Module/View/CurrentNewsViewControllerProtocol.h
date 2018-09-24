@@ -6,12 +6,13 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "CurrentNewsPresentProtocol.h"
-
 @protocol CurrentNewsPresentProtocol;
+@protocol NewsModelProtocol;
 
-@protocol CurrentNewsViewControllerProtocol
+@protocol CurrentNewsViewControllerProtocol <NSObject>
+
 @property (nonatomic, strong) id<CurrentNewsPresentProtocol> presenter;
+
+- (void)addNews:(id<NewsModelProtocol>)news;
 
 @end

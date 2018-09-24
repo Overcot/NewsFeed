@@ -6,14 +6,15 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "NewsModelProtocol.h"
-#import "CurrentNewsPresentProtocol.h"
+#import <UIKit/UIKit.h>
 #import "CurrentNewsCellDataSource.h"
-@protocol CurrentNewsPresentProtocol;
+
+@protocol NewsModelProtocol;
+@protocol CurrentNewsCellDataSource;
 
 @protocol CurrentNewsInteractProtocol <UITableViewDataSource, CurrentNewsCellDataSource>
 @property (nonatomic, strong) id<NewsModelProtocol> news;
-@property (nonatomic, weak) id<CurrentNewsPresentProtocol> presenter;
+
+- (void)addNews:(id<NewsModelProtocol>)news;
 
 @end

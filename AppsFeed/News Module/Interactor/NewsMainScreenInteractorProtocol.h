@@ -6,17 +6,12 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-#import "NewsMainScreenPresenterProtocol.h"
-#import "NewsModelProtocol.h"
-@protocol NewsMainScreenPresenterProtocol;
+@protocol NewsModelProtocol;
 
 @protocol NewsMainScreenInteractorProtocol <UITableViewDataSource>
-@property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 
-- (id <NewsModelProtocol>) getNewsAtIndex:(NSInteger)index;
-- (NSUInteger) getNewsCount;
-- (void) refreshNews;
+- (id <NewsModelProtocol>)getNewsAtIndex:(NSInteger)index;
+- (NSUInteger)getNewsCount;
+- (void)refreshNews;
 
 @end

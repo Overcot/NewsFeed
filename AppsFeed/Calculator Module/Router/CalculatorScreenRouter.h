@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CalculatorScreenRouterProtocol.h"
 
-@interface CalculatorScreenRouter : NSObject
+@interface CalculatorScreenRouter : NSObject <CalculatorScreenRouterProtocol>
 
 @end

@@ -26,5 +26,7 @@
 - (void) errorDownloading;
 - (void) refreshNews;
 - (void) viewFinishedLoading;
+- (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
+                                        :(id<NewsModelProtocol>)object;
 
 @end

@@ -9,13 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "CalculatorScreenInteractorProtocol.h"
 #import "CalculatorScreenViewProtocol.h"
+#import "CalculatorScreenRouterProtocol.h"
 #import "CalculatorTypes.h"
+
 @protocol CalculatorScreenInteractorProtocol;
 @protocol CalculatorScreenViewProtocol;
+@protocol CalculatorScreenRouterProtocol;
 
 @protocol CalculatorScreenPresenterProtocol <NSObject>
 @property (nonatomic, weak) id<CalculatorScreenViewProtocol> view;
 @property (nonatomic, strong) id<CalculatorScreenInteractorProtocol> interactor;
+@property (nonatomic, strong) id<CalculatorScreenRouterProtocol> router;
+
 
 - (void) viewFinishedLoading;
 - (void) presentValue:(double)value;

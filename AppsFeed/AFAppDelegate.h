@@ -7,11 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AFRootViewController.h"
+#import "RootViewController.h"
+#import <CoreData/CoreData.h>
 
 @interface AFAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property(nonatomic, strong) UIWindow *window;
-@property(nonatomic, strong) AFRootViewController *rootViewController;
+@property(nonatomic, strong) RootViewController *rootViewController;
+@property(nonatomic, strong, readonly) NSPersistentContainer *persistentContainer;
+
+- (void)saveContext;
 
 @end

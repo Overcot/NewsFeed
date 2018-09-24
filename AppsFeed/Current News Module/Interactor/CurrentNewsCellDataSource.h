@@ -8,6 +8,6 @@
 
 @protocol CurrentNewsCellDataSource
 
-- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath;
+- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath;
 
 @end

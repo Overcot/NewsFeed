@@ -9,7 +9,7 @@
 #import "CurrentNewsPresenter.h"
 
 @implementation CurrentNewsPresenter
-static NSString *const emptyString = @"";
+
 @synthesize interactor = _interactor;
 @synthesize view = _view;
 
@@ -23,9 +23,16 @@ static NSString *const emptyString = @"";
     return [self.interactor tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
-#pragma mark - <CurrentNewsPresentProtocol>
-- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - <CurrentNewsCellDataSource>
+
+- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath {
     return [self.interactor getCellDataForIndexPath:indexPath];
+}
+
+#pragma mark - <CurrentNewsPresentProtocol>
+
+- (void)addNews:(id<NewsModelProtocol>)news {
+    [self.interactor addNews:news];
 }
 
 @end

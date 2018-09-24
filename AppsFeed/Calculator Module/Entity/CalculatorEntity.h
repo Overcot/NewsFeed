@@ -11,7 +11,6 @@
 @interface CalculatorEntity : NSObject <CalculatorEntityProtocol>
 @property (nonatomic, assign) double firstValue;
 @property (nonatomic, assign) double secondValue;
-
 @property (nonatomic, assign) BOOL typingFirst;
 @property (nonatomic, assign) BOOL typingSecond;
 @property (nonatomic, assign) BOOL typingFloat;

@@ -13,6 +13,7 @@ static NSString *const emptyString = @"";
 
 @synthesize view = _view;
 @synthesize interactor = _interactor;
+@synthesize router = _router;
 
 #pragma mark - <NewsMainScreenPresenterProtocol>
 
@@ -22,11 +23,11 @@ static NSString *const emptyString = @"";
 
 #pragma mark - <NewsMainScreenViewProtocol>
 
-- (void) didFinishDownload {
+- (void)didFinishDownload {
     [self.view reloadData];
 }
 
-- (void) errorDownloading{
+- (void)errorDownloading{
     [self.view showError];
 }
 
@@ -38,7 +39,10 @@ static NSString *const emptyString = @"";
     [self.interactor refreshNews];
 }
 
-
+- (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
+                                        :(id<NewsModelProtocol>)object {
+    [self.router showFromViewControllerWithObject:fromViewController:object];
+}
 
 #pragma mark - <UITableViewDataSource>
 

@@ -11,7 +11,6 @@
 @implementation CalculatorEntity
 @synthesize firstValue = _firstValue;
 @synthesize secondValue = _secondValue;
-
 @synthesize operation = _operation;
 @synthesize typingFirst = _typingFirst;
 @synthesize typingSecond = _typingSecond;

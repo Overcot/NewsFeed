@@ -18,15 +18,14 @@
 @protocol NewsMainScreenRouterProtocol;
 
 @protocol NewsMainScreenPresenterProtocol <NSObject, UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, weak) id<NewsMainScreenViewProtocol> view;
-@property (nonatomic, strong) id<NewsMainScreenInteractorProtocol> interactor;
-@property (nonatomic, strong) id<NewsMainScreenRouterProtocol> router;
 
-- (id<NewsModelProtocol>) getNewsAtIndex:(int)index;
+- (id<NewsModelProtocol>)getNewsAtIndex:(int)index;
 
-- (void) didFinishDownload;
-- (void) errorDownloading;
-- (void) refreshNews;
-- (void) viewFinishedLoading;
+- (void)didFinishDownload;
+- (void)errorDownloading;
+- (void)refreshNews;
+- (void)viewFinishedLoading;
 
+- (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
+                                        :(id<NewsModelProtocol>)object;
 @end

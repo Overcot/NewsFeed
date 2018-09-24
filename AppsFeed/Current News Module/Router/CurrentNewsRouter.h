@@ -6,7 +6,8 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import "CurrentNewsRouterProtocol.h"
 
-@interface CurrentNewsRouter : NSObject
+@interface CurrentNewsRouter : NSObject <CurrentNewsRouterProtocol>
 
 @end

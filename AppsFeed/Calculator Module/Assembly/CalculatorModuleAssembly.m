@@ -6,9 +6,13 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "AFCalculatorModuleAssembly.h"
+#import "CalculatorModuleAssembly.h"
+#import "CalculatorScreenViewController.h"
+#import "CalculatorScreenPresenter.h"
+#import "CalculatorScreenInteractor.h"
+#import "CalculatorScreenRouter.h"
 
-@implementation AFCalculatorModuleAssembly
+@implementation CalculatorModuleAssembly
 
 - (CalculatorScreenViewController *)calculatorViewController {
     return [TyphoonDefinition withClass:[CalculatorScreenViewController class] configuration:^(TyphoonDefinition *definition) {
@@ -31,8 +35,7 @@
 }
 
 - (CalculatorScreenRouter *)calculatorRouter {
-    return [TyphoonDefinition withClass:[CalculatorScreenRouter class] configuration:^(TyphoonDefinition *definition) {
-    }];
+    return [TyphoonDefinition withClass:[CalculatorScreenRouter class]];
 }
 
 

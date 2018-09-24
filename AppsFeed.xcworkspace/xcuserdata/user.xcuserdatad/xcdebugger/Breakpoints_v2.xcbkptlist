@@ -9,28 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppsFeed/Assembly/AFCalculatorAssembly.m"
-            timestampString = "559236223.257744"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-calculatorScreenViewController"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AppsFeed/First Screen Module/View/AFRootViewController.m"
-            timestampString = "559236223.257847"
+            timestampString = "559475110.688834"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-openCalculatorScreenView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppsFeed/Calculator Module/View/CalculatorScreenViewController.m"
-            timestampString = "559236223.257921"
+            timestampString = "559236538.677049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -57,28 +41,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppsFeed/Assembly/AFApplicationAssembly.m"
-            timestampString = "559236223.257973"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "AFApplicationAssembly"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AppsFeed/First Screen Module/View/AFRootViewController.m"
-            timestampString = "559236223.2583489"
+            timestampString = "559475110.68898"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-openCalculatorScreenView:"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppsFeed/Assembly/AFApplicationAssembly.m"
-            timestampString = "559236223.258406"
+            timestampString = "559473144.6810189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "-rootViewController"
             landmarkType = "7">
             <Locations>
@@ -106,11 +74,11 @@
                   moduleName = "AppsFeed"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFApplicationAssembly.m"
-                  timestampString = "559233526.57933"
+                  timestampString = "559471785.695847"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
@@ -121,29 +89,77 @@
                   moduleName = "AppsFeed"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFApplicationAssembly.m"
-                  timestampString = "559233526.58103"
+                  timestampString = "559471785.6982861"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
                   offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.41"
+                  symbolName = "__destroy_helper_block_"
                   moduleName = "AppsFeed"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFApplicationAssembly.m"
-                  timestampString = "559233526.582742"
+                  timestampString = "559471785.7016129"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppsFeed/main.m"
+            timestampString = "559468208.830458"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "main"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppsFeed/News Module/Interactor/NewsMainScreenInteractor.m"
+            timestampString = "559496452.557335"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-downloadNewsFromString:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppsFeed/News Module/Interactor/NewsMainScreenInteractor.m"
+            timestampString = "559496452.557773"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-downloadNewsFromString:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -152,13 +168,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppsFeed/First Screen Module/View/AFRootViewController.m"
-            timestampString = "559236223.2586401"
+            filePath = "AppsFeed/AFAppDelegate.m"
+            timestampString = "559493549.364553"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-initWithAssembly:"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "-persistentContainer"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppsFeed/AFAppDelegate.m"
+            timestampString = "559493549.364593"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-saveContext"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -168,46 +200,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppsFeed/Assembly/AFApplicationAssembly.m"
-            timestampString = "559236223.258695"
+            filePath = "AppsFeed/News Module/Interactor/NewsMainScreenInteractor.m"
+            timestampString = "559496452.558049"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "AFApplicationAssembly"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AFApplicationAssembly calculatorViewController]"
-                  moduleName = "AppsFeed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFApplicationAssembly.m"
-                  timestampString = "559234018.472405"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__49-[AFApplicationAssembly calculatorViewController]_block_invoke"
-                  moduleName = "AppsFeed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFApplicationAssembly.m"
-                  timestampString = "559234018.4742351"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-downloadNewsFromString:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -216,46 +216,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppsFeed/Assembly/AFCalculatorAssembly.m"
-            timestampString = "559236223.258921"
+            filePath = "AppsFeed/News Module/Interactor/NewsMainScreenInteractor.m"
+            timestampString = "559496452.558277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "-calculatorScreenViewController"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-downloadNewsFromString:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[AFCalculatorAssembly calculatorScreenViewController]"
-                  moduleName = "AppsFeed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFCalculatorAssembly.m"
-                  timestampString = "559235842.715588"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__54-[AFCalculatorAssembly calculatorScreenViewController]_block_invoke"
-                  moduleName = "AppsFeed"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user/Documents/Projects/AppsFeed/AppsFeed/Assembly/AFCalculatorAssembly.m"
-                  timestampString = "559235842.718675"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

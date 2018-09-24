@@ -6,8 +6,6 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#ifndef CalculatorScreenRouterProtocol_h
-#define CalculatorScreenRouterProtocol_h
+@protocol CalculatorScreenRouterProtocol <NSObject>
 
-
-#endif /* CalculatorScreenRouterProtocol_h */
+@end

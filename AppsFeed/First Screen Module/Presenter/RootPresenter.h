@@ -8,13 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import "RootPresenterProtocol.h"
-#import "RootRouterProtocol.h"
 #import "RootViewControllerProtocol.h"
+#import "RootRouterProtocol.h"
 
-@interface AFRootPresenter : NSObject <RootPresenterProtocol>
+@protocol RootRouterProtocol;
+@protocol RootViewControllerProtocol;
+
+@interface RootPresenter : NSObject <RootPresenterProtocol>
+
 @property (nonatomic, strong) id<RootRouterProtocol> router;
-@property (nonatomic, weak) id<RootViewControllerProtocol> view;
+@property (nonatomic, weak) UIViewController<RootViewControllerProtocol>* view;
 
 - (void)showCalculator;
 - (void)showNews;
+
 @end

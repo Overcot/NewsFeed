@@ -6,15 +6,20 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import "AFNewsModuleAssembly.h"
+#import "NewsModuleAssembly.h"
+#import "NewsMainScreenViewController.h"
+#import "NewsMainScreenPresenter.h"
+#import "NewsMainScreenInteractor.h"
+#import "NewsMainScreenRouter.h"
 
-@implementation AFNewsModuleAssembly
+@implementation NewsModuleAssembly
 
 - (NewsMainScreenViewController *)newsMainScreenViewController {
     return [TyphoonDefinition withClass:[NewsMainScreenViewController class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(presenter) with:[self newsMainScreenPresenter]];
     }];
 }
+
 - (NewsMainScreenPresenter *)newsMainScreenPresenter {
     return [TyphoonDefinition withClass:[NewsMainScreenPresenter class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(view) with:[self newsMainScreenViewController]];

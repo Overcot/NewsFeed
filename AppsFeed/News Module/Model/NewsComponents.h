@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "NewsModelProtocol.h"
+#import <CoreData/CoreData.h>
 
-@interface NewsComponents : NSObject <NewsModelProtocol>
+@interface NewsComponents : NSManagedObject <NewsModelProtocol>
 @property (nonatomic, strong) NSString *date;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *descr;

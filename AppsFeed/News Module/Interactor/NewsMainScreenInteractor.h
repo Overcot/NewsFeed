@@ -6,20 +6,20 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "NewsMainScreenInteractorProtocol.h"
-#import "NewsMainScreenConfigurator.h"
-#import "NewsComponents.h"
+#import "NewsMainScreenPresenterProtocol.h"
+#import "NewsModelProtocol.h"
 
 @interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol>
-@property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 
-- (id <NewsModelProtocol>) getNewsAtIndex:(NSInteger)index;
-- (NSUInteger) getNewsCount;
-- (void) refreshNews;
+- (id <NewsModelProtocol>)getNewsAtIndex:(NSInteger)index;
+- (NSUInteger)getNewsCount;
+- (void)refreshNews;
 
-- (void) getUrlString;
-- (void) downloadNewsFromString:(NSString *)urlString;
-- (NSString *) convertDate:(NSString*)dateString;
+- (void)getUrlString;
+- (void)downloadNewsFromString:(NSString *)urlString;
+- (NSString *)convertDate:(NSString*)dateString;
 
 @end

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A10AC51C6A0A57385E4AB4E1 /* libPods-AppsFeed.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5CE6ED83DA545871571F79A /* libPods-AppsFeed.a */; };
 		CC2AFD3C214031A500E92019 /* urlPList.plist in Resources */ = {isa = PBXBuildFile; fileRef = CC2AFD3B214031A500E92019 /* urlPList.plist */; };
-		CC34F9072139638A0086C3B6 /* AFRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F9062139638A0086C3B6 /* AFRootViewController.m */; };
+		CC34F9072139638A0086C3B6 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F9062139638A0086C3B6 /* RootViewController.m */; };
 		CC34F90A2139638A0086C3B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC34F9082139638A0086C3B6 /* Main.storyboard */; };
 		CC34F90C2139638B0086C3B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC34F90B2139638B0086C3B6 /* Assets.xcassets */; };
 		CC34F90F2139638B0086C3B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC34F90D2139638B0086C3B6 /* LaunchScreen.storyboard */; };
@@ -23,16 +23,18 @@
 		CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEDD21469E560076DCAB /* NewsMainScreenInteractor.m */; };
 		CEA8BEE52146A1210076DCAB /* NewsMainScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */; };
 		CEAAB60E215511520044E9A7 /* AFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB60D215511520044E9A7 /* AFAppDelegate.m */; };
-		CEAAB611215518230044E9A7 /* AFApplicationAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB610215518230044E9A7 /* AFApplicationAssembly.m */; };
-		CEAAB618215528C00044E9A7 /* AFCalculatorAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB617215528C00044E9A7 /* AFCalculatorAssembly.m */; };
+		CEAAB611215518230044E9A7 /* RootModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB610215518230044E9A7 /* RootModuleAssembly.m */; };
+		CEAAB618215528C00044E9A7 /* CalculatorModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB617215528C00044E9A7 /* CalculatorModuleAssembly.m */; };
+		CEAAB63D2158D5C50044E9A7 /* RootPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB63C2158D5C50044E9A7 /* RootPresenter.m */; };
+		CEAAB6422158D5FE0044E9A7 /* RootRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB6412158D5FE0044E9A7 /* RootRouter.m */; };
+		CEAAB6492158E4060044E9A7 /* NewsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB6482158E4060044E9A7 /* NewsModuleAssembly.m */; };
+		CEAAB64D2158E7B20044E9A7 /* CurrentNewsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEAAB64C2158E7B20044E9A7 /* CurrentNewsModuleAssembly.m */; };
+		CEB457AE215925980001C812 /* NewsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEB457AC215925980001C812 /* NewsData.xcdatamodeld */; };
 		CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */; };
 		CEB9B8592147C482006EED75 /* CalculatorScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8582147C482006EED75 /* CalculatorScreenViewController.m */; };
 		CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B85B2147C4CA006EED75 /* CalculatorScreenInteractor.m */; };
 		CEB9B85F2147C501006EED75 /* CalculatorScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B85E2147C501006EED75 /* CalculatorScreenPresenter.m */; };
 		CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B8612147DABE006EED75 /* CalculatorEntity.m */; };
-		CEB9B88D214BE019006EED75 /* NewsMainScreenConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B88C214BE019006EED75 /* NewsMainScreenConfigurator.m */; };
-		CEB9B891214BF7B5006EED75 /* CurrentNewsConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B890214BF7B5006EED75 /* CurrentNewsConfigurator.m */; };
-		CEB9B895214BF9F5006EED75 /* CalculatorConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB9B894214BF9F5006EED75 /* CalculatorConfigurator.m */; };
 		CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */; };
 		CECCEACB21465E820042D660 /* CurrentNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEAC921465E810042D660 /* CurrentNewsViewController.m */; };
 		CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */; };
@@ -55,8 +57,8 @@
 		A5CE6ED83DA545871571F79A /* libPods-AppsFeed.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppsFeed.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2AFD3B214031A500E92019 /* urlPList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = urlPList.plist; sourceTree = "<group>"; };
 		CC34F8FF2139638A0086C3B6 /* AppsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC34F9052139638A0086C3B6 /* AFRootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFRootViewController.h; sourceTree = "<group>"; };
-		CC34F9062139638A0086C3B6 /* AFRootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFRootViewController.m; sourceTree = "<group>"; };
+		CC34F9052139638A0086C3B6 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		CC34F9062139638A0086C3B6 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		CC34F9092139638A0086C3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CC34F90B2139638B0086C3B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC34F90E2139638B0086C3B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -84,10 +86,24 @@
 		CEA8BEE42146A1210076DCAB /* NewsMainScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenRouter.m; sourceTree = "<group>"; };
 		CEAAB60C215511520044E9A7 /* AFAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFAppDelegate.h; sourceTree = "<group>"; };
 		CEAAB60D215511520044E9A7 /* AFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFAppDelegate.m; sourceTree = "<group>"; };
-		CEAAB60F215518230044E9A7 /* AFApplicationAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFApplicationAssembly.h; sourceTree = "<group>"; };
-		CEAAB610215518230044E9A7 /* AFApplicationAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFApplicationAssembly.m; sourceTree = "<group>"; };
-		CEAAB616215528C00044E9A7 /* AFCalculatorAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFCalculatorAssembly.h; sourceTree = "<group>"; };
-		CEAAB617215528C00044E9A7 /* AFCalculatorAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFCalculatorAssembly.m; sourceTree = "<group>"; };
+		CEAAB60F215518230044E9A7 /* RootModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootModuleAssembly.h; sourceTree = "<group>"; };
+		CEAAB610215518230044E9A7 /* RootModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootModuleAssembly.m; sourceTree = "<group>"; };
+		CEAAB616215528C00044E9A7 /* CalculatorModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorModuleAssembly.h; sourceTree = "<group>"; };
+		CEAAB617215528C00044E9A7 /* CalculatorModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorModuleAssembly.m; sourceTree = "<group>"; };
+		CEAAB63B2158D5C50044E9A7 /* RootPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RootPresenter.h; path = "AppsFeed/First Screen Module/Presenter/RootPresenter.h"; sourceTree = SOURCE_ROOT; };
+		CEAAB63C2158D5C50044E9A7 /* RootPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RootPresenter.m; path = "AppsFeed/First Screen Module/Presenter/RootPresenter.m"; sourceTree = SOURCE_ROOT; };
+		CEAAB6402158D5FE0044E9A7 /* RootRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootRouter.h; sourceTree = "<group>"; };
+		CEAAB6412158D5FE0044E9A7 /* RootRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootRouter.m; sourceTree = "<group>"; };
+		CEAAB6432158DA9C0044E9A7 /* RootPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RootPresenterProtocol.h; path = "AppsFeed/First Screen Module/Presenter/RootPresenterProtocol.h"; sourceTree = SOURCE_ROOT; };
+		CEAAB6442158DB600044E9A7 /* RootRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootRouterProtocol.h; sourceTree = "<group>"; };
+		CEAAB6452158DD5D0044E9A7 /* RootViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewControllerProtocol.h; sourceTree = "<group>"; };
+		CEAAB6462158E0F50044E9A7 /* CalculatorScreenRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenRouterProtocol.h; sourceTree = "<group>"; };
+		CEAAB6472158E4060044E9A7 /* NewsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsModuleAssembly.h; sourceTree = "<group>"; };
+		CEAAB6482158E4060044E9A7 /* NewsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsModuleAssembly.m; sourceTree = "<group>"; };
+		CEAAB64B2158E7B20044E9A7 /* CurrentNewsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsModuleAssembly.h; sourceTree = "<group>"; };
+		CEAAB64C2158E7B20044E9A7 /* CurrentNewsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentNewsModuleAssembly.m; sourceTree = "<group>"; };
+		CEAAB64E2158E9420044E9A7 /* CurrentNewsRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsRouterProtocol.h; sourceTree = "<group>"; };
+		CEB457AD215925980001C812 /* NewsData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsData.xcdatamodel; sourceTree = "<group>"; };
 		CEB9B84A2147AD85006EED75 /* CurrentNewsViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsViewControllerProtocol.h; sourceTree = "<group>"; };
 		CEB9B8512147C0B5006EED75 /* CalculatorScreenRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorScreenRouter.h; sourceTree = "<group>"; };
 		CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorScreenRouter.m; sourceTree = "<group>"; };
@@ -105,12 +121,6 @@
 		CEB9B8632147DACB006EED75 /* CalculatorEntityProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorEntityProtocol.h; sourceTree = "<group>"; };
 		CEB9B8642147F37D006EED75 /* CalculatorTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTypes.h; sourceTree = "<group>"; };
 		CEB9B87C21495920006EED75 /* CalculatorUiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEB9B88B214BE019006EED75 /* NewsMainScreenConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenConfigurator.h; sourceTree = "<group>"; };
-		CEB9B88C214BE019006EED75 /* NewsMainScreenConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenConfigurator.m; sourceTree = "<group>"; };
-		CEB9B88F214BF7B5006EED75 /* CurrentNewsConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsConfigurator.h; sourceTree = "<group>"; };
-		CEB9B890214BF7B5006EED75 /* CurrentNewsConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentNewsConfigurator.m; sourceTree = "<group>"; };
-		CEB9B893214BF9F5006EED75 /* CalculatorConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorConfigurator.h; sourceTree = "<group>"; };
-		CEB9B894214BF9F5006EED75 /* CalculatorConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorConfigurator.m; sourceTree = "<group>"; };
 		CEC57876214FCCB900214105 /* NewsMainScreenRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenRouterProtocol.h; sourceTree = "<group>"; };
 		CECCEAC621465CE30042D660 /* CurrentNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsPresenter.h; path = "AppsFeed/Current News Module/Present/CurrentNewsPresenter.h"; sourceTree = SOURCE_ROOT; };
 		CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsPresenter.m; path = "AppsFeed/Current News Module/Present/CurrentNewsPresenter.m"; sourceTree = SOURCE_ROOT; };
@@ -189,7 +199,6 @@
 				CC34F90B2139638B0086C3B6 /* Assets.xcassets */,
 				CC34F90D2139638B0086C3B6 /* LaunchScreen.storyboard */,
 				CC34F9102139638B0086C3B6 /* Info.plist */,
-				CEAAB612215518280044E9A7 /* Assembly */,
 				CC2AFD3B214031A500E92019 /* urlPList.plist */,
 				CC34F9112139638B0086C3B6 /* main.m */,
 				CEAAB60C215511520044E9A7 /* AFAppDelegate.h */,
@@ -201,8 +210,9 @@
 		CC34F92B213977580086C3B6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CC34F9052139638A0086C3B6 /* AFRootViewController.h */,
-				CC34F9062139638A0086C3B6 /* AFRootViewController.m */,
+				CEAAB6452158DD5D0044E9A7 /* RootViewControllerProtocol.h */,
+				CC34F9052139638A0086C3B6 /* RootViewController.h */,
+				CC34F9062139638A0086C3B6 /* RootViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +233,7 @@
 				CC34F92E21397A150086C3B6 /* NewsModelProtocol.h */,
 				CC34F935213D5C760086C3B6 /* NewsComponents.h */,
 				CC34F936213D5C760086C3B6 /* NewsComponents.m */,
+				CEB457AC215925980001C812 /* NewsData.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,7 +241,7 @@
 		CEA8BECB2146737D0076DCAB /* News Module */ = {
 			isa = PBXGroup;
 			children = (
-				CEB9B88A214BE005006EED75 /* Configurator */,
+				CEAAB6512158EDB70044E9A7 /* Assembly */,
 				CEA8BEE22146A1100076DCAB /* Router */,
 				CEA8BEDB21469E370076DCAB /* Interactor */,
 				CEA8BED721469C240076DCAB /* Present */,
@@ -243,6 +254,9 @@
 		CEA8BECC214675230076DCAB /* First Screen Module */ = {
 			isa = PBXGroup;
 			children = (
+				CEAAB64F2158ED950044E9A7 /* Assembly */,
+				CEAAB63F2158D5E00044E9A7 /* Router */,
+				CEAAB63E2158D5CF0044E9A7 /* Presenter */,
 				CC34F92B213977580086C3B6 /* View */,
 			);
 			path = "First Screen Module";
@@ -293,6 +307,7 @@
 		CEA8BED221468A710076DCAB /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				CEAAB64E2158E9420044E9A7 /* CurrentNewsRouterProtocol.h */,
 				CEA8BED321468A830076DCAB /* CurrentNewsRouter.h */,
 				CEA8BED421468A830076DCAB /* CurrentNewsRouter.m */,
 			);
@@ -329,13 +344,58 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		CEAAB612215518280044E9A7 /* Assembly */ = {
+		CEAAB63E2158D5CF0044E9A7 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				CEAAB60F215518230044E9A7 /* AFApplicationAssembly.h */,
-				CEAAB610215518230044E9A7 /* AFApplicationAssembly.m */,
-				CEAAB616215528C00044E9A7 /* AFCalculatorAssembly.h */,
-				CEAAB617215528C00044E9A7 /* AFCalculatorAssembly.m */,
+				CEAAB6432158DA9C0044E9A7 /* RootPresenterProtocol.h */,
+				CEAAB63B2158D5C50044E9A7 /* RootPresenter.h */,
+				CEAAB63C2158D5C50044E9A7 /* RootPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CEAAB63F2158D5E00044E9A7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAB6442158DB600044E9A7 /* RootRouterProtocol.h */,
+				CEAAB6402158D5FE0044E9A7 /* RootRouter.h */,
+				CEAAB6412158D5FE0044E9A7 /* RootRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CEAAB64F2158ED950044E9A7 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAB60F215518230044E9A7 /* RootModuleAssembly.h */,
+				CEAAB610215518230044E9A7 /* RootModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CEAAB6502158EDA50044E9A7 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAB616215528C00044E9A7 /* CalculatorModuleAssembly.h */,
+				CEAAB617215528C00044E9A7 /* CalculatorModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CEAAB6512158EDB70044E9A7 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAB6472158E4060044E9A7 /* NewsModuleAssembly.h */,
+				CEAAB6482158E4060044E9A7 /* NewsModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CEAAB6522158EDC80044E9A7 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CEAAB64B2158E7B20044E9A7 /* CurrentNewsModuleAssembly.h */,
+				CEAAB64C2158E7B20044E9A7 /* CurrentNewsModuleAssembly.m */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -343,7 +403,7 @@
 		CEB9B84B2147BDEC006EED75 /* Calculator Module */ = {
 			isa = PBXGroup;
 			children = (
-				CEB9B892214BF9DF006EED75 /* Configurator */,
+				CEAAB6502158EDA50044E9A7 /* Assembly */,
 				CEB9B84D2147BE47006EED75 /* Router */,
 				CEB9B84E2147BE58006EED75 /* Interactor */,
 				CEB9B84F2147BE5F006EED75 /* Present */,
@@ -366,6 +426,7 @@
 		CEB9B84D2147BE47006EED75 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				CEAAB6462158E0F50044E9A7 /* CalculatorScreenRouterProtocol.h */,
 				CEB9B8512147C0B5006EED75 /* CalculatorScreenRouter.h */,
 				CEB9B8522147C0B5006EED75 /* CalculatorScreenRouter.m */,
 			);
@@ -403,37 +464,10 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
-		CEB9B88A214BE005006EED75 /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				CEB9B88B214BE019006EED75 /* NewsMainScreenConfigurator.h */,
-				CEB9B88C214BE019006EED75 /* NewsMainScreenConfigurator.m */,
-			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
-		CEB9B88E214BF78B006EED75 /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				CEB9B88F214BF7B5006EED75 /* CurrentNewsConfigurator.h */,
-				CEB9B890214BF7B5006EED75 /* CurrentNewsConfigurator.m */,
-			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
-		CEB9B892214BF9DF006EED75 /* Configurator */ = {
-			isa = PBXGroup;
-			children = (
-				CEB9B893214BF9F5006EED75 /* CalculatorConfigurator.h */,
-				CEB9B894214BF9F5006EED75 /* CalculatorConfigurator.m */,
-			);
-			path = Configurator;
-			sourceTree = "<group>";
-		};
 		CECCEAC521465CAB0042D660 /* Current News Module */ = {
 			isa = PBXGroup;
 			children = (
-				CEB9B88E214BF78B006EED75 /* Configurator */,
+				CEAAB6522158EDC80044E9A7 /* Assembly */,
 				CEA8BED221468A710076DCAB /* Router */,
 				CEA8BED0214676D70076DCAB /* Interactor */,
 				CEA8BECF214676B20076DCAB /* Present */,
@@ -566,26 +600,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC34F9072139638A0086C3B6 /* AFRootViewController.m in Sources */,
+				CC34F9072139638A0086C3B6 /* RootViewController.m in Sources */,
 				CC34F9122139638B0086C3B6 /* main.m in Sources */,
-				CEB9B891214BF7B5006EED75 /* CurrentNewsConfigurator.m in Sources */,
 				CEA8BEE52146A1210076DCAB /* NewsMainScreenRouter.m in Sources */,
 				CECCEACB21465E820042D660 /* CurrentNewsViewController.m in Sources */,
 				CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */,
 				CEAAB60E215511520044E9A7 /* AFAppDelegate.m in Sources */,
+				CEAAB63D2158D5C50044E9A7 /* RootPresenter.m in Sources */,
 				CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */,
-				CEB9B895214BF9F5006EED75 /* CalculatorConfigurator.m in Sources */,
+				CEAAB6492158E4060044E9A7 /* NewsModuleAssembly.m in Sources */,
 				CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */,
-				CEB9B88D214BE019006EED75 /* NewsMainScreenConfigurator.m in Sources */,
-				CEAAB611215518230044E9A7 /* AFApplicationAssembly.m in Sources */,
+				CEB457AE215925980001C812 /* NewsData.xcdatamodeld in Sources */,
+				CEAAB6422158D5FE0044E9A7 /* RootRouter.m in Sources */,
+				CEAAB611215518230044E9A7 /* RootModuleAssembly.m in Sources */,
 				CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */,
 				CEB9B8592147C482006EED75 /* CalculatorScreenViewController.m in Sources */,
+				CEAAB64D2158E7B20044E9A7 /* CurrentNewsModuleAssembly.m in Sources */,
 				CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */,
 				CC34F92121396B180086C3B6 /* NewsPreviewCell.m in Sources */,
 				CEB9B85F2147C501006EED75 /* CalculatorScreenPresenter.m in Sources */,
 				CEA8BECA214673780076DCAB /* NewsMainScreenViewController.m in Sources */,
 				CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */,
-				CEAAB618215528C00044E9A7 /* AFCalculatorAssembly.m in Sources */,
+				CEAAB618215528C00044E9A7 /* CalculatorModuleAssembly.m in Sources */,
 				CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */,
 				CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */,
 				CC34F937213D5C760086C3B6 /* NewsComponents.m in Sources */,
@@ -846,6 +882,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CEB457AC215925980001C812 /* NewsData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CEB457AD215925980001C812 /* NewsData.xcdatamodel */,
+			);
+			currentVersion = CEB457AD215925980001C812 /* NewsData.xcdatamodel */;
+			path = NewsData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CC34F8F72139638A0086C3B6 /* Project object */;
 }

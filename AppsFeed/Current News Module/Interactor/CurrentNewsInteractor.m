@@ -8,6 +8,13 @@
 
 #import "CurrentNewsInteractor.h"
 
+@interface CurrentNewsInteractor ()
+
+@property (nonatomic, weak, readonly) id<CurrentNewsPresentProtocol> presenter;
+
+@end
+
+
 @implementation CurrentNewsInteractor
 
 static NSString *const emptyString = @"";
@@ -21,13 +28,14 @@ static int const amountOfCells = 3;
     return amountOfCells;
 }
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     return nil;
 }
 
 #pragma mark - <CurrentNewsCellDataSource>
 
-- (NSString *) getCellDataForIndexPath:(NSIndexPath *)indexPath {
+- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
             return (![self.news.date isKindOfClass:[NSNull class]]) ? self.news.date : emptyString;
@@ -42,6 +50,12 @@ static int const amountOfCells = 3;
             return emptyString;
             break;
     }
+}
+
+#pragma mark - <CurrentNewsInteractProtocol>
+
+- (void)addNews:(id<NewsModelProtocol>)news {
+    self.news = news;
 }
 
 @end

@@ -9,6 +9,9 @@
 #import "NewsComponents.h"
 
 @implementation NewsComponents
+
+static NSString *const emptyString = @"";
+
 @synthesize date = _date;
 @synthesize title = _title;
 @synthesize descr = _descr;
@@ -18,9 +21,9 @@
                   description:(NSString *)descr {
     self = [super init];
     if (self) {
-        _date = date;
-        _title = title;
-        _descr = descr;
+        _date = (![date isKindOfClass:[NSNull class]]) ? date : emptyString;
+        _title = (![title isKindOfClass:[NSNull class]]) ? title : emptyString;
+        _descr = (![descr isKindOfClass:[NSNull class]]) ? descr : emptyString;
     }
     return self;
 }

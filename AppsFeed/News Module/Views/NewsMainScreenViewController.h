@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NewsMainScreenViewProtocol.h"
-#import "NewsMainScreenConfigurator.h"
-
+#import "NewsPreviewCell.h"
 @interface NewsMainScreenViewController : UIViewController <NewsMainScreenViewProtocol>
 
 @property (nonatomic, strong) id <NewsMainScreenPresenterProtocol> presenter;

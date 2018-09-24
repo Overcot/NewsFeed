@@ -11,6 +11,7 @@
 @interface CalculatorScreenPresenter : NSObject <CalculatorScreenPresenterProtocol>
 @property (nonatomic, weak) id<CalculatorScreenViewProtocol> view;
 @property (nonatomic, strong) id<CalculatorScreenInteractorProtocol> interactor;
+@property (nonatomic, strong) id<CalculatorScreenRouterProtocol> router;
 
 - (void) viewFinishedLoading;
 - (void) presentValue:(double)value;
