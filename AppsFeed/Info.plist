@@ -4,7 +4,10 @@
 <dict>
 	<key>TyphoonInitialAssemblies</key>
 	<array>
-		<string>AFApplicationAssembly</string>
+		<string>RootModuleAssembly</string>
+		<string>CalculatorModuleAssembly</string>
+		<string>NewsModuleAssembly</string>
+		<string>CurrentNewsModuleAssembly</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

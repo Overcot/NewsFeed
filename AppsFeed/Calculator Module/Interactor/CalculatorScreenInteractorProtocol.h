@@ -10,6 +10,7 @@
 #import "CalculatorScreenPresenterProtocol.h"
 #import "CalculatorEntityProtocol.h"
 #import "CalculatorTypes.h"
+
 @protocol CalculatorScreenPresenterProtocol;
 @protocol CalculatorEntityProtocol;
 

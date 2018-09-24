@@ -7,15 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NewsMainScreenViewController.h"
-#import "CalculatorScreenViewController.h"
-#import "AFApplicationAssembly.h"
+#import "RootPresenterProtocol.h"
+#import "RootViewControllerProtocol.h"
 
-@class AFCalculatorAssembly;
+@interface RootViewController: UIViewController <RootViewControllerProtocol>
 
-@interface AFRootViewController: UIViewController
-
-@property (nonatomic, strong) AFCalculatorAssembly *assembly;
+@property (nonatomic, strong) id<RootPresenterProtocol> presenter;
 
 - (IBAction)openNewsMainScreenView:(id)sender;
 - (IBAction)openCalculatorScreenView:(id)sender;

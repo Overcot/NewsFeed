@@ -8,11 +8,8 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "NewsMainScreenRouterProtocol.h"
-#import "NewsMainScreenConfigurator.h"
-#import "CurrentNewsViewController.h"
 
 @protocol NewsMainScreenRouterProtocol;
-@class NewsMainScreenViewController;
 
 @interface NewsMainScreenRouter : NSObject <NewsMainScreenRouterProtocol>
 
