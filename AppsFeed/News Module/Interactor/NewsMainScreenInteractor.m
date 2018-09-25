@@ -9,14 +9,15 @@
 #import "NewsMainScreenInteractor.h"
 #import "NewsComponents.h"
 #import <CoreData/CoreData.h>
-
+#import "AFAppDelegate.h"
 @interface NewsMainScreenInteractor ()
 
 @property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 @property (nonatomic, strong) NSString *urlString;
 @property (nonatomic, strong) NSArray <NewsModelProtocol> *newsList;
-@property (nonatomic, strong, readonly) NSPersistentContainer *persistentContainer;
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, weak) AFAppDelegate *appDelegate;
 @end
 
 
@@ -44,14 +45,20 @@ static NSString *const JSONDateProperty = @"publishedAt";
 static NSString *const JSONTitleProperty = @"title";
 static NSString *const JSONDescriptionProperty = @"description";
 
+static NSString *const newsEntityName = @"News";
+static NSString *const dateName = @"date";
+
 @synthesize presenter = _presenter;
 @synthesize newsList = _newsList;
 @synthesize urlString = _urlString;
-@synthesize persistentContainer = _persistentContainer;
+@synthesize appDelegate = _appDelegate;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
         [self getUrlString];
+        self.appDelegate = (AFAppDelegate *)[[UIApplication sharedApplication] delegate];
+        self.managedObjectContext = self.appDelegate.managedObjectContext;
     }
     return self;
 }
@@ -69,6 +76,7 @@ static NSString *const JSONDescriptionProperty = @"description";
 }
 
 - (void)refreshNews {
+    self.newsList = [self getArrayFromContext];
     [self downloadNewsFromString:self.urlString];
 }
 
@@ -94,43 +102,15 @@ static NSString *const JSONDescriptionProperty = @"description";
             NSError *erro = nil;
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&erro];
             if (erro == nil) {
-                NSMutableArray<NewsModelProtocol> *news = [[NSMutableArray<NewsModelProtocol> alloc] init];
-                for (NSDictionary *newsDict in json[JSONArticle]) {
-                    id<NewsModelProtocol> element = [[NewsComponents alloc] initWithDate:[weakSelf convertDate:newsDict[JSONDateProperty]] title:newsDict[JSONTitleProperty] description:newsDict[JSONDescriptionProperty]];
-
-                    [news addObject:element];
-                    
-
-                    
-                    /*
-                    NewsComponents *entity = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:context];*/
-                    /*
-                    [entity setDate:(NSString *)];
-                    [entity setValue:element.date forKey:@"date"];
-                    [entity setValue:element.title forKey:@"title"];
-                    [entity setValue:element.descr forKey:@"descr"];
-                    */
-                    /*
-                    if ([context hasChanges] && ![context save:&error]) {
-                        // Replace this implementation with code to handle the error appropriately.
-                        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                        NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-                        abort();
-                    }*/
-                    
-                    
-                }
-                NSManagedObjectContext *context = self.persistentContainer.viewContext;
-                NSError *error = nil;
-                NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Name"];
-                NSArray *result = [fetchRequest execute:&error];
-                weakSelf.newsList = [news copy];
+                [self clearData];
+                [self addNewData:json];
             } else {
                 [self.presenter errorDownloading];
             }
         } else {
             [self.presenter errorDownloading];
         }
+        weakSelf.newsList = [self getArrayFromContext];
         dispatch_sync(dispatch_get_main_queue(),^{
             [weakSelf.presenter didFinishDownload];
         });
@@ -138,17 +118,45 @@ static NSString *const JSONDescriptionProperty = @"description";
     [data resume];
 }
 
-- (NSString *)convertDate:(NSString*)dateString{
-    // create dateFormatter with UTC time format
+
+- (NSArray<NewsModelProtocol> *)getArrayFromContext {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:dateName ascending:NO];
+
+    [fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+    NSError *error = nil;
+    NSArray<NewsModelProtocol> *fetchedObjects = (NSArray<NewsModelProtocol> *)[self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil) {
+        NSLog(@"error");
+    }
+    return fetchedObjects;
+}
+
+- (void)clearData {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:newsEntityName];
+    NSBatchDeleteRequest *batchDeleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
+    NSError *error = nil;
+    [self.managedObjectContext executeRequest:batchDeleteRequest error:&error];
+}
+
+- (void)addNewData:(NSDictionary *)json {
+    for (NSDictionary *newsDict in json[JSONArticle]) {
+        NewsComponents *item = [NSEntityDescription insertNewObjectForEntityForName:newsEntityName inManagedObjectContext:self.appDelegate.managedObjectContext];
+        item.date = [self convertStringToDate:newsDict[JSONDateProperty]];
+        item.title = (![newsDict[JSONTitleProperty] isKindOfClass:[NSNull class]]) ? newsDict[JSONTitleProperty] : emptyString;
+        item.descr = (![newsDict[JSONDescriptionProperty] isKindOfClass:[NSNull class]]) ? newsDict[JSONDescriptionProperty] : emptyString;
+    }
+    [self.appDelegate saveContext];
+}
+
+- (NSDate *)convertStringToDate:(NSString*)dateString {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:fromAbbreviation]];
     [dateFormatter setDateFormat:dateFromFormat];
-    
     NSDate *date = [dateFormatter dateFromString:dateString]; // create date from string
-    // change to a readable time format and change to local time zone
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:toAbbreviation]];
-    [dateFormatter setDateFormat:dateToFormat];
-    return [dateFormatter stringFromDate:date];
+    return date;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -160,31 +168,4 @@ static NSString *const JSONDescriptionProperty = @"description";
 }
 
 
-- (NSPersistentContainer *)persistentContainer {
-    // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
-    @synchronized (self) {
-        if (_persistentContainer == nil) {
-            _persistentContainer = [[NSPersistentContainer alloc] initWithName:@"NewsData"];
-            [_persistentContainer loadPersistentStoresWithCompletionHandler:^(NSPersistentStoreDescription *storeDescription, NSError *error) {
-                if (error != nil) {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    
-                    /*
-                     Typical reasons for an error here include:
-                     * The parent directory does not exist, cannot be created, or disallows writing.
-                     * The persistent store is not accessible, due to permissions or data protection when the device is locked.
-                     * The device is out of space.
-                     * The store could not be migrated to the current model version.
-                     Check the error message to determine what the actual problem was.
-                     */
-                    NSLog(@"Unresolved error %@, %@", error, error.userInfo);
-                    abort();
-                }
-            }];
-        }
-    }
-    
-    return _persistentContainer;
-}
 @end

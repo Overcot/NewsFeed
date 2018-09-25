@@ -8,15 +8,21 @@
 
 #import "NewsMainScreenRouter.h"
 #import "CurrentNewsViewController.h"
-
+#import "AddNewsViewController.h"
 @implementation NewsMainScreenRouter
 static NSString *const storyBoardName = @"Main";
 
 - (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
                                         :(id<NewsModelProtocol>) object {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
-    UITableViewController<CurrentNewsViewControllerProtocol> * view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CurrentNewsViewController class])];
+    UIViewController<CurrentNewsViewControllerProtocol> * view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CurrentNewsViewController class])];
     [view addNews:object];
+    [fromViewController.navigationController pushViewController:view animated:YES];
+}
+
+- (void)showAddNewsViewController:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController {
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
+    UIViewController<AddNewsViewControllerProtocol> * view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([AddNewsViewController class])];
     [fromViewController.navigationController pushViewController:view animated:YES];
 }
 

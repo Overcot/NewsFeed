@@ -11,6 +11,7 @@
 @interface NewsMainScreenViewController ()
 @property (nonatomic, weak) IBOutlet UITableView *newsTableView;
 @property (nonatomic, strong) IBOutlet UIActivityIndicatorView *activityIndicator;
+- (IBAction)addNews:(UIBarButtonItem *)sender;
 
 @end
 
@@ -19,11 +20,11 @@
 static NSString *const navigationTitle = @"Новости";
 static NSString *const emptyString = @"";
 static NSString *const errorTitle = @"Ошибка";
-static NSString *const errorDescription = @"Ошибка загрузки новостей";
+static NSString *const errorDescription = @"Проверьте соединение с интернетом";
 static NSString *const okButtonTitle = @"Ок";
+static NSString *const refreshButtonTitle = @"Обновить";
 static NSString *const openNewsSegueIdentifier = @"openNewsSegue";
 static NSString *const storyBoardName = @"Main";
-
 @synthesize newsTableView = _newsTableView;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize presenter = _presenter;
@@ -36,6 +37,10 @@ static NSString *const storyBoardName = @"Main";
     self.newsTableView.dataSource = self;
     [self.newsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([NewsPreviewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NewsPreviewCell class])];
     
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
+    self.newsTableView.refreshControl = refreshControl;
+
     [self.presenter viewFinishedLoading];
 
 }
@@ -44,8 +49,7 @@ static NSString *const storyBoardName = @"Main";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self.presenter showFromViewControllerWithObject:self
-                                                           :[self.presenter getNewsAtIndex:(int)indexPath.row]];
+    [self.presenter showFromViewControllerWithObject:self:[self.presenter getNewsAtIndex:(int)indexPath.row]];
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -67,22 +71,34 @@ static NSString *const storyBoardName = @"Main";
 }
 
 #pragma mark - View Methods
-- (void) reloadData {
+- (void)reloadData {
     [self.activityIndicator stopAnimating];
     [self.newsTableView reloadData];
+    [self.newsTableView.refreshControl endRefreshing];
+
 }
 
 - (void) showError {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:errorTitle
                                                                    message:errorDescription
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:okButtonTitle
+    UIAlertAction* refreshAction = [UIAlertAction actionWithTitle:refreshButtonTitle
                                                             style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               [self.presenter refreshNews];
                                                           }];
+    UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:okButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        
+    }];
+    [alert addAction:refreshAction];
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (IBAction)addNews:(UIBarButtonItem *)sender {
+    if (sender.tag == 0) { //default
+        [self.presenter showAddNewsViewController:self];
+    }
 }
 
 @end

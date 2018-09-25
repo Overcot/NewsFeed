@@ -28,4 +28,5 @@
 
 - (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
                                         :(id<NewsModelProtocol>)object;
+- (void)showAddNewsViewController:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController;
 @end

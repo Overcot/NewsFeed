@@ -20,6 +20,9 @@
 static NSString *const emptyString = @"";
 static int const amountOfCells = 3;
 
+static NSString *const dateToFormat = @"HH:mm, dd-MM-yyyy";
+static NSString *const toAbbreviation = @"Moscow";
+
 @synthesize news = _news;
 
 #pragma mark - <UITableViewDataSource>
@@ -38,7 +41,7 @@ static int const amountOfCells = 3;
 - (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath {
     switch (indexPath.row) {
         case 0:
-            return (![self.news.date isKindOfClass:[NSNull class]]) ? self.news.date : emptyString;
+            return (![self.news.date isKindOfClass:[NSNull class]]) ? [self convertDateToString:self.news.date] : emptyString;
             break;
         case 1:
             return (![self.news.title isKindOfClass:[NSNull class]]) ? self.news.title : emptyString;
@@ -58,4 +61,12 @@ static int const amountOfCells = 3;
     self.news = news;
 }
 
+- (NSString *)convertDateToString:(NSDate *)date{
+    // create dateFormatter with UTC time format
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // change to a readable time format and change to local time zone
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:toAbbreviation]];
+    [dateFormatter setDateFormat:dateToFormat];
+    return [dateFormatter stringFromDate:date];
+}
 @end

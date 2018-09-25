@@ -12,9 +12,12 @@
 
 @interface AFAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property(nonatomic, strong) UIWindow *window;
-@property(nonatomic, strong) RootViewController *rootViewController;
-@property(nonatomic, strong, readonly) NSPersistentContainer *persistentContainer;
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) RootViewController *rootViewController;
+
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 - (void)saveContext;
 

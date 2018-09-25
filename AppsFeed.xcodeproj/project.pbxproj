@@ -38,6 +38,8 @@
 		CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEAC721465CE30042D660 /* CurrentNewsPresenter.m */; };
 		CECCEACB21465E820042D660 /* CurrentNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEAC921465E810042D660 /* CurrentNewsViewController.m */; };
 		CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */; };
+		CEEB5265215A8C4D00204811 /* AddNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5264215A8C4D00204811 /* AddNewsViewController.m */; };
+		CEEB5269215A8E3C00204811 /* AddNewsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5268215A8E3C00204811 /* AddNewsModuleAssembly.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +132,11 @@
 		CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractor.h; path = "AppsFeed/Current News Module/Interactor/CurrentNewsInteractor.h"; sourceTree = SOURCE_ROOT; };
 		CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CurrentNewsInteractor.m; path = "AppsFeed/Current News Module/Interactor/CurrentNewsInteractor.m"; sourceTree = SOURCE_ROOT; };
 		CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CurrentNewsInteractProtocol.h; path = "AppsFeed/Current News Module/Interactor/CurrentNewsInteractProtocol.h"; sourceTree = SOURCE_ROOT; };
+		CEEB5263215A8C4D00204811 /* AddNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsViewController.h; sourceTree = "<group>"; };
+		CEEB5264215A8C4D00204811 /* AddNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewsViewController.m; sourceTree = "<group>"; };
+		CEEB5266215A8D4C00204811 /* AddNewsViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsViewControllerProtocol.h; sourceTree = "<group>"; };
+		CEEB5267215A8E3C00204811 /* AddNewsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsModuleAssembly.h; sourceTree = "<group>"; };
+		CEEB5268215A8E3C00204811 /* AddNewsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewsModuleAssembly.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +202,7 @@
 				CEB9B84B2147BDEC006EED75 /* Calculator Module */,
 				CEA8BECB2146737D0076DCAB /* News Module */,
 				CECCEAC521465CAB0042D660 /* Current News Module */,
+				CEEB525D215A8BCA00204811 /* Add News Module */,
 				CC34F9082139638A0086C3B6 /* Main.storyboard */,
 				CC34F90B2139638B0086C3B6 /* Assets.xcassets */,
 				CC34F90D2139638B0086C3B6 /* LaunchScreen.storyboard */,
@@ -476,6 +484,58 @@
 			path = "Current News Module";
 			sourceTree = "<group>";
 		};
+		CEEB525D215A8BCA00204811 /* Add News Module */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB525E215A8BF300204811 /* Assembly */,
+				CEEB525F215A8BFD00204811 /* Router */,
+				CEEB5260215A8C0A00204811 /* Interactor */,
+				CEEB5261215A8C1600204811 /* Present */,
+				CEEB5262215A8C1F00204811 /* View */,
+			);
+			path = "Add News Module";
+			sourceTree = "<group>";
+		};
+		CEEB525E215A8BF300204811 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB5267215A8E3C00204811 /* AddNewsModuleAssembly.h */,
+				CEEB5268215A8E3C00204811 /* AddNewsModuleAssembly.m */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		CEEB525F215A8BFD00204811 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		CEEB5260215A8C0A00204811 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		CEEB5261215A8C1600204811 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		CEEB5262215A8C1F00204811 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB5266215A8D4C00204811 /* AddNewsViewControllerProtocol.h */,
+				CEEB5263215A8C4D00204811 /* AddNewsViewController.h */,
+				CEEB5264215A8C4D00204811 /* AddNewsViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -606,6 +666,7 @@
 				CECCEACB21465E820042D660 /* CurrentNewsViewController.m in Sources */,
 				CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */,
 				CEAAB60E215511520044E9A7 /* AFAppDelegate.m in Sources */,
+				CEEB5269215A8E3C00204811 /* AddNewsModuleAssembly.m in Sources */,
 				CEAAB63D2158D5C50044E9A7 /* RootPresenter.m in Sources */,
 				CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */,
 				CEAAB6492158E4060044E9A7 /* NewsModuleAssembly.m in Sources */,
@@ -619,6 +680,7 @@
 				CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */,
 				CC34F92121396B180086C3B6 /* NewsPreviewCell.m in Sources */,
 				CEB9B85F2147C501006EED75 /* CalculatorScreenPresenter.m in Sources */,
+				CEEB5265215A8C4D00204811 /* AddNewsViewController.m in Sources */,
 				CEA8BECA214673780076DCAB /* NewsMainScreenViewController.m in Sources */,
 				CEB9B85C2147C4CA006EED75 /* CalculatorScreenInteractor.m in Sources */,
 				CEAAB618215528C00044E9A7 /* CalculatorModuleAssembly.m in Sources */,

@@ -43,7 +43,9 @@ static NSString *const emptyString = @"";
                                         :(id<NewsModelProtocol>)object {
     [self.router showFromViewControllerWithObject:fromViewController:object];
 }
-
+- (void)showAddNewsViewController:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController {
+    [self.router showAddNewsViewController:fromViewController];
+}
 #pragma mark - <UITableViewDataSource>
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

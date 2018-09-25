@@ -8,6 +8,7 @@
 		<string>CalculatorModuleAssembly</string>
 		<string>NewsModuleAssembly</string>
 		<string>CurrentNewsModuleAssembly</string>
+		<string>AddNewsModuleAssembly</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

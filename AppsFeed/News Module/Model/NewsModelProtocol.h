@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol NewsModelProtocol <NSObject>
-@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *descr;
 

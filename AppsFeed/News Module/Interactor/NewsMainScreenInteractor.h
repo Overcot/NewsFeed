@@ -20,6 +20,8 @@
 
 - (void)getUrlString;
 - (void)downloadNewsFromString:(NSString *)urlString;
-- (NSString *)convertDate:(NSString*)dateString;
-
+- (NSDate *)convertStringToDate:(NSString*)dateString;
+- (NSArray<NewsModelProtocol> *)getArrayFromContext;
+- (void)clearData;
+- (void)addNewData:(NSDictionary *)json;
 @end

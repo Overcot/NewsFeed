@@ -12,18 +12,18 @@
 
 static NSString *const emptyString = @"";
 
-@synthesize date = _date;
-@synthesize title = _title;
-@synthesize descr = _descr;
+@dynamic date;
+@dynamic title;
+@dynamic descr;
 
-- (instancetype) initWithDate:(NSString *)date
+- (instancetype) initWithDate:(NSDate *)date
                         title:(NSString *)title
                   description:(NSString *)descr {
     self = [super init];
     if (self) {
-        _date = (![date isKindOfClass:[NSNull class]]) ? date : emptyString;
-        _title = (![title isKindOfClass:[NSNull class]]) ? title : emptyString;
-        _descr = (![descr isKindOfClass:[NSNull class]]) ? descr : emptyString;
+        self.date = (![date isKindOfClass:[NSNull class]]) ? date : [NSDate date];
+        self.title = (![title isKindOfClass:[NSNull class]]) ? title : emptyString;
+        self.descr = (![descr isKindOfClass:[NSNull class]]) ? descr : emptyString;
     }
     return self;
 }
