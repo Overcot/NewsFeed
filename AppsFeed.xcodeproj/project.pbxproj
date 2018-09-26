@@ -17,6 +17,7 @@
 		CC34F92121396B180086C3B6 /* NewsPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F92021396B180086C3B6 /* NewsPreviewCell.m */; };
 		CC34F931213D1F0C0086C3B6 /* NewsPreviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CC34F930213D1F0C0086C3B6 /* NewsPreviewCell.xib */; };
 		CC34F937213D5C760086C3B6 /* NewsComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = CC34F936213D5C760086C3B6 /* NewsComponents.m */; };
+		CE6F5F2B215B94CF00DDFC4E /* NewsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F5F2A215B94CF00DDFC4E /* NewsDataSource.m */; };
 		CEA8BECA214673780076DCAB /* NewsMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEC9214673770076DCAB /* NewsMainScreenViewController.m */; };
 		CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED421468A830076DCAB /* CurrentNewsRouter.m */; };
 		CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED921469C490076DCAB /* NewsMainScreenPresenter.m */; };
@@ -40,6 +41,9 @@
 		CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */; };
 		CEEB5265215A8C4D00204811 /* AddNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5264215A8C4D00204811 /* AddNewsViewController.m */; };
 		CEEB5269215A8E3C00204811 /* AddNewsModuleAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5268215A8E3C00204811 /* AddNewsModuleAssembly.m */; };
+		CEEB526C215B745300204811 /* AddNewsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB526B215B745300204811 /* AddNewsPresenter.m */; };
+		CEEB5271215B75A500204811 /* AddNewsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5270215B75A500204811 /* AddNewsInteractor.m */; };
+		CEEB5274215B7DD100204811 /* AddNewsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5273215B7DD100204811 /* AddNewsRouter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +77,9 @@
 		CC34F935213D5C760086C3B6 /* NewsComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsComponents.h; sourceTree = "<group>"; };
 		CC34F936213D5C760086C3B6 /* NewsComponents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsComponents.m; sourceTree = "<group>"; };
 		CE350DD42151237D0094C587 /* CurrentNewsCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsCellDataSource.h; sourceTree = "<group>"; };
+		CE6F5F26215B949400DDFC4E /* NewsDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDataSourceProtocol.h; sourceTree = "<group>"; };
+		CE6F5F29215B94CF00DDFC4E /* NewsDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDataSource.h; sourceTree = "<group>"; };
+		CE6F5F2A215B94CF00DDFC4E /* NewsDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDataSource.m; sourceTree = "<group>"; };
 		CEA8BEC8214673770076DCAB /* NewsMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenViewController.h; sourceTree = "<group>"; };
 		CEA8BEC9214673770076DCAB /* NewsMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenViewController.m; sourceTree = "<group>"; };
 		CEA8BED321468A830076DCAB /* CurrentNewsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsRouter.h; sourceTree = "<group>"; };
@@ -137,6 +144,15 @@
 		CEEB5266215A8D4C00204811 /* AddNewsViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsViewControllerProtocol.h; sourceTree = "<group>"; };
 		CEEB5267215A8E3C00204811 /* AddNewsModuleAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsModuleAssembly.h; sourceTree = "<group>"; };
 		CEEB5268215A8E3C00204811 /* AddNewsModuleAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewsModuleAssembly.m; sourceTree = "<group>"; };
+		CEEB526A215B745300204811 /* AddNewsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsPresenter.h; sourceTree = "<group>"; };
+		CEEB526B215B745300204811 /* AddNewsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewsPresenter.m; sourceTree = "<group>"; };
+		CEEB526D215B747300204811 /* AddNewsPresenterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsPresenterProtocol.h; sourceTree = "<group>"; };
+		CEEB526E215B756800204811 /* AddNewsInteractorProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsInteractorProtocol.h; sourceTree = "<group>"; };
+		CEEB526F215B75A500204811 /* AddNewsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsInteractor.h; sourceTree = "<group>"; };
+		CEEB5270215B75A500204811 /* AddNewsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewsInteractor.m; sourceTree = "<group>"; };
+		CEEB5272215B7DD100204811 /* AddNewsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsRouter.h; sourceTree = "<group>"; };
+		CEEB5273215B7DD100204811 /* AddNewsRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddNewsRouter.m; sourceTree = "<group>"; };
+		CEEB5275215B7DF100204811 /* AddNewsRouterProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddNewsRouterProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				CC34F9012139638A0086C3B6 /* AppsFeed */,
+				CEEB5276215B939500204811 /* Common */,
 				CC34F9002139638A0086C3B6 /* Products */,
 				08F1CB8E238FE368AAC03320 /* Pods */,
 				72EAF383E9882BDFDC2FDE8A /* Frameworks */,
@@ -241,9 +258,19 @@
 				CC34F92E21397A150086C3B6 /* NewsModelProtocol.h */,
 				CC34F935213D5C760086C3B6 /* NewsComponents.h */,
 				CC34F936213D5C760086C3B6 /* NewsComponents.m */,
-				CEB457AC215925980001C812 /* NewsData.xcdatamodeld */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE6F5F25215B940400DDFC4E /* News Data Source */ = {
+			isa = PBXGroup;
+			children = (
+				CEB457AC215925980001C812 /* NewsData.xcdatamodeld */,
+				CE6F5F26215B949400DDFC4E /* NewsDataSourceProtocol.h */,
+				CE6F5F29215B94CF00DDFC4E /* NewsDataSource.h */,
+				CE6F5F2A215B94CF00DDFC4E /* NewsDataSource.m */,
+			);
+			path = "News Data Source";
 			sourceTree = "<group>";
 		};
 		CEA8BECB2146737D0076DCAB /* News Module */ = {
@@ -508,6 +535,9 @@
 		CEEB525F215A8BFD00204811 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB5275215B7DF100204811 /* AddNewsRouterProtocol.h */,
+				CEEB5272215B7DD100204811 /* AddNewsRouter.h */,
+				CEEB5273215B7DD100204811 /* AddNewsRouter.m */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -515,6 +545,9 @@
 		CEEB5260215A8C0A00204811 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB526E215B756800204811 /* AddNewsInteractorProtocol.h */,
+				CEEB526F215B75A500204811 /* AddNewsInteractor.h */,
+				CEEB5270215B75A500204811 /* AddNewsInteractor.m */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -522,6 +555,9 @@
 		CEEB5261215A8C1600204811 /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB526D215B747300204811 /* AddNewsPresenterProtocol.h */,
+				CEEB526A215B745300204811 /* AddNewsPresenter.h */,
+				CEEB526B215B745300204811 /* AddNewsPresenter.m */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -534,6 +570,14 @@
 				CEEB5264215A8C4D00204811 /* AddNewsViewController.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CEEB5276215B939500204811 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F5F25215B940400DDFC4E /* News Data Source */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -667,12 +711,16 @@
 				CECCEAC821465CE30042D660 /* CurrentNewsPresenter.m in Sources */,
 				CEAAB60E215511520044E9A7 /* AFAppDelegate.m in Sources */,
 				CEEB5269215A8E3C00204811 /* AddNewsModuleAssembly.m in Sources */,
+				CEEB5274215B7DD100204811 /* AddNewsRouter.m in Sources */,
 				CEAAB63D2158D5C50044E9A7 /* RootPresenter.m in Sources */,
 				CEA8BEDE21469E560076DCAB /* NewsMainScreenInteractor.m in Sources */,
+				CEEB5271215B75A500204811 /* AddNewsInteractor.m in Sources */,
 				CEAAB6492158E4060044E9A7 /* NewsModuleAssembly.m in Sources */,
 				CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */,
+				CEEB526C215B745300204811 /* AddNewsPresenter.m in Sources */,
 				CEB457AE215925980001C812 /* NewsData.xcdatamodeld in Sources */,
 				CEAAB6422158D5FE0044E9A7 /* RootRouter.m in Sources */,
+				CE6F5F2B215B94CF00DDFC4E /* NewsDataSource.m in Sources */,
 				CEAAB611215518230044E9A7 /* RootModuleAssembly.m in Sources */,
 				CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */,
 				CEB9B8592147C482006EED75 /* CalculatorScreenViewController.m in Sources */,

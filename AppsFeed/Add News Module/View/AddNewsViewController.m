@@ -9,41 +9,35 @@
 #import "AddNewsViewController.h"
 
 @interface AddNewsViewController ()
-@property (nonatomic, weak) IBOutlet UITableView *addNewsTableView;
+- (IBAction)saveNews:(UIBarButtonItem *)sender;
+@property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (weak, nonatomic) IBOutlet UITextField *titleField;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionField;
+
 
 @end
 
 @implementation AddNewsViewController
 
+static NSString *const backButtonTitle = @"Назад";
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.addNewsTableView.delegate = self;
-    self.addNewsTableView.dataSource = self;
-    // Do any additional setup after loading the view.
-    //[self.addNewsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
 
+    // Do any additional setup after loading the view.
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+- (IBAction)saveNews:(UIBarButtonItem *)sender {
+    NSDate *date = [self.datePicker date];
+    NSString *title = [self.titleField text];
+    NSString *descr = [self.descriptionField text];
+    [self.presenter saveNews:date :title :descr];
 }
-
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    [cell setUserInteractionEnabled:NO];
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    return cell;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
-}
-
 
 @end

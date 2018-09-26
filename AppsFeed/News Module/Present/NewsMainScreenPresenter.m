@@ -36,16 +36,20 @@ static NSString *const emptyString = @"";
 }
 
 - (void) viewFinishedLoading {
-    [self.interactor refreshNews];
+    [self.interactor getSavedNews];
 }
+
+#pragma mark - Router
 
 - (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
                                         :(id<NewsModelProtocol>)object {
     [self.router showFromViewControllerWithObject:fromViewController:object];
 }
+
 - (void)showAddNewsViewController:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController {
     [self.router showAddNewsViewController:fromViewController];
 }
+
 #pragma mark - <UITableViewDataSource>
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

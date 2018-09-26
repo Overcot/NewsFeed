@@ -11,7 +11,7 @@
 @protocol NewsMainScreenInteractorProtocol <UITableViewDataSource>
 
 - (id <NewsModelProtocol>)getNewsAtIndex:(NSInteger)index;
-- (NSUInteger)getNewsCount;
 - (void)refreshNews;
+- (void)getSavedNews;
 
 @end

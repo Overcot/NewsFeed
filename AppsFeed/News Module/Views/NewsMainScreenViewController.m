@@ -17,6 +17,7 @@
 
 
 @implementation NewsMainScreenViewController
+
 static NSString *const navigationTitle = @"Новости";
 static NSString *const emptyString = @"";
 static NSString *const errorTitle = @"Ошибка";
@@ -25,12 +26,14 @@ static NSString *const okButtonTitle = @"Ок";
 static NSString *const refreshButtonTitle = @"Обновить";
 static NSString *const openNewsSegueIdentifier = @"openNewsSegue";
 static NSString *const storyBoardName = @"Main";
+
 @synthesize newsTableView = _newsTableView;
 @synthesize activityIndicator = _activityIndicator;
 @synthesize presenter = _presenter;
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    [self.activityIndicator startAnimating];
     
     self.navigationItem.title = navigationTitle;
     self.newsTableView.delegate = self;
@@ -38,11 +41,17 @@ static NSString *const storyBoardName = @"Main";
     [self.newsTableView registerNib:[UINib nibWithNibName:NSStringFromClass([NewsPreviewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([NewsPreviewCell class])];
     
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(reloadData) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(refreshNews) forControlEvents:UIControlEventValueChanged];
     self.newsTableView.refreshControl = refreshControl;
 
-    [self.presenter viewFinishedLoading];
+    //[self.presenter viewFinishedLoading];
 
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.presenter viewFinishedLoading];
 }
 
 #pragma mark - <UITableViewDelegate>
@@ -70,11 +79,16 @@ static NSString *const storyBoardName = @"Main";
     
 }
 
+-(void)refreshNews {
+    [self.presenter refreshNews];
+    [self.newsTableView.refreshControl endRefreshing];
+}
+
+
 #pragma mark - View Methods
 - (void)reloadData {
     [self.activityIndicator stopAnimating];
     [self.newsTableView reloadData];
-    [self.newsTableView.refreshControl endRefreshing];
 
 }
 

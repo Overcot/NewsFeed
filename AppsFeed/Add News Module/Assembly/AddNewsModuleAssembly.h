@@ -9,8 +9,13 @@
 #import "TyphoonAssembly.h"
 
 @class AddNewsViewController;
+@class AddNewsPresenter;
+@class AddNewsInteractor;
+@class AddNewsRouter;
 @interface AddNewsModuleAssembly : TyphoonAssembly
 
 - (AddNewsViewController *)addNewsViewController;
-
+- (AddNewsPresenter *)addNewsPresenter;
+- (AddNewsInteractor *)addNewsInteractor;
+- (AddNewsRouter *)addNewsRouter;
 @end

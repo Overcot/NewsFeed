@@ -415,7 +415,7 @@
             </objects>
             <point key="canvasLocation" x="1988" y="504.19790104947532"/>
         </scene>
-        <!--Add News View Controller-->
+        <!--Title-->
         <scene sceneID="3uv-ET-7Ra">
             <objects>
                 <viewController storyboardIdentifier="AddNewsViewController" id="VzA-zq-8wk" customClass="AddNewsViewController" sceneMemberID="viewController">
@@ -450,7 +450,7 @@
                                     <!--2018-09-25 15:53:32 +0000-->
                                 </date>
                             </datePicker>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yHS-eU-RQo">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yHS-eU-RQo">
                                 <rect key="frame" x="0.0" y="278" width="375" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Wa6-pG-eJ6"/>
@@ -459,8 +459,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9dN-zG-SAY">
-                                <rect key="frame" x="0.0" y="359" width="375" height="308"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9dN-zG-SAY">
+                                <rect key="frame" x="0.0" y="359" width="375" height="264"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -496,15 +496,30 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sxZ-JK-6a8"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="kBV-Fu-WW1">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="xvl-HX-yZD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="VAs-q6-EYD" userLabel="Save Button">
+                            <connections>
+                                <action selector="saveNews:" destination="VzA-zq-8wk" id="xfB-7N-6xB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="datePicker" destination="JcC-Ka-Jua" id="uMz-SJ-sfN"/>
+                        <outlet property="descriptionField" destination="9dN-zG-SAY" id="mEJ-bH-54T"/>
+                        <outlet property="titleField" destination="yHS-eU-RQo" id="28B-90-g2M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="huN-xR-5yO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="-985"/>
+            <point key="canvasLocation" x="1988" y="-982"/>
         </scene>
-        <!--Title-->
+        <!--News Module View Controller Scene-->
         <scene sceneID="7lp-ps-ghK">
             <objects>
-                <viewController storyboardIdentifier="NewsMainScreenViewController" id="WY4-6l-ytQ" customClass="NewsMainScreenViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsMainScreenViewController" id="WY4-6l-ytQ" userLabel="News Module View Controller Scene" customClass="NewsMainScreenViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="THP-ua-zaj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

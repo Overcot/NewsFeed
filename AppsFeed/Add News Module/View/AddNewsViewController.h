@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "AddNewsViewControllerProtocol.h"
-@interface AddNewsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+#import "AddNewsPresenterProtocol.h"
+
+@interface AddNewsViewController : UIViewController <AddNewsViewControllerProtocol>
+
+@property (nonatomic, strong) id<AddNewsPresenterProtocol> presenter;
 
 @end

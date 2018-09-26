@@ -15,13 +15,7 @@
 @interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol>
 
 - (id <NewsModelProtocol>)getNewsAtIndex:(NSInteger)index;
-- (NSUInteger)getNewsCount;
 - (void)refreshNews;
+- (void)getSavedNews;
 
-- (void)getUrlString;
-- (void)downloadNewsFromString:(NSString *)urlString;
-- (NSDate *)convertStringToDate:(NSString*)dateString;
-- (NSArray<NewsModelProtocol> *)getArrayFromContext;
-- (void)clearData;
-- (void)addNewData:(NSDictionary *)json;
 @end

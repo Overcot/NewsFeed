@@ -10,14 +10,15 @@
 #import "NewsComponents.h"
 #import <CoreData/CoreData.h>
 #import "AFAppDelegate.h"
+#import "NewsDataSource.h"
+
 @interface NewsMainScreenInteractor ()
 
+@property (nonatomic, strong) id<NewsDataSourceProtocol> dataSource;
 @property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
-@property (nonatomic, strong) NSString *urlString;
 @property (nonatomic, strong) NSArray <NewsModelProtocol> *newsList;
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, weak) AFAppDelegate *appDelegate;
+
 @end
 
 
@@ -50,121 +51,57 @@ static NSString *const dateName = @"date";
 
 @synthesize presenter = _presenter;
 @synthesize newsList = _newsList;
-@synthesize urlString = _urlString;
-@synthesize appDelegate = _appDelegate;
+@synthesize dataSource = _dataSource;
 
-- (instancetype)init {
+- (instancetype)init
+{
     self = [super init];
     if (self) {
-        [self getUrlString];
-        self.appDelegate = (AFAppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.managedObjectContext = self.appDelegate.managedObjectContext;
+        self.dataSource = [[NewsDataSource alloc] init];
+
+         [[NSNotificationCenter defaultCenter] addObserver:self
+                                                  selector:@selector(updateNews:)
+                                                      name:NSManagedObjectContextDidSaveNotification
+                                                    object:self.dataSource.childObjectContext.parentContext];
     }
     return self;
 }
 
+-(void) updateNews:(NSNotification*)notification {
+    [self getSavedNews];
+}
+
+
 #pragma mark - <NewsMainScreenInteractorProtocol>
 
 - (id<NewsModelProtocol>)getNewsAtIndex:(NSInteger) index {
-    id<NewsModelProtocol> element = self.newsList[index];
-
+    id<NewsModelProtocol> element = [self.dataSource getNewsFromContext][index];
     return element;
 }
 
-- (NSUInteger)getNewsCount {
-    return self.newsList.count;
-}
+
 
 - (void)refreshNews {
-    self.newsList = [self getArrayFromContext];
-    [self downloadNewsFromString:self.urlString];
+    [self.dataSource downloadNewsFromURL];
 }
 
-#pragma mark - Interactor methods
-
-- (void)getUrlString {
-    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:urlAttributesFileName ofType:urlAttributesFileExtension]];
-    
-    NSString *address = [dict objectForKey:pListAddressPropertyName];
-    NSString *countryCode = [dict objectForKey:pListCountryCodePropertyName];
-    NSString *apiKey = [dict objectForKey:pListApiKeyPropertyName];
-    
-    self.urlString = [[NSString alloc] initWithFormat:urlStringFormat, address, countryCode, apiKey];
-}
-
-- (void)downloadNewsFromString:(NSString *)urlString{
-    
-    NSURLSession *session = [NSURLSession sharedSession];
-    __weak typeof(self) weakSelf = self;
-    NSURLSessionDataTask *data = [session dataTaskWithURL:[NSURL URLWithString:urlString] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        if (error == nil && data != nil) {
-            NSError *erro = nil;
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&erro];
-            if (erro == nil) {
-                [self clearData];
-                [self addNewData:json];
-            } else {
-                [self.presenter errorDownloading];
-            }
-        } else {
-            [self.presenter errorDownloading];
-        }
-        weakSelf.newsList = [self getArrayFromContext];
-        dispatch_sync(dispatch_get_main_queue(),^{
-            [weakSelf.presenter didFinishDownload];
-        });
-    }];
-    [data resume];
-}
-
-
-- (NSArray<NewsModelProtocol> *)getArrayFromContext {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
-    [fetchRequest setEntity:entity];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:dateName ascending:NO];
-
-    [fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
-    NSError *error = nil;
-    NSArray<NewsModelProtocol> *fetchedObjects = (NSArray<NewsModelProtocol> *)[self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (fetchedObjects == nil) {
-        NSLog(@"error");
+- (void)getSavedNews {
+    self.newsList = [self.dataSource getNewsFromContext];
+    if ([self.newsList count] == 0) {
+        [self.dataSource downloadNewsFromURL];
     }
-    return fetchedObjects;
+    [self.presenter didFinishDownload];
 }
 
-- (void)clearData {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:newsEntityName];
-    NSBatchDeleteRequest *batchDeleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
-    NSError *error = nil;
-    [self.managedObjectContext executeRequest:batchDeleteRequest error:&error];
-}
+#pragma mark - <UITableViewDataSource>
 
-- (void)addNewData:(NSDictionary *)json {
-    for (NSDictionary *newsDict in json[JSONArticle]) {
-        NewsComponents *item = [NSEntityDescription insertNewObjectForEntityForName:newsEntityName inManagedObjectContext:self.appDelegate.managedObjectContext];
-        item.date = [self convertStringToDate:newsDict[JSONDateProperty]];
-        item.title = (![newsDict[JSONTitleProperty] isKindOfClass:[NSNull class]]) ? newsDict[JSONTitleProperty] : emptyString;
-        item.descr = (![newsDict[JSONDescriptionProperty] isKindOfClass:[NSNull class]]) ? newsDict[JSONDescriptionProperty] : emptyString;
-    }
-    [self.appDelegate saveContext];
-}
-
-- (NSDate *)convertStringToDate:(NSString*)dateString {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:fromAbbreviation]];
-    [dateFormatter setDateFormat:dateFromFormat];
-    NSDate *date = [dateFormatter dateFromString:dateString]; // create date from string
-    return date;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self getNewsCount];
+    return [self.dataSource getNewsCount];
 }
 
 
