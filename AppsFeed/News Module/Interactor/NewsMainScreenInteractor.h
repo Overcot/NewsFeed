@@ -11,8 +11,9 @@
 #import "NewsMainScreenInteractorProtocol.h"
 #import "NewsMainScreenPresenterProtocol.h"
 #import "NewsModelProtocol.h"
+#import "NewsDataObserverProtocol.h"
 
-@interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol>
+@interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol, NewsDataObserverProtocol>
 
 - (id <NewsModelProtocol>)getNewsAtIndex:(NSInteger)index;
 - (void)refreshNews;

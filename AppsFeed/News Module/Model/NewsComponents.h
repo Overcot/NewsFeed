@@ -11,12 +11,9 @@
 #import <CoreData/CoreData.h>
 
 @interface NewsComponents : NSManagedObject <NewsModelProtocol>
+
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *descr;
-
-- (instancetype) initWithDate:(NSDate *) date
-                         title:(NSString *) title
-                   description:(NSString *) descr;
 
 @end

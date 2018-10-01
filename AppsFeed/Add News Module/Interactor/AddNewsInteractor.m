@@ -10,25 +10,21 @@
 #import <CoreData/CoreData.h>
 #import "AFAppDelegate.h"
 #import "NewsComponents.h"
+#import "NewsDataSourceProtocol.h"
+
 @interface AddNewsInteractor ()
-
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, weak) AFAppDelegate *appDelegate;
-
+@property (nonatomic, strong) id<NewsDataSourceProtocol> dataSource;
 @end
 
 
 @implementation AddNewsInteractor
 static NSString *const newsEntityName = @"News";
 
-@synthesize managedObjectContext = _managedObjectContext;
-@synthesize appDelegate = _appDelegate;
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.appDelegate = (AFAppDelegate *)[[UIApplication sharedApplication] delegate];
-        self.managedObjectContext = self.appDelegate.managedObjectContext;
+        [self.dataSource addObserver:self];
     }
     return self;
 }
@@ -36,10 +32,7 @@ static NSString *const newsEntityName = @"News";
                 :(NSString *)title
                 :(NSString *)descr {
     
-    NewsComponents *item = [NSEntityDescription insertNewObjectForEntityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
-    item.date = date;
-    item.title = title;
-    item.descr = descr;
-    [self.appDelegate saveContext];
+    
+    [self.dataSource addObjectToContext:date :title :descr];
 }
 @end

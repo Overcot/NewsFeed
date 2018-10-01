@@ -11,6 +11,13 @@
 #import "NewsMainScreenPresenter.h"
 #import "NewsMainScreenInteractor.h"
 #import "NewsMainScreenRouter.h"
+#import "NewsDataSourceAssembly.h"
+
+@interface NewsModuleAssembly ()
+
+@property (nonatomic, weak) TyphoonAssembly<NewsDataSourceAssembly> *newsDataSourceAssembly;
+
+@end
 
 @implementation NewsModuleAssembly
 
@@ -31,6 +38,8 @@
 - (NewsMainScreenInteractor *)newsMainScreenInteractor {
     return [TyphoonDefinition withClass:[NewsMainScreenInteractor class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(presenter) with:[self newsMainScreenPresenter]];
+        [definition injectProperty:@selector(dataSource) with:[self.newsDataSourceAssembly newsDataSource]];
+
     }];
 }
 

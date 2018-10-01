@@ -10,10 +10,12 @@
 @class NSManagedObjectContext;
 @protocol NewsDataSourceProtocol
 
-@property (nonatomic, strong) NSManagedObjectContext *childObjectContext;
-
+- (void)addObserver:(id)observer;
 - (NSArray<NewsModelProtocol> *)getNewsFromContext;
 - (void)downloadNewsFromURL;
 - (NSUInteger)getNewsCount;
+- (void)addObjectToContext:(NSDate *)date
+                          :(NSString *)title
+                          :(NSString *)descr;
 
 @end

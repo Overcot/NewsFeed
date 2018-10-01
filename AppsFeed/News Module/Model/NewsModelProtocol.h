@@ -6,9 +6,9 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @protocol NewsModelProtocol <NSObject>
+
 @property (nonatomic, strong) NSDate *date;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *descr;

@@ -11,9 +11,14 @@
 #import "NewsModelProtocol.h"
 
 @interface NewsDataSource : NSObject <NewsDataSourceProtocol>
-@property (nonatomic, strong) NSManagedObjectContext *childObjectContext;
+
+- (void)addObserver:(id)observer;
 - (NSArray<NewsModelProtocol> *)getNewsFromContext;
 - (void)downloadNewsFromURL;
 - (NSUInteger)getNewsCount;
+- (void)addObjectToContext:(NSDate *)date
+                          :(NSString *)title
+                          :(NSString *)descr;
+- (void)addDictToContext:(NSDictionary *)newsObject;
 
 @end

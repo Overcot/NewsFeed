@@ -9,6 +9,7 @@
 		<string>NewsModuleAssembly</string>
 		<string>CurrentNewsModuleAssembly</string>
 		<string>AddNewsModuleAssembly</string>
+		<string>NewsDataSourceAssembly</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

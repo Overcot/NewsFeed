@@ -11,6 +11,14 @@
 #import "AddNewsPresenter.h"
 #import "AddNewsInteractor.h"
 #import "AddNewsRouter.h"
+#import "NewsDataSource.h"
+#import "NewsDataSourceAssembly.h"
+@interface AddNewsModuleAssembly ()
+
+@property (nonatomic, weak) NewsDataSourceAssembly *newsDataSourceAssembly;
+
+@end
+
 @implementation AddNewsModuleAssembly
 
 - (AddNewsViewController *)addNewsViewController {
@@ -28,7 +36,7 @@
 
 - (AddNewsInteractor *)addNewsInteractor {
     return [TyphoonDefinition withClass:[AddNewsInteractor class] configuration:^(TyphoonDefinition *definition) {
-        
+        [definition injectProperty:@selector(dataSource) with:[self.newsDataSourceAssembly newsDataSource]];
     }];
 }
 

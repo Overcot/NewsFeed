@@ -6,7 +6,6 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TyphoonAssembly.h"
 
 @class NewsMainScreenViewController;

@@ -15,10 +15,5 @@
 @property (nonatomic, strong) UIWindow *window;
 @property (nonatomic, strong) RootViewController *rootViewController;
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-
-- (void)saveContext;
 
 @end
