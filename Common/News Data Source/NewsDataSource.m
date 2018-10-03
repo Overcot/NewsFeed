@@ -23,7 +23,7 @@
 @property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-
+- (void)getUrlString;
 - (NSDate *)getDate:(NSDictionary *)newsObject;
 - (NSString *)getTitle:(NSDictionary *)newsObject;
 - (NSString *)getDesr:(NSDictionary *)newsObject;
@@ -57,7 +57,7 @@ static NSString *const newsEntityName = @"News";
 static NSString *const dateName = @"date";
 
 static NSString *const newsDataModelName = @"NewsData";
-@synthesize observers = _observers;
+
 
 - (instancetype)init {
     self = [super init];
@@ -68,28 +68,19 @@ static NSString *const newsDataModelName = @"NewsData";
     return self;
 }
 
-- (void)addObserver:(id<NewsDataObserverProtocol>)observer {
-    [self.observers addPointer:(__bridge void * _Nullable)(observer)];
+#pragma mark - Private Utility Methods
+
+- (NSDate *)getDate:(NSDictionary *)newsObject {
+    //return [[[NSDate alloc] init] convertStringToDate:newsObject[JSONDateProperty]];
+    return [NSDate convertStringToDate:newsObject[JSONDateProperty]];
 }
 
-- (void)removeObserver:(id<NewsDataObserverProtocol>)observer {
-    //[self.observers indexOfAccessibilityElement:(nonnull id)]
-//    for (id<NewsDataObserverProtocol> object in self.observers) {
-//        if (object == observer) {
-//            object = nil;
-//            break;
-//
-//        }
-//    }
+- (NSString *)getTitle:(NSDictionary *)newsObject {
+    return (![newsObject[JSONTitleProperty] isKindOfClass:[NSNull class]]) ? newsObject[JSONTitleProperty] : emptyString;
 }
 
-- (void)sendContextChange {
-    if (self.observers == nil) {
-        return;
-    }
-    for (id<NewsDataObserverProtocol> observer in self.observers) {
-        [observer contextUpdated];
-    }
+- (NSString *)getDesr:(NSDictionary *)newsObject {
+    return (![newsObject[JSONDescriptionProperty] isKindOfClass:[NSNull class]]) ? newsObject[JSONDescriptionProperty] : emptyString;
 }
 
 - (void)getUrlString {
@@ -102,85 +93,128 @@ static NSString *const newsDataModelName = @"NewsData";
     self.urlString = [[NSString alloc] initWithFormat:urlStringFormat, address, countryCode, apiKey];
 }
 
+#pragma mark - <NewsDataSourceProtocol>
+
+- (void)addObserver:(id<NewsDataObserverProtocol>)observer {
+    [self.observers addPointer:(__bridge void * _Nullable)(observer)];
+}
+
+- (void)removeObserver:(id<NewsDataObserverProtocol>)observer {
+    for (int index = 0; index < self.observers.count; ++index) {
+        if ([self.observers pointerAtIndex:index] == (__bridge void * _Nullable)(observer)) {
+            [self.observers removePointerAtIndex:index];
+        }
+    }
+}
+
+- (void)sendContextChange {
+    for (id<NewsDataObserverProtocol> observer in self.observers) {
+        [observer contextUpdated];
+    }
+}
+
 - (NSUInteger)getNewsCount {
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:newsEntityName];
     NSError *error = nil;
-    return [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    NSUInteger newsCount = [self.managedObjectContext countForFetchRequest:fetchRequest error:&error];
+    if (error == nil) {
+        return newsCount;
+    } else {
+        NSLog(@"%@", error.localizedDescription);
+        return 0;
+    }
 }
 
 - (void)downloadNewsFromURL {
     
     NSURLSession *session = [NSURLSession sharedSession];
-    //__weak typeof(self) weakSelf = self;
     NSURLSessionDataTask *data = [session dataTaskWithURL:[NSURL URLWithString:[self urlString]] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if (error == nil && data != nil) {
-            NSError *erro = nil;
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&erro];
-            if (erro == nil) {
-                [self didDownloadData:json];
+            NSError *errorJSONSerialization = nil;
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&errorJSONSerialization];
+            if (errorJSONSerialization == nil) {
+                [self didDownloadData:json :^{
+                    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                        [self saveContextAndSendChange];
+                    });
+                }];
             } else {
+                NSLog(@"Json serialization error - %@", errorJSONSerialization.localizedDescription);
             }
         } else {
+            NSLog(@"Download error - %@", error.localizedDescription);
         }
-        dispatch_sync(dispatch_get_main_queue(),^{
-            [self.managedObjectContext performBlockAndWait:^{
-                NSError *childError = nil;
-                if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&childError]) {
-                    NSLog(@"Child context save error");
-                }
-                [self sendContextChange];
-            }];
-        });
     }];
     [data resume];
 }
 
-- (NSArray<NewsModelProtocol> *)getNewsFromContext {
-
+- (void)getAllNewsFromContext:(void(^)(NSArray<NewsModelProtocol> *fetched))completionHandler {
+    // Setup fetch request
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     NSEntityDescription *entity = [NSEntityDescription entityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
+    
+    // Set sorting by date
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:dateName ascending:NO];
     [fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+    
+    // Execute fetch request
     NSError *error = nil;
     NSArray<NewsModelProtocol> *fetchedObjects = (NSArray<NewsModelProtocol> *)[self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    if (fetchedObjects == nil) {
+    if (fetchedObjects == nil && error != nil) {
         NSLog(@"error");
+    } else {
+        completionHandler(fetchedObjects);
     }
-    return fetchedObjects;
 }
-
-- (void)didDownloadData:(NSDictionary *)json {
+- (id<NewsModelProtocol>)getSingleNewsFromContextAtIndex:(NSUInteger)index {
+    // Setup fetch request
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    // Set sorting by date
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:dateName ascending:NO];
+    [fetchRequest setSortDescriptors:[[NSArray alloc] initWithObjects:sortDescriptor, nil]];
+    
+    // Execute fetch request
+    NSError *error = nil;
+    NSArray<NewsModelProtocol> *fetchedObjects = (NSArray<NewsModelProtocol> *)[self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    if (fetchedObjects == nil && error != nil) {
+        NSLog(@"error");
+        return nil;
+    } else {
+        return fetchedObjects[index];
+    }
+}
+- (void)didDownloadData:(NSDictionary *)json
+                       :(void(^)(void))completionHandler{
     
     for (NSDictionary *newsDict in json[JSONArticle]) {
-        NSString *title = [self getTitle:newsDict];
+        // Setup fetch request to check that newsDict is unique
         NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:newsEntityName];
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", title];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"title == %@", [self getTitle:newsDict]];
         [fetchRequest setPredicate:predicate];
         NSError *error = nil;
+        
+        // Check that newsDict is unique
         if ([self.managedObjectContext countForFetchRequest:fetchRequest error:&error] == 0) {
-            [self addDictToContext:newsDict];
+            // If unique and no error - then add
+            if (error == nil) {
+                id<NewsModelProtocol> item = [NSEntityDescription insertNewObjectForEntityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
+                item.date = [self getDate:newsDict];
+                item.title = [self getTitle:newsDict];
+                item.descr = [self getDesr:newsDict];
+            } else {
+                NSLog(@"Count of fetch request error - %@", error.localizedDescription);
+            }
         }
     }
+    completionHandler();
 }
 
-- (void)addDictToContext:(NSDictionary *)newsObject {
-    id<NewsModelProtocol> item = [NSEntityDescription insertNewObjectForEntityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
-    item.date = [self getDate:newsObject];
-    item.title = [self getTitle:newsObject];
-    item.descr = [self getDesr:newsObject];
-    
-    [self.managedObjectContext performBlockAndWait:^{
-        NSError *childError = nil;
-        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&childError]) {
-            NSLog(@"Child context save error");
-        }
-    }];
-
-}
-
--(void)addObjectToContext:(NSDate *)date
+-(void)addSingleObjectToContext:(NSDate *)date
                          :(NSString *)title
                          :(NSString *)descr {
     id<NewsModelProtocol> item = [NSEntityDescription insertNewObjectForEntityForName:newsEntityName inManagedObjectContext:self.managedObjectContext];
@@ -188,18 +222,14 @@ static NSString *const newsDataModelName = @"NewsData";
     item.title = title;
     item.descr = descr;
     
-    [self.managedObjectContext performBlockAndWait:^{
-        NSError *childError = nil;
-        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&childError]) {
-            NSLog(@"Child context save error");
-        }
-    }];
+    [self saveContextAndSendChange];
+    
 }
 
 - (void)clearAllData {
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:newsEntityName];
     NSBatchDeleteRequest *batchDeleteRequest = [[NSBatchDeleteRequest alloc] initWithFetchRequest:fetchRequest];
-    [self.managedObjectContext performBlock:^{
+    [self.managedObjectContext performBlockAndWait:^{
         NSError *childError = nil;
         [self.managedObjectContext executeRequest:batchDeleteRequest error:&childError];
         if (![self.managedObjectContext save:&childError]) {
@@ -208,21 +238,21 @@ static NSString *const newsDataModelName = @"NewsData";
     }];
 }
 
-
-#pragma mark - Utility Methods
-
-- (NSDate *)getDate:(NSDictionary *)newsObject {    
-    return [[[NSDate alloc] init] convertStringToDate:newsObject[JSONDateProperty]];
+-(void)saveContext:(void(^)(void))completionHandler {
+    [self.managedObjectContext performBlockAndWait:^{
+        NSError *managedObjectContextError = nil;
+        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&managedObjectContextError]) {
+            NSLog(@"Managed Object context save error");
+        }
+        completionHandler();
+    }];
 }
 
-- (NSString *)getTitle:(NSDictionary *)newsObject {
-    return (![newsObject[JSONTitleProperty] isKindOfClass:[NSNull class]]) ? newsObject[JSONTitleProperty] : emptyString;
+- (void)saveContextAndSendChange {
+    [self saveContext:^{
+        [self sendContextChange];
+    }];
 }
-
-- (NSString *)getDesr:(NSDictionary *)newsObject {
-    return (![newsObject[JSONDescriptionProperty] isKindOfClass:[NSNull class]]) ? newsObject[JSONDescriptionProperty] : emptyString;
-}
-
 
 #pragma mark - Core Data stack
 

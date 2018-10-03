@@ -38,8 +38,9 @@
 - (NewsMainScreenInteractor *)newsMainScreenInteractor {
     return [TyphoonDefinition withClass:[NewsMainScreenInteractor class] configuration:^(TyphoonDefinition *definition) {
         [definition injectProperty:@selector(presenter) with:[self newsMainScreenPresenter]];
-        [definition injectProperty:@selector(dataSource) with:[self.newsDataSourceAssembly newsDataSource]];
-
+        [definition useInitializer:@selector(initWithDataSource:) parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self.newsDataSourceAssembly newsDataSource]];
+        }];
     }];
 }
 

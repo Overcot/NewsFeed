@@ -27,6 +27,7 @@
 - (void)viewFinishedLoading;
 
 - (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
-                                        :(id<NewsModelProtocol>)object;
+                                        :(id<NewsModelProtocol>)object
+                                        :(NSUInteger)index;
 - (void)showAddNewsViewController:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController;
 @end

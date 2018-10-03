@@ -14,10 +14,14 @@
 
 @interface AddNewsPresenter : NSObject <AddNewsPresenterProtocol>
 
+@property (nonatomic, weak) UIViewController<AddNewsViewControllerProtocol> *view;
 @property (nonatomic, strong) id<AddNewsInteractorProtocol> interactor;
 @property (nonatomic, strong) id<AddNewsRouterProtocol> router;
+
 - (void)saveNews:(NSDate *)date
                 :(NSString *)title
                 :(NSString *)descr;
+- (void)goBackToNewsMainScreen;
+
 
 @end

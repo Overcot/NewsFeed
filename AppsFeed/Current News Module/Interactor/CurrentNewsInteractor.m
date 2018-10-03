@@ -10,8 +10,8 @@
 
 @interface CurrentNewsInteractor ()
 
-@property (nonatomic, weak, readonly) id<CurrentNewsPresentProtocol> presenter;
-
+@property (nonatomic, weak) id<CurrentNewsPresentProtocol> presenter;
+@property (nonatomic, strong) id<NewsDataSourceProtocol> dataSource;
 @end
 
 
@@ -23,42 +23,26 @@ static int const amountOfCells = 3;
 static NSString *const dateToFormat = @"HH:mm, dd-MM-yyyy";
 static NSString *const toAbbreviation = @"Moscow";
 
-@synthesize news = _news;
-
-#pragma mark - <UITableViewDataSource>
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return amountOfCells;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    return nil;
+- (instancetype)initWithDataSource:(id<NewsDataSourceProtocol>)dataSource
+{
+    self = [super init];
+    if (self) {
+        self.dataSource = dataSource;
+        [self.dataSource addObserver:self];
+    }
+    return self;
 }
 
 #pragma mark - <CurrentNewsCellDataSource>
 
-- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath {
-    switch (indexPath.row) {
-        case 0:
-            return (![self.news.date isKindOfClass:[NSNull class]]) ? [self convertDateToString:self.news.date] : emptyString;
-            break;
-        case 1:
-            return (![self.news.title isKindOfClass:[NSNull class]]) ? self.news.title : emptyString;
-            break;
-        case 2:
-            return (![self.news.descr isKindOfClass:[NSNull class]]) ? self.news.descr : emptyString;
-            break;
-        default:
-            return emptyString;
-            break;
-    }
+- (id<NewsModelProtocol>)getCellDataForIndexPath:(NSIndexPath *)indexPath {
+    
+    return [self.dataSource getSingleNewsFromContextAtIndex:indexPath.section];    
 }
 
 #pragma mark - <CurrentNewsInteractProtocol>
-
-- (void)addNews:(id<NewsModelProtocol>)news {
-    self.news = news;
+- (NSInteger) getAmountOfNews {
+    return [self.dataSource getNewsCount];
 }
 
 - (NSString *)convertDateToString:(NSDate *)date{
@@ -69,4 +53,8 @@ static NSString *const toAbbreviation = @"Moscow";
     [dateFormatter setDateFormat:dateToFormat];
     return [dateFormatter stringFromDate:date];
 }
+- (void)contextUpdated {
+    
+}
+
 @end

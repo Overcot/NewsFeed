@@ -58,7 +58,9 @@ static NSString *const storyBoardName = @"Main";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:true];
-    [self.presenter showFromViewControllerWithObject:self:[self.presenter getNewsAtIndex:(int)indexPath.row]];
+    [self.presenter showFromViewControllerWithObject:self
+                                                    :[self.presenter getNewsAtIndex:(int)indexPath.row]
+                                                    :indexPath.row];
 }
 
 #pragma mark - <UITableViewDataSource>

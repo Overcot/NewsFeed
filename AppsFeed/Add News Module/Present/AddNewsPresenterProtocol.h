@@ -14,4 +14,6 @@
                 :(NSString *)title
                 :(NSString *)descr;
 
+- (void)goBackToNewsMainScreen;
+
 @end

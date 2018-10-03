@@ -24,7 +24,7 @@
 @property (nonatomic, weak) id<CurrentNewsViewControllerProtocol> view;
 @property (nonatomic, strong) id<CurrentNewsRouterProtocol> router;
 
-- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath;
-- (void)addNews:(id<NewsModelProtocol>)news;
+- (NSInteger) getAmountOfSections;
+- (id<NewsModelProtocol>)getCellDataForIndexPath:(NSIndexPath *)indexPath;
 
 @end

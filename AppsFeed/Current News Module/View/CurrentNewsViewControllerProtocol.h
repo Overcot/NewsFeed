@@ -10,9 +10,6 @@
 @protocol NewsModelProtocol;
 
 @protocol CurrentNewsViewControllerProtocol <NSObject>
-
-@property (nonatomic, strong) id<CurrentNewsPresentProtocol> presenter;
-
-- (void)addNews:(id<NewsModelProtocol>)news;
+@property (nonatomic, assign) NSInteger indexOfSelectedNews;
 
 @end

@@ -13,6 +13,7 @@
 #import "AddNewsRouter.h"
 #import "NewsDataSource.h"
 #import "NewsDataSourceAssembly.h"
+
 @interface AddNewsModuleAssembly ()
 
 @property (nonatomic, weak) NewsDataSourceAssembly *newsDataSourceAssembly;
@@ -29,6 +30,7 @@
 
 - (AddNewsPresenter *)addNewsPresenter {
     return [TyphoonDefinition withClass:[AddNewsPresenter class] configuration:^(TyphoonDefinition *definition) {
+        [definition injectProperty:@selector(view) with:[self addNewsViewController]];
         [definition injectProperty:@selector(interactor) with:[self addNewsInteractor]];
         [definition injectProperty:@selector(router) with:[self addNewsRouter]];
     }];
@@ -36,7 +38,10 @@
 
 - (AddNewsInteractor *)addNewsInteractor {
     return [TyphoonDefinition withClass:[AddNewsInteractor class] configuration:^(TyphoonDefinition *definition) {
-        [definition injectProperty:@selector(dataSource) with:[self.newsDataSourceAssembly newsDataSource]];
+        [definition injectProperty:@selector(presenter) with:[self addNewsPresenter]];
+        [definition useInitializer:@selector(initWithDataSource:)parameters:^(TyphoonMethod *initializer) {
+            [initializer injectParameterWith:[self.newsDataSourceAssembly newsDataSource]];
+        }];
     }];
 }
 

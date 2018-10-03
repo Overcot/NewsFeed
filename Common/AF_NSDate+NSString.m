@@ -15,7 +15,7 @@ static NSString *const dateToFormat = @"HH:mm, dd-MM-yyyy";
 static NSString *const fromAbbreviation = @"GMT";
 static NSString *const toAbbreviation = @"Moscow";
 
-- (NSDate *)convertStringToDate:(NSString*)dateString {
++ (NSDate *)convertStringToDate:(NSString*)dateString {
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:fromAbbreviation]];
     [dateFormatter setDateFormat:dateFromFormat];
@@ -23,4 +23,12 @@ static NSString *const toAbbreviation = @"Moscow";
     return date;
 }
 
++ (NSString *)convertDateToString:(NSDate *)date{
+    // create dateFormatter with UTC time format
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    // change to a readable time format and change to local time zone
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:toAbbreviation]];
+    [dateFormatter setDateFormat:dateToFormat];
+    return [dateFormatter stringFromDate:date];
+}
 @end

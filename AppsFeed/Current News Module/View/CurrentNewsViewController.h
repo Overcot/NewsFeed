@@ -10,10 +10,9 @@
 #import "CurrentNewsViewControllerProtocol.h"
 #import "CurrentNewsPresentProtocol.h"
 #import "NewsModelProtocol.h"
-@interface CurrentNewsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, CurrentNewsViewControllerProtocol>
+@interface CurrentNewsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CurrentNewsViewControllerProtocol>
 
 @property (nonatomic, strong) id<CurrentNewsPresentProtocol> presenter;
-
-- (void)addNews:(id<NewsModelProtocol>)news;
+@property (nonatomic, assign) NSInteger indexOfSelectedNews;
 
 @end

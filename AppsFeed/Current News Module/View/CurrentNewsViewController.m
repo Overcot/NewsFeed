@@ -7,29 +7,65 @@
 //
 
 #import "CurrentNewsViewController.h"
+#import "SelectedNewsCollectionViewCell.h"
+#import "CurrentNewsCollectionViewFlowLayout.h"
 
 @interface CurrentNewsViewController ()
 
-@property (nonatomic, weak) IBOutlet UITableView *newsTableView;
+@property (weak, nonatomic) IBOutlet UICollectionView *newsCollectionView;
 
 @end
 
 
 @implementation CurrentNewsViewController
 
-@synthesize newsTableView = _newsTableView;
 @synthesize presenter = _presenter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.newsTableView.dataSource = self;
-    self.newsTableView.delegate = self;
-    
-    [self.newsTableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    self.newsCollectionView.dataSource = self;
+    self.newsCollectionView.delegate = self;
+    [self.newsCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SelectedNewsCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SelectedNewsCollectionViewCell class])];
+    self.newsCollectionView.collectionViewLayout = [[CurrentNewsCollectionViewFlowLayout alloc] init];
+}
+- (void)viewWillAppear:(BOOL)animated {
+
+    [super viewWillAppear:animated];
+    [self.newsCollectionView layoutIfNeeded];
+    [self.newsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:self.indexOfSelectedNews] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
 }
 
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return CGSizeMake(CGRectGetWidth(collectionView.frame) - 40, (CGRectGetHeight(collectionView.frame)));
+    } else {
+        return CGSizeMake(CGRectGetWidth(collectionView.frame) - 60, (CGRectGetHeight(collectionView.frame)));
+    }
+
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    if (section == 0) {
+        return UIEdgeInsetsMake(0, 10, 0, 10);
+    } else {
+        return UIEdgeInsetsMake(0, 10, 0, 0);
+    }
+}
+//
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 0;
+//}
+//
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+//    return 0;
+//}
+//- (NSIndexPath *)indexPathForPreferredFocusedViewInCollectionView:(UICollectionView *)collectionView {
+//    return [[NSIndexPath alloc] initWithIndex:2];
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -37,32 +73,23 @@
 
 #pragma mark - <CurrentNewsViewControllerProtocol>
 
-- (void)addNews:(id<NewsModelProtocol>)news {
-    [self.presenter addNews:news];
-}
-
-#pragma mark - <UITableViewDelegate>
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
-}
-
-#pragma mark - <UITableViewDataSource>
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    [cell setUserInteractionEnabled:NO];
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    cell.textLabel.text = [self.presenter getCellDataForIndexPath:indexPath];
+- (SelectedNewsCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *cellIdentifier = NSStringFromClass([SelectedNewsCollectionViewCell class]);
+    SelectedNewsCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.model = [self.presenter getCellDataForIndexPath:indexPath];
+    cell.layer.borderWidth = 2.0;
     return cell;
+
 }
 
-- (NSInteger)tableView:(UITableView *)tableView
-  numberOfRowsInSection:(NSInteger)section {
-    return [self.presenter tableView:tableView numberOfRowsInSection:section];
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return [self.presenter getAmountOfSections];
 }
 
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 1;//[self.presenter tableView:tableView numberOfRowsInSection:section];
+
+}
 
 @end

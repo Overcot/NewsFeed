@@ -14,25 +14,31 @@
 
 @interface AddNewsInteractor ()
 @property (nonatomic, strong) id<NewsDataSourceProtocol> dataSource;
+@property (nonatomic, weak) id<AddNewsPresenterProtocol> presenter;
 @end
 
 
 @implementation AddNewsInteractor
 static NSString *const newsEntityName = @"News";
 
-
-- (instancetype)init {
+- (instancetype)initWithDataSource:(id<NewsDataSourceProtocol>)dataSource {
     self = [super init];
     if (self) {
-        [self.dataSource addObserver:self];
+        self.dataSource = dataSource;
+        [dataSource addObserver:self];
     }
     return self;
 }
 - (void)saveNews:(NSDate *)date
                 :(NSString *)title
                 :(NSString *)descr {
-    
-    
-    [self.dataSource addObjectToContext:date :title :descr];
+    [self.dataSource addSingleObjectToContext:date :title :descr];
 }
+
+- (void)contextUpdated {
+    NSLog(@"News Saved");
+    [self.presenter goBackToNewsMainScreen];
+
+}
+
 @end

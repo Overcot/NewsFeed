@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "AddNewsInteractorProtocol.h"
+#import "NewsDataObserverProtocol.h"
+#import "AddNewsPresenterProtocol.h"
 
-@interface AddNewsInteractor : NSObject <AddNewsInteractorProtocol>
+@interface AddNewsInteractor : NSObject <AddNewsInteractorProtocol, NewsDataObserverProtocol>
 
 - (void)saveNews:(NSDate *)date
                 :(NSString *)title

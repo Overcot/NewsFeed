@@ -15,5 +15,7 @@
                 :(NSString *)descr {
     [self.interactor saveNews:date :title :descr];
 }
-
+- (void)goBackToNewsMainScreen {
+    [self.router goBackToNewsMainScreen:self.view];
+}
 @end

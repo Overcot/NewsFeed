@@ -6,8 +6,10 @@
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
+@protocol AddNewsViewControllerProtocol;
 
-@protocol AddNewsRouterProtocol
+@protocol AddNewsRouterProtocol <NSObject>
 
+- (void)goBackToNewsMainScreen:(UIViewController<AddNewsViewControllerProtocol> *) view;
 
 @end

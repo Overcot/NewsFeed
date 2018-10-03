@@ -20,6 +20,9 @@
 		CE6F5F2B215B94CF00DDFC4E /* NewsDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F5F2A215B94CF00DDFC4E /* NewsDataSource.m */; };
 		CE6F5F3321623F8400DDFC4E /* AF_NSDate+NSString.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F5F3221623F8400DDFC4E /* AF_NSDate+NSString.m */; };
 		CE6F5F372162545600DDFC4E /* NewsDataSourceAssembly.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F5F362162545600DDFC4E /* NewsDataSourceAssembly.m */; };
+		CE6F5F422163B41D00DDFC4E /* SelectedNewsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F5F402163B41D00DDFC4E /* SelectedNewsCollectionViewCell.m */; };
+		CE6F5F432163B41D00DDFC4E /* SelectedNewsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6F5F412163B41D00DDFC4E /* SelectedNewsCollectionViewCell.xib */; };
+		CE6F5F472164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6F5F462164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.m */; };
 		CEA8BECA214673780076DCAB /* NewsMainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BEC9214673770076DCAB /* NewsMainScreenViewController.m */; };
 		CEA8BED521468A830076DCAB /* CurrentNewsRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED421468A830076DCAB /* CurrentNewsRouter.m */; };
 		CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BED921469C490076DCAB /* NewsMainScreenPresenter.m */; };
@@ -78,7 +81,6 @@
 		CC34F930213D1F0C0086C3B6 /* NewsPreviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsPreviewCell.xib; sourceTree = "<group>"; };
 		CC34F935213D5C760086C3B6 /* NewsComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsComponents.h; sourceTree = "<group>"; };
 		CC34F936213D5C760086C3B6 /* NewsComponents.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsComponents.m; sourceTree = "<group>"; };
-		CE350DD42151237D0094C587 /* CurrentNewsCellDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsCellDataSource.h; sourceTree = "<group>"; };
 		CE6F5F26215B949400DDFC4E /* NewsDataSourceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDataSourceProtocol.h; sourceTree = "<group>"; };
 		CE6F5F29215B94CF00DDFC4E /* NewsDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDataSource.h; sourceTree = "<group>"; };
 		CE6F5F2A215B94CF00DDFC4E /* NewsDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDataSource.m; sourceTree = "<group>"; };
@@ -87,6 +89,11 @@
 		CE6F5F3221623F8400DDFC4E /* AF_NSDate+NSString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AF_NSDate+NSString.m"; sourceTree = "<group>"; };
 		CE6F5F352162545600DDFC4E /* NewsDataSourceAssembly.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDataSourceAssembly.h; sourceTree = "<group>"; };
 		CE6F5F362162545600DDFC4E /* NewsDataSourceAssembly.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDataSourceAssembly.m; sourceTree = "<group>"; };
+		CE6F5F3F2163B41D00DDFC4E /* SelectedNewsCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectedNewsCollectionViewCell.h; sourceTree = "<group>"; };
+		CE6F5F402163B41D00DDFC4E /* SelectedNewsCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectedNewsCollectionViewCell.m; sourceTree = "<group>"; };
+		CE6F5F412163B41D00DDFC4E /* SelectedNewsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectedNewsCollectionViewCell.xib; sourceTree = "<group>"; };
+		CE6F5F452164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		CE6F5F462164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentNewsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		CEA8BEC8214673770076DCAB /* NewsMainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsMainScreenViewController.h; sourceTree = "<group>"; };
 		CEA8BEC9214673770076DCAB /* NewsMainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsMainScreenViewController.m; sourceTree = "<group>"; };
 		CEA8BED321468A830076DCAB /* CurrentNewsRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentNewsRouter.h; sourceTree = "<group>"; };
@@ -299,6 +306,16 @@
 			path = "App Delegate";
 			sourceTree = "<group>";
 		};
+		CE6F5F442163B42800DDFC4E /* Selected News Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CE6F5F3F2163B41D00DDFC4E /* SelectedNewsCollectionViewCell.h */,
+				CE6F5F402163B41D00DDFC4E /* SelectedNewsCollectionViewCell.m */,
+				CE6F5F412163B41D00DDFC4E /* SelectedNewsCollectionViewCell.xib */,
+			);
+			path = "Selected News Collection View Cell";
+			sourceTree = "<group>";
+		};
 		CEA8BECB2146737D0076DCAB /* News Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +346,9 @@
 				CEB9B84A2147AD85006EED75 /* CurrentNewsViewControllerProtocol.h */,
 				CECCEACA21465E820042D660 /* CurrentNewsViewController.h */,
 				CECCEAC921465E810042D660 /* CurrentNewsViewController.m */,
+				CE6F5F452164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.h */,
+				CE6F5F462164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.m */,
+				CE6F5F442163B42800DDFC4E /* Selected News Collection View Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -346,7 +366,6 @@
 		CEA8BED0214676D70076DCAB /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				CE350DD42151237D0094C587 /* CurrentNewsCellDataSource.h */,
 				CECCEAD021466D320042D660 /* CurrentNewsInteractProtocol.h */,
 				CECCEACD21466C340042D660 /* CurrentNewsInteractor.h */,
 				CECCEACE21466C340042D660 /* CurrentNewsInteractor.m */,
@@ -689,6 +708,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6F5F432163B41D00DDFC4E /* SelectedNewsCollectionViewCell.xib in Resources */,
 				CC34F90F2139638B0086C3B6 /* LaunchScreen.storyboard in Resources */,
 				CC34F90C2139638B0086C3B6 /* Assets.xcassets in Resources */,
 				CC34F931213D1F0C0086C3B6 /* NewsPreviewCell.xib in Resources */,
@@ -754,6 +774,7 @@
 				CEB9B8622147DABE006EED75 /* CalculatorEntity.m in Sources */,
 				CEB9B8592147C482006EED75 /* CalculatorScreenViewController.m in Sources */,
 				CEAAB64D2158E7B20044E9A7 /* CurrentNewsModuleAssembly.m in Sources */,
+				CE6F5F472164FE9600DDFC4E /* CurrentNewsCollectionViewFlowLayout.m in Sources */,
 				CECCEACF21466C340042D660 /* CurrentNewsInteractor.m in Sources */,
 				CC34F92121396B180086C3B6 /* NewsPreviewCell.m in Sources */,
 				CE6F5F3321623F8400DDFC4E /* AF_NSDate+NSString.m in Sources */,
@@ -764,6 +785,7 @@
 				CEAAB618215528C00044E9A7 /* CalculatorModuleAssembly.m in Sources */,
 				CEA8BEDA21469C490076DCAB /* NewsMainScreenPresenter.m in Sources */,
 				CEB9B8532147C0B5006EED75 /* CalculatorScreenRouter.m in Sources */,
+				CE6F5F422163B41D00DDFC4E /* SelectedNewsCollectionViewCell.m in Sources */,
 				CC34F937213D5C760086C3B6 /* NewsComponents.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

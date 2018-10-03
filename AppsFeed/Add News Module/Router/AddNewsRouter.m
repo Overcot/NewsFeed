@@ -7,9 +7,11 @@
 //
 
 #import "AddNewsRouter.h"
-#import "AddNewsViewController.h"
-#import "NewsMainScreenViewController.h"
 
 @implementation AddNewsRouter
+
+- (void)goBackToNewsMainScreen:(UIViewController<AddNewsViewControllerProtocol> *) view {
+    [view.navigationController popViewControllerAnimated:YES];
+}
 
 @end

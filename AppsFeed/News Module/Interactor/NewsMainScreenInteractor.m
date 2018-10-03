@@ -18,43 +18,46 @@
 @property (nonatomic, weak) id<NewsMainScreenPresenterProtocol> presenter;
 @property (nonatomic, strong) NSArray <NewsModelProtocol> *newsList;
 
-
 @end
 
-
 @implementation NewsMainScreenInteractor
-
-
 
 @synthesize presenter = _presenter;
 @synthesize newsList = _newsList;
 @synthesize dataSource = _dataSource;
 
--(void) updateNews:(NSNotification*)notification {
-    [self getSavedNews];
+- (instancetype)initWithDataSource:(id<NewsDataSourceProtocol>)dataSource {
+    self = [super init];
+    if (self) {
+        self.dataSource = dataSource;
+        [self.dataSource addObserver:self];
+    }
+    return self;
 }
 
 #pragma mark - <NewsMainScreenInteractorProtocol>
 
 - (id<NewsModelProtocol>)getNewsAtIndex:(NSInteger) index {
-    id<NewsModelProtocol> element = [self.dataSource getNewsFromContext][index];
-    return element;
+    return [self.dataSource getSingleNewsFromContextAtIndex:index];
 }
 
-- (void)refreshNews {
+- (void)downloadNewsFromNetwork {
     [self.dataSource downloadNewsFromURL];
 }
 
 - (void)getSavedNews {
-    // need to correct implement this
-   // [self.dataSource addObserver:self];
-
-    self.newsList = [self.dataSource getNewsFromContext];
-    if ([self.newsList count] == 0) {
-        [self.dataSource downloadNewsFromURL];
+    if ([self.dataSource getNewsCount] == 0) {
+        [self downloadNewsFromNetwork];
+    } else {
+        [self.dataSource getAllNewsFromContext:^(NSArray<NewsModelProtocol> *fetched) {
+            NSLog(@"All NewsFetched");
+            self.newsList = fetched;
+            [self.presenter didFinishDownload];
+        }];
     }
-    [self.presenter didFinishDownload];
 }
+
+#pragma mark - <NewsDataObserverProtocol>
 
 - (void)contextUpdated {
     [self getSavedNews];
@@ -70,8 +73,5 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataSource getNewsCount];
 }
-
-
-
 
 @end

@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CurrentNewsCellDataSource.h"
 
-@protocol NewsModelProtocol;
-@protocol CurrentNewsCellDataSource;
 
-@protocol CurrentNewsInteractProtocol <UITableViewDataSource, CurrentNewsCellDataSource>
-@property (nonatomic, strong) id<NewsModelProtocol> news;
+@protocol CurrentNewsInteractProtocol
 
-- (void)addNews:(id<NewsModelProtocol>)news;
+- (NSInteger) getAmountOfNews;
+- (id<NewsModelProtocol>)getCellDataForIndexPath:(NSIndexPath *)indexPath;
 
 @end

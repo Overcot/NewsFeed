@@ -7,15 +7,19 @@
 //
 
 @protocol NewsModelProtocol;
+@protocol NewsDataObserverProtocol;
 @class NSManagedObjectContext;
+
 @protocol NewsDataSourceProtocol
 
-- (void)addObserver:(id)observer;
-- (NSArray<NewsModelProtocol> *)getNewsFromContext;
+- (void)addObserver:(id<NewsDataObserverProtocol>)observer;
+- (void)getAllNewsFromContext:(void(^)(NSArray<NewsModelProtocol> *fetched))completionHandler;
+- (id<NewsModelProtocol>)getSingleNewsFromContextAtIndex:(NSUInteger)index;
 - (void)downloadNewsFromURL;
 - (NSUInteger)getNewsCount;
-- (void)addObjectToContext:(NSDate *)date
+- (void)addSingleObjectToContext:(NSDate *)date
                           :(NSString *)title
                           :(NSString *)descr;
+
 
 @end

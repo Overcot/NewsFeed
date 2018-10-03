@@ -32,7 +32,7 @@ static NSString *const emptyString = @"";
 }
 
 - (void) refreshNews {
-    [self.interactor refreshNews];
+    [self.interactor downloadNewsFromNetwork];
 }
 
 - (void) viewFinishedLoading {
@@ -42,8 +42,9 @@ static NSString *const emptyString = @"";
 #pragma mark - Router
 
 - (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
-                                        :(id<NewsModelProtocol>)object {
-    [self.router showFromViewControllerWithObject:fromViewController:object];
+                                        :(id<NewsModelProtocol>)object
+                                        :(NSInteger)index {
+    [self.router showFromViewControllerWithObject:fromViewController:object:index];
 }
 
 - (void)showAddNewsViewController:(UIViewController<NewsMainScreenViewProtocol>*)fromViewController {

@@ -13,12 +13,12 @@
 @interface NewsDataSource : NSObject <NewsDataSourceProtocol>
 
 - (void)addObserver:(id)observer;
-- (NSArray<NewsModelProtocol> *)getNewsFromContext;
+- (void)getAllNewsFromContext:(void(^)(NSArray<NewsModelProtocol> *fetched))completionHandler;
+- (id<NewsModelProtocol>)getSingleNewsFromContextAtIndex:(NSUInteger)index;
 - (void)downloadNewsFromURL;
 - (NSUInteger)getNewsCount;
-- (void)addObjectToContext:(NSDate *)date
+- (void)addSingleObjectToContext:(NSDate *)date
                           :(NSString *)title
                           :(NSString *)descr;
-- (void)addDictToContext:(NSDictionary *)newsObject;
 
 @end

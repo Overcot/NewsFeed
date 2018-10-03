@@ -16,7 +16,7 @@
 @interface NewsMainScreenInteractor : NSObject <NewsMainScreenInteractorProtocol, NewsDataObserverProtocol>
 
 - (id <NewsModelProtocol>)getNewsAtIndex:(NSInteger)index;
-- (void)refreshNews;
+- (void)downloadNewsFromNetwork;
 - (void)getSavedNews;
 
 @end

@@ -14,10 +14,11 @@
 static NSString *const storyBoardName = @"Main";
 
 - (void)showFromViewControllerWithObject:(UIViewController<NewsMainScreenViewProtocol>*) fromViewController
-                                        :(id<NewsModelProtocol>) object {
+                                        :(id<NewsModelProtocol>) object
+                                        :(NSInteger)index {
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:storyBoardName bundle:nil];
     UIViewController<CurrentNewsViewControllerProtocol> * view = [mainStoryboard instantiateViewControllerWithIdentifier:NSStringFromClass([CurrentNewsViewController class])];
-    [view addNews:object];
+    view.indexOfSelectedNews = index;
     [fromViewController.navigationController pushViewController:view animated:YES];
 }
 

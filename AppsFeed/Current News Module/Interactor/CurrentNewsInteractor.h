@@ -10,12 +10,12 @@
 #import "NewsModelProtocol.h"
 #import "CurrentNewsInteractProtocol.h"
 #import "CurrentNewsPresentProtocol.h"
+#import "NewsDataSourceProtocol.h"
+#import "NewsDataObserverProtocol.h"
 
-@interface CurrentNewsInteractor : NSObject <CurrentNewsInteractProtocol>
+@interface CurrentNewsInteractor : NSObject <CurrentNewsInteractProtocol, NewsDataObserverProtocol>
 
-@property (nonatomic, strong) id<NewsModelProtocol> news;
-
-- (NSString *)getCellDataForIndexPath:(NSIndexPath *)indexPath;
-- (void)addNews:(id<NewsModelProtocol>)news;
+- (NSInteger) getAmountOfNews;
+- (id<NewsModelProtocol>)getCellDataForIndexPath:(NSIndexPath *)indexPath;
 
 @end
