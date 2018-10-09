@@ -30,4 +30,5 @@
     self.descrLabel.text = model.descr;
 }
 
+
 @end

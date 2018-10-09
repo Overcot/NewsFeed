@@ -8,68 +8,70 @@
 
 #import "CurrentNewsViewController.h"
 #import "SelectedNewsCollectionViewCell.h"
+
+#import "HitAndTestCurrentNewsUIView.h"
 #import "CurrentNewsCollectionViewFlowLayout.h"
+
 
 @interface CurrentNewsViewController ()
 
-@property (weak, nonatomic) IBOutlet UICollectionView *newsCollectionView;
+@property (nonatomic, strong) IBOutlet UICollectionView *newsCollectionView;
 
 @end
 
 
 @implementation CurrentNewsViewController
 
+static int const leftInset = 10;
+static int const rightInset = 10;
+static int const widthOfOtherCellsShown = 50;
+
 @synthesize presenter = _presenter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     self.newsCollectionView.dataSource = self;
     self.newsCollectionView.delegate = self;
     [self.newsCollectionView registerNib:[UINib nibWithNibName:NSStringFromClass([SelectedNewsCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SelectedNewsCollectionViewCell class])];
-    self.newsCollectionView.collectionViewLayout = [[CurrentNewsCollectionViewFlowLayout alloc] init];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    NSLog(@"%@",[[self newsCollectionView] visibleCells]);
+}
+
 - (void)viewWillAppear:(BOOL)animated {
 
     [super viewWillAppear:animated];
+    HitAndTestCurrentNewsUIView *subView = [[HitAndTestCurrentNewsUIView alloc] initWithCollectionView: self.newsCollectionView];
+    [self.view addSubview:subView];
     [self.newsCollectionView layoutIfNeeded];
+    self.newsCollectionView.collectionViewLayout = [[CurrentNewsCollectionViewFlowLayout alloc] init];
     [self.newsCollectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:self.indexOfSelectedNews] atScrollPosition:UICollectionViewScrollPositionNone animated:NO];
+    self.newsCollectionView.clipsToBounds = NO;
+    [self.newsCollectionView.collectionViewLayout prepareLayout];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        
+    }];
 }
+
+
 
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return CGSizeMake(CGRectGetWidth(collectionView.frame) - 40, (CGRectGetHeight(collectionView.frame)));
-    } else {
-        return CGSizeMake(CGRectGetWidth(collectionView.frame) - 60, (CGRectGetHeight(collectionView.frame)));
-    }
-
+    return CGSizeMake([[UIScreen mainScreen] bounds].size.width - 2*(leftInset+rightInset+widthOfOtherCellsShown), CGRectGetHeight(collectionView.frame));
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    if (section == 0) {
-        return UIEdgeInsetsMake(0, 10, 0, 10);
-    } else {
-        return UIEdgeInsetsMake(0, 10, 0, 0);
-    }
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 //
-//
-//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
-//    return 0;
+//- (void)didReceiveMemoryWarning {
+//    [super didReceiveMemoryWarning];
+//    // Dispose of any resources that can be recreated.
 //}
-//
-//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-//    return 0;
-//}
-//- (NSIndexPath *)indexPathForPreferredFocusedViewInCollectionView:(UICollectionView *)collectionView {
-//    return [[NSIndexPath alloc] initWithIndex:2];
-//}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - <CurrentNewsViewControllerProtocol>
 
@@ -93,3 +95,5 @@
 }
 
 @end
+
+

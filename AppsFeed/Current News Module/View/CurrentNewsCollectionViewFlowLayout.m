@@ -1,53 +1,48 @@
 //
-//  CurrentNewsCollectionViewLayout.m
+//  CurrentNewsCollectionViewFlowLayout.m
 //  AppsFeed
 //
-//  Created by User on 03.10.2018.
+//  Created by User on 08/10/2018.
 //  Copyright © 2018 Alex Ivashko. All rights reserved.
 //
 
 #import "CurrentNewsCollectionViewFlowLayout.h"
 
-@interface CurrentNewsCollectionViewFlowLayout ()
-
-@end
-
 @implementation CurrentNewsCollectionViewFlowLayout
 
-- (void)prepareLayout {
-    [super prepareLayout];
-    
-    self.minimumInteritemSpacing = 0;
-    self.minimumLineSpacing = 0;
-    self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.sectionInset = UIEdgeInsetsMake(0, 10, 0, 10);
-}
-
-#pragma mark - Pagination
-- (CGFloat)pageWidth {
-    
-    return self.itemSize.width + self.minimumLineSpacing;
-    //return 1000;
-}
-
-- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity
+- (instancetype)init
 {
-    CGFloat rawPageValue = self.collectionView.contentOffset.x / self.pageWidth;
-    CGFloat currentPage = (velocity.x > 0.0) ? floor(rawPageValue) : ceil(rawPageValue);
-    CGFloat nextPage = (velocity.x > 0.0) ? ceil(rawPageValue) : floor(rawPageValue);
-    
-    BOOL pannedLessThanAPage = fabs(1 + currentPage - rawPageValue) > 0.5;
-    BOOL flicked = fabs(velocity.x) > [self flickVelocity];
-    if (pannedLessThanAPage && flicked) {
-        proposedContentOffset.x = nextPage * self.pageWidth;
-    } else {
-        proposedContentOffset.x = round(rawPageValue) * self.pageWidth;
+    self = [super init];
+    if (self) {
+        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     }
-    
-    return proposedContentOffset;
+    return self;
 }
 
-- (CGFloat)flickVelocity {
-    return 0.3;
+
+// layout attributesfor index path
+// если элемент левый или правый то смещать origin.x
+// а в layoutAttributesForElementsInRect добавлять левый и правый
+
+//- (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+//
+//    NSMutableArray<UICollectionViewLayoutAttributes *> *attributesInRect = (NSMutableArray *)[super layoutAttributesForElementsInRect:rect];
+//
+//    for (int i = 0; i < attributesInRect.count; ++i) {
+//        NSLog(@"%ld",(long)attributesInRect[i].indexPath.section);
+//        UICollectionViewLayoutAttributes *attribute = [super layoutAttributesForItemAtIndexPath:attributesInRect[i].indexPath];
+//        [attribute setHidden:NO];
+//        attributesInRect[i] = attribute;
+//    }
+//    NSIndexPath *newIndex = [NSIndexPath indexPathForRow:0 inSection:attributesInRect[attributesInRect.count - 1].indexPath.section + 1];
+//    UICollectionViewLayoutAttributes *attribute = [super layoutAttributesForItemAtIndexPath:newIndex];
+//    [attribute setHidden:NO];
+//    [attributesInRect addObject:attribute];
+//    return attributesInRect;
+//}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return YES;
 }
+
 @end

@@ -12,5 +12,4 @@
 
 - (NSInteger)getAmountOfSections;
 - (id<NewsModelProtocol>)getCellDataForIndexPath:(NSIndexPath *)indexPath;
-- (NSInteger)getIndexOfSelectedNews;
 @end

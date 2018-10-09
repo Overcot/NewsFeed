@@ -18,7 +18,6 @@
 @implementation CurrentNewsInteractor
 
 static NSString *const emptyString = @"";
-static int const amountOfCells = 3;
 
 static NSString *const dateToFormat = @"HH:mm, dd-MM-yyyy";
 static NSString *const toAbbreviation = @"Moscow";

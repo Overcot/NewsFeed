@@ -10,7 +10,8 @@
 #import "CurrentNewsViewControllerProtocol.h"
 #import "CurrentNewsPresentProtocol.h"
 #import "NewsModelProtocol.h"
-@interface CurrentNewsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CurrentNewsViewControllerProtocol>
+
+@interface CurrentNewsViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource, CurrentNewsViewControllerProtocol, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) id<CurrentNewsPresentProtocol> presenter;
 @property (nonatomic, assign) NSInteger indexOfSelectedNews;
